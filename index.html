@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SLPPNA DRC Chapter – Executive Inaugural Ball 2026</title>
+<style>
+  :root {
+    --green: #1a5c2a;
+    --gold: #c9a84c;
+    --gold-light: #f0d080;
+    --dark: #0d1f12;
+    --light: #f5f0e8;
+    --white: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, serif; background: var(--dark); color: var(--light); min-height: 100vh; }
+
+  /* NAV */
+  nav { background: var(--green); border-bottom: 3px solid var(--gold); display: flex; flex-wrap: wrap; gap: 2px; padding: 0 10px; position: sticky; top: 0; z-index: 100; }
+  nav button { background: none; border: none; color: var(--light); font-family: Georgia, serif; font-size: 13px; padding: 12px 14px; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -3px; transition: all 0.2s; }
+  nav button:hover { color: var(--gold-light); }
+  nav button.active { color: var(--gold); border-bottom-color: var(--gold); font-weight: bold; }
+
+  /* HEADER */
+  .header { background: linear-gradient(135deg, var(--green) 0%, #0d3518 100%); text-align: center; padding: 40px 20px 30px; border-bottom: 2px solid var(--gold); }
+  .header .logo-ring { width: 90px; height: 90px; border-radius: 50%; border: 3px solid var(--gold); background: var(--white); margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: var(--green); text-align: center; line-height: 1.3; padding: 8px; }
+  .header h1 { font-size: clamp(18px, 4vw, 28px); color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
+  .header p { color: var(--light); font-size: 14px; margin-top: 6px; opacity: 0.85; }
+  .event-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 16px; }
+  .badge { background: rgba(201,168,76,0.15); border: 1px solid var(--gold); border-radius: 20px; padding: 6px 16px; font-size: 13px; color: var(--gold-light); }
+
+  /* PAGES */
+  .page { display: none; padding: 20px; max-width: 900px; margin: 0 auto; }
+  .page.active { display: block; }
+
+  /* CARDS */
+  .card { background: #162a1c; border: 1px solid rgba(201,168,76,0.3); border-radius: 10px; padding: 20px; margin-bottom: 16px; }
+  .card h3 { color: var(--gold); margin-bottom: 10px; font-size: 16px; }
+
+  /* STATS ROW */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin-bottom: 20px; }
+  .stat { background: var(--green); border-radius: 8px; padding: 16px; text-align: center; }
+  .stat .num { font-size: 28px; font-weight: bold; color: var(--gold); }
+  .stat .lbl { font-size: 12px; color: var(--light); opacity: 0.8; margin-top: 4px; }
+
+  /* TABLE */
+  .tbl-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: var(--green); color: var(--gold); padding: 10px 8px; text-align: left; }
+  td { padding: 9px 8px; border-bottom: 1px solid rgba(255,255,255,0.07); vertical-align: top; }
+  tr:hover td { background: rgba(201,168,76,0.05); }
+  .badge-status { border-radius: 12px; padding: 2px 10px; font-size: 11px; font-weight: bold; display: inline-block; }
+  .s-alloc { background: #1a3a5c; color: #7ec8f7; }
+  .s-conf  { background: #1a4a1a; color: #7ef77e; }
+  .s-pending { background: #3a2a00; color: #f7d07e; }
+
+  /* FORM ELEMENTS */
+  input, select, textarea { background: #0d1f12; border: 1px solid rgba(201,168,76,0.4); border-radius: 6px; color: var(--light); font-family: Georgia, serif; font-size: 14px; padding: 9px 12px; width: 100%; margin-bottom: 10px; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--gold); }
+  .btn { background: var(--gold); color: var(--dark); border: none; border-radius: 6px; padding: 11px 24px; font-family: Georgia, serif; font-size: 14px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+  .btn:hover { background: var(--gold-light); }
+  .btn-outline { background: transparent; border: 2px solid var(--gold); color: var(--gold); border-radius: 6px; padding: 9px 20px; font-family: Georgia, serif; font-size: 13px; cursor: pointer; }
+  .btn-outline:hover { background: rgba(201,168,76,0.15); }
+  .btn-sm { padding: 5px 12px; font-size: 12px; }
+  .label { font-size: 12px; color: var(--gold-light); margin-bottom: 4px; display: block; }
+
+  /* GRID 2 */
+  .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media(max-width:600px){ .g2 { grid-template-columns: 1fr; } }
+
+  /* TICKET VISUAL */
+  .ticket-preview { border: 2px solid var(--gold); border-radius: 12px; background: linear-gradient(135deg, #0f2e18, #1a5c2a); padding: 20px; margin: 16px 0; position: relative; overflow: hidden; }
+  .ticket-preview::before { content:''; position: absolute; right: -20px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; background: var(--dark); border-radius: 50%; }
+  .ticket-preview::after { content:''; position: absolute; left: 60%; top: 0; bottom: 0; border-left: 2px dashed rgba(201,168,76,0.3); }
+  .t-type { font-size: 20px; color: var(--gold); font-weight: bold; letter-spacing: 1px; }
+  .t-event { font-size: 13px; color: var(--light); margin: 4px 0 12px; }
+  .t-row { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 8px; }
+  .t-field { font-size: 12px; }
+  .t-field .tf-label { color: var(--gold-light); opacity: 0.7; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; }
+  .t-serial { position: absolute; right: 50px; top: 50%; transform: translateY(-50%) rotate(90deg); font-size: 11px; color: var(--gold); letter-spacing: 2px; white-space: nowrap; }
+
+  /* CHAPTER GRID */
+  .ch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap: 12px; }
+  .ch-card { background: #162a1c; border: 1px solid rgba(201,168,76,0.25); border-radius: 8px; padding: 14px; cursor: pointer; transition: border-color 0.2s; }
+  .ch-card:hover { border-color: var(--gold); }
+  .ch-code { font-size: 22px; font-weight: bold; color: var(--gold); }
+  .ch-name { font-size: 12px; color: var(--light); margin: 4px 0; opacity: 0.8; }
+  .ch-chair { font-size: 11px; color: var(--gold-light); opacity: 0.7; }
+  .ch-prog { height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; margin-top: 10px; }
+  .ch-prog-fill { height: 100%; background: var(--gold); border-radius: 2px; }
+
+  /* STEP FLOW */
+  .steps { display: flex; gap: 0; margin-bottom: 24px; }
+  .step { flex: 1; text-align: center; font-size: 12px; padding: 8px 4px; border-bottom: 3px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.4); }
+  .step.done { border-color: var(--gold); color: var(--gold); }
+  .step.active { border-color: var(--gold-light); color: var(--gold-light); font-weight: bold; }
+
+  /* PAYMENT BOX */
+  .pay-box { background: rgba(201,168,76,0.08); border: 1px solid var(--gold); border-radius: 8px; padding: 16px; margin: 12px 0; }
+  .pay-method { display: flex; align-items: center; gap: 10px; margin: 8px 0; font-size: 14px; }
+  .pay-icon { width: 32px; height: 32px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 11px; flex-shrink: 0; }
+
+  /* MESSAGES */
+  .msg { border-radius: 6px; padding: 12px 16px; margin: 12px 0; font-size: 14px; }
+  .msg-success { background: #1a3a1a; border-left: 4px solid #7ef77e; color: #b0f7b0; }
+  .msg-info { background: #1a2a3a; border-left: 4px solid #7ec8f7; color: #b0d8f7; }
+  .msg-warn { background: #3a2a00; border-left: 4px solid #f7d07e; color: #f7e0a0; }
+
+  /* SEARCH */
+  .search-row { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+  .search-row input { flex: 1; min-width: 160px; margin: 0; }
+  .search-row select { width: auto; margin: 0; }
+
+  /* ANALYTICS BAR */
+  .ana-bar { margin: 10px 0; }
+  .ana-label { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px; color: var(--light); }
+  .ana-track { height: 10px; background: rgba(255,255,255,0.1); border-radius: 5px; }
+  .ana-fill { height: 100%; border-radius: 5px; background: linear-gradient(90deg, var(--green), var(--gold)); transition: width 0.5s; }
+
+  .divider { border: none; border-top: 1px solid rgba(201,168,76,0.2); margin: 16px 0; }
+  .text-gold { color: var(--gold); }
+  .text-sm { font-size: 12px; opacity: 0.7; }
+  .mt { margin-top: 12px; }
+  .flex-between { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .tag { display: inline-block; background: var(--green); border: 1px solid rgba(201,168,76,0.4); border-radius: 4px; padding: 2px 8px; font-size: 11px; color: var(--gold-light); margin: 2px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo-ring">SLPPNA<br>DRC<br>NC</div>
+  <h1>SLPPNA DRC Chapter</h1>
+  <p>Executive Inaugural Ball 2026 — Ticketing Platform</p>
+  <div class="event-badges">
+    <span class="badge">📅 Saturday July 25, 2026</span>
+    <span class="badge">⏰ 8:00 PM – 2:00 AM</span>
+    <span class="badge">📍 5410 NC-55, Durham NC 27713</span>
+  </div>
+</div>
+
+<nav>
+  <button class="active" onclick="showPage('buy')">🎟 Buy Tickets</button>
+  <button onclick="showPage('dashboard')">📊 Dashboard</button>
+  <button onclick="showPage('tickets')">📋 All Tickets</button>
+  <button onclick="showPage('chapters')">🏛 Chapters</button>
+  <button onclick="showPage('send')">📧 Send</button>
+  <button onclick="showPage('analytics')">📈 Analytics</button>
+</nav>
+
+<!-- ===== BUY TICKETS ===== -->
+<div id="page-buy" class="page active">
+  <div class="steps">
+    <div class="step active" id="st1">① Select Type</div>
+    <div class="step" id="st2">② Your Details</div>
+    <div class="step" id="st3">③ Payment</div>
+    <div class="step" id="st4">✓ Confirm</div>
+  </div>
+
+  <div id="buy-step1">
+    <h2 class="text-gold" style="margin-bottom:16px;">Choose Your Ticket</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
+      <div class="card" onclick="selectTicket('ordinary')" id="tt-ordinary" style="cursor:pointer;border-color:rgba(201,168,76,0.5)">
+        <div style="font-size:24px;color:var(--gold);font-weight:bold;">$100</div>
+        <div style="font-size:18px;margin:6px 0;">Ordinary</div>
+        <div class="text-sm">Standard admission to the Executive Inaugural Ball. Dinner & dance included.</div>
+      </div>
+      <div class="card" onclick="selectTicket('patron')" id="tt-patron" style="cursor:pointer;border-color:rgba(201,168,76,0.5)">
+        <div style="font-size:24px;color:var(--gold);font-weight:bold;">$150</div>
+        <div style="font-size:18px;margin:6px 0;">Patron</div>
+        <div class="text-sm">Premium admission with recognition as a Patron supporter of the DRC Chapter.</div>
+      </div>
+      <div class="card" onclick="selectTicket('grandchief')" id="tt-grandchief" style="cursor:pointer;border-color:rgba(201,168,76,0.5)">
+        <div style="font-size:24px;color:var(--gold);font-weight:bold;">Donation</div>
+        <div style="font-size:18px;margin:6px 0;">Grand Chief Patron</div>
+        <div class="text-sm">Honor-level contribution. Amount is by generous donation. Contact the chair.</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="buy-step2" style="display:none;">
+    <h2 class="text-gold" style="margin-bottom:16px;">Your Details</h2>
+    <div class="card">
+      <div class="g2">
+        <div><span class="label">Full Name *</span><input id="b-name" placeholder="e.g. Amina Kawa" /></div>
+        <div><span class="label">Phone Number *</span><input id="b-phone" placeholder="(919) 000-0000" /></div>
+        <div><span class="label">Email Address</span><input id="b-email" placeholder="you@email.com" /></div>
+        <div><span class="label">Your Chapter</span>
+          <select id="b-chapter">
+            <option value="">— Select Chapter —</option>
+            <option>AZC – Arizona</option><option>GAC – Atlanta</option><option>ILC – Chicago</option>
+            <option>TXDC – Dallas</option><option>DVC – Delaware Valley</option><option>DRC – Durham-Raleigh-CH (HOST)</option>
+            <option>TXHC – Houston</option><option>MNC – Minnesota</option><option>NEC – New England</option>
+            <option>NJC – New Jersey</option><option>NYC – New York</option><option>NDC – North Dakota</option>
+            <option>CANC – N. California</option><option>OHC – Ohio</option><option>SWC – Seattle</option>
+            <option>CASC – S. California</option><option>VAC – Virginia</option><option>WDC – Washington DC</option>
+            <option>IAC – Iowa</option><option>FLC – Florida</option><option>Guest / No Chapter</option>
+          </select>
+        </div>
+      </div>
+      <div id="gcp-amount-row" style="display:none;">
+        <span class="label">Donation Amount (Grand Chief Patron)</span>
+        <input id="b-donation" placeholder="e.g. 500" type="number" min="1" />
+      </div>
+      <div style="display:flex;gap:10px;margin-top:6px;">
+        <button class="btn-outline" onclick="buyStep(1)">← Back</button>
+        <button class="btn" onclick="buyStep(3)">Next: Payment →</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="buy-step3" style="display:none;">
+    <h2 class="text-gold" style="margin-bottom:16px;">Payment Instructions</h2>
+    <div class="card">
+      <div id="buy-summary"></div>
+      <hr class="divider">
+      <p style="margin-bottom:12px;font-size:14px;">Send payment using any of the methods below, then click <strong>Confirm Order</strong>.</p>
+      <div class="pay-box">
+        <div class="pay-method"><div class="pay-icon" style="background:#5a0f8f;color:white;">Z</div><div><strong>Zelle</strong><br><span class="text-sm">(919) 638-7503 — Adu Sheref</span></div></div>
+        <div class="pay-method"><div class="pay-icon" style="background:#00c244;color:white;">$</div><div><strong>Cash App</strong><br><span class="text-sm">$SLPPNADRC</span></div></div>
+        <div class="pay-method"><div class="pay-icon" style="background:#003087;color:white;">PP</div><div><strong>PayPal</strong><br><span class="text-sm">adusheref@gmail.com</span></div></div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:6px;">
+        <button class="btn-outline" onclick="buyStep(2)">← Back</button>
+        <button class="btn" onclick="confirmOrder()">✓ Confirm Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="buy-step4" style="display:none;">
+    <div class="msg msg-success" style="font-size:15px;">✅ <strong>Order Submitted!</strong></div>
+    <div class="card" id="order-ticket-preview"></div>
+    <p class="text-sm mt">Your order has been recorded. Once payment is verified by the secretary, your ticket will be confirmed. Contact Adu Sheref at (919) 638-7503 or adusheref@gmail.com with any questions.</p>
+    <button class="btn mt" onclick="buyStep(1);resetBuy()">Buy Another Ticket</button>
+  </div>
+</div>
+
+<!-- ===== DASHBOARD ===== -->
+<div id="page-dashboard" class="page">
+  <h2 class="text-gold" style="margin-bottom:16px;">Dashboard</h2>
+  <div class="stats" id="dash-stats"></div>
+  <div class="card">
+    <h3>Chapter Ticket Status</h3>
+    <div class="tbl-wrap">
+      <table id="dash-table">
+        <thead><tr><th>Chapter</th><th>Chair</th><th>Allocated</th><th>Confirmed</th><th>Status</th></tr></thead>
+        <tbody id="dash-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ALL TICKETS ===== -->
+<div id="page-tickets" class="page">
+  <div class="flex-between" style="margin-bottom:14px;">
+    <h2 class="text-gold">All Tickets</h2>
+    <button class="btn btn-sm" onclick="exportCSV()">⬇ Export CSV</button>
+  </div>
+  <div class="search-row">
+    <input id="t-search" placeholder="Search name, serial, chapter..." oninput="renderTickets()" />
+    <select id="t-filter" onchange="renderTickets()">
+      <option value="">All Status</option>
+      <option value="Pending">Pending</option>
+      <option value="Allocated">Allocated</option>
+      <option value="Confirmed">Confirmed</option>
+    </select>
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Serial</th><th>Name</th><th>Type</th><th>Chapter</th><th>Phone</th><th>Status</th><th>Actions</th></tr></thead>
+      <tbody id="tickets-tbody"></tbody>
+    </table>
+  </div>
+  <p class="text-sm mt" id="ticket-count"></p>
+</div>
+
+<!-- ===== CHAPTERS ===== -->
+<div id="page-chapters" class="page">
+  <h2 class="text-gold" style="margin-bottom:16px;">20 SLPPNA Chapters</h2>
+  <div class="ch-grid" id="chapters-grid"></div>
+</div>
+
+<!-- ===== SEND ===== -->
+<div id="page-send" class="page">
+  <h2 class="text-gold" style="margin-bottom:16px;">Send Allocation Emails</h2>
+  <div class="msg msg-info">📧 Use the templates below to copy and send emails or WhatsApp messages to chapter chairs. Each chapter receives <strong>5 tickets</strong> (serials shown).</div>
+  <div style="margin:16px 0;">
+    <span class="label">Select Chapter</span>
+    <select id="send-chapter-sel" onchange="renderSendPreview()">
+      <option value="">— Select Chapter —</option>
+    </select>
+  </div>
+  <div id="send-preview"></div>
+</div>
+
+<!-- ===== ANALYTICS ===== -->
+<div id="page-analytics" class="page">
+  <h2 class="text-gold" style="margin-bottom:16px;">Analytics</h2>
+  <div class="stats" id="ana-stats"></div>
+  <div class="card">
+    <h3>Revenue by Ticket Type</h3>
+    <div id="ana-revenue"></div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <h3>Chapter Confirmation Progress</h3>
+    <div id="ana-chapters"></div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// DATA
+// ============================================================
+const CHAPTERS = [
+  {code:'AZC', name:'Arizona', chair:'Charles Olyma Sinnah', email:'charles.sinnah@yahoo.com', phone:'(602) 693-3530'},
+  {code:'GAC', name:'Atlanta GA', chair:'Edward Mallah', email:'eddymallah@gmail.com', phone:'(770) 656-4028'},
+  {code:'ILC', name:'Chicago', chair:'Mustapha Sheriff', email:'msheriff02@gmail.com', phone:'(630) 864-2057'},
+  {code:'TXDC', name:'Dallas', chair:'Joseph Batilo Macarthy', email:'danmac2017@yahoo.com', phone:'(469) 879-8640'},
+  {code:'DVC', name:'Delaware Valley', chair:'Dende Korpoi', email:'dendedorc@gmail.com', phone:'(267) 981-5955'},
+  {code:'DRC', name:'Durham-Raleigh-CH (HOST)', chair:'Amina Kawa', email:'myminava@yahoo.com', phone:'(919) 358-9382'},
+  {code:'TXHC', name:'Houston', chair:'Peter Pablo Bainda', email:'peebainda@gmail.com', phone:'(832) 343-3895'},
+  {code:'MNC', name:'Minnesota', chair:'Ibrahim Koroma', email:'ismkoroma@gmail.com', phone:'(612) 430-3795'},
+  {code:'NEC', name:'New England', chair:'Kula Sillah', email:'sillahkula@gmail.com', phone:'(678) 301-8876'},
+  {code:'NJC', name:'New Jersey', chair:'Solomon Bona', email:'solomonbona@yahoo.com', phone:'(732) 763-7786'},
+  {code:'NYC', name:'New York', chair:'Jabati A Wai', email:'kjongopy@gmail.com', phone:'(818) 272-6589'},
+  {code:'NDC', name:'North Dakota', chair:'Lawal Mustapha', email:'lawalmustapha2004@yahoo.com', phone:'(484) 340-6952'},
+  {code:'CANC', name:'N. California', chair:'Gerald Senesie Samah', email:'senesie1@gmail.com', phone:'(408) 910-1197'},
+  {code:'OHC', name:'Ohio', chair:'Miatta Abu-Rogers', email:'miattaabu@ymail.com', phone:'(614) 316-4068'},
+  {code:'SWC', name:'Seattle', chair:'Moses M Fatorma', email:'fatormamukehmoses1169@gmail.com', phone:'(206) 335-6815'},
+  {code:'CASC', name:'S. California', chair:'Francis Baion', email:'fbaion@aol.com', phone:'(714) 860-8322'},
+  {code:'VAC', name:'Virginia', chair:'Ahmed Bowling', email:'bowlingahmed60@gmail.com', phone:'(571) 466-6609'},
+  {code:'WDC', name:'Washington DC', chair:'Solomon Palmer', email:'solomonmpalmer@gmail.com', phone:'(301) 592-7037'},
+  {code:'IAC', name:'Iowa', chair:'Brima K Caulker', email:'k.caulker@yahoo.com', phone:'(612) 388-9983'},
+  {code:'FLC', name:'Florida', chair:'Susan Jaward', email:'susanbjaward@hotmail.com', phone:'(813) 841-4130'},
+];
+
+// Generate 100 tickets (5 per chapter)
+function makeSerial(n){ return 'DRC-20260725-' + String(n).padStart(3,'0'); }
+function initTickets(){
+  const stored = localStorage.getItem('drc_tickets');
+  if(stored) return JSON.parse(stored);
+  const tickets = [];
+  let n = 1;
+  CHAPTERS.forEach(ch => {
+    for(let i=0;i<5;i++){
+      tickets.push({
+        serial: makeSerial(n++),
+        chapter: ch.code,
+        name: '',
+        phone: '',
+        email: '',
+        type: 'Ordinary',
+        price: 100,
+        status: 'Allocated',
+        notes: ''
+      });
+    }
+  });
+  saveTickets(tickets);
+  return tickets;
+}
+function saveTickets(t){ localStorage.setItem('drc_tickets', JSON.stringify(t)); }
+function getTickets(){ return JSON.parse(localStorage.getItem('drc_tickets') || '[]'); }
+
+let tickets = initTickets();
+
+// ============================================================
+// NAVIGATION
+// ============================================================
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  event.currentTarget.classList.add('active');
+  if(id==='dashboard') renderDashboard();
+  if(id==='tickets') renderTickets();
+  if(id==='chapters') renderChapters();
+  if(id==='analytics') renderAnalytics();
+  if(id==='send') renderSendPage();
+}
+
+// ============================================================
+// BUY TICKETS
+// ============================================================
+let buyData = { type:'', price:0 };
+
+function selectTicket(type){
+  buyData.type = type;
+  buyData.price = type==='ordinary'?100:type==='patron'?150:0;
+  document.querySelectorAll('[id^="tt-"]').forEach(el=>el.style.borderColor='rgba(201,168,76,0.5)');
+  document.getElementById('tt-'+type).style.borderColor='var(--gold)';
+  document.getElementById('tt-'+type).style.background='rgba(201,168,76,0.1)';
+  document.getElementById('gcp-amount-row').style.display = type==='grandchief'?'block':'none';
+  buyStep(2);
+}
+
+function buyStep(n){
+  document.querySelectorAll('[id^="buy-step"]').forEach(el=>el.style.display='none');
+  document.querySelectorAll('.step').forEach((el,i)=>{
+    el.className='step '+(i+1<n?'done':i+1===n?'active':'');
+  });
+  document.getElementById('buy-step'+n).style.display='block';
+  if(n===3) renderBuySummary();
+}
+
+function renderBuySummary(){
+  const name = document.getElementById('b-name').value || '—';
+  const type = buyData.type;
+  const price = type==='grandchief'?(document.getElementById('b-donation').value||'?'):buyData.price;
+  const label = type==='ordinary'?'Ordinary':type==='patron'?'Patron':'Grand Chief Patron';
+  document.getElementById('buy-summary').innerHTML = `
+    <div class="ticket-preview">
+      <div class="t-type">${label}</div>
+      <div class="t-event">SLPPNA DRC Executive Inaugural Ball</div>
+      <div class="t-row">
+        <div class="t-field"><div class="tf-label">Guest</div><div>${name}</div></div>
+        <div class="t-field"><div class="tf-label">Date</div><div>Sat Jul 25, 2026</div></div>
+        <div class="t-field"><div class="tf-label">Time</div><div>8:00 PM</div></div>
+        <div class="t-field"><div class="tf-label">Amount</div><div class="text-gold">${type==='grandchief'?'$'+price+' donation':'$'+price}</div></div>
+      </div>
+    </div>`;
+}
+
+function confirmOrder(){
+  const name = document.getElementById('b-name').value.trim();
+  const phone = document.getElementById('b-phone').value.trim();
+  if(!name||!phone){ alert('Please enter your name and phone number.'); return; }
+  const type = buyData.type;
+  const label = type==='ordinary'?'Ordinary':type==='patron'?'Patron':'Grand Chief Patron';
+  const price = type==='grandchief'?(parseFloat(document.getElementById('b-donation').value)||0):buyData.price;
+  const chapter = document.getElementById('b-chapter').value || 'Guest';
+
+  // Find an unassigned ticket for that chapter or any free ticket
+  tickets = getTickets();
+  let t = tickets.find(tk=>tk.chapter===chapter.split(' ')[0]&&tk.status==='Allocated'&&!tk.name);
+  if(!t) t = tickets.find(tk=>tk.status==='Allocated'&&!tk.name);
+  if(!t){ alert('No available tickets found. Please contact the secretary.'); return; }
+
+  t.name = name; t.phone = phone; t.email = document.getElementById('b-email').value;
+  t.type = label; t.price = price; t.status = 'Pending';
+  saveTickets(tickets);
+
+  document.getElementById('order-ticket-preview').innerHTML = `
+    <div class="ticket-preview">
+      <div class="t-type">${label}</div>
+      <div class="t-event">SLPPNA DRC Executive Inaugural Ball · Sat Jul 25 2026</div>
+      <div class="t-row">
+        <div class="t-field"><div class="tf-label">Name</div><div>${name}</div></div>
+        <div class="t-field"><div class="tf-label">Serial</div><div class="text-gold">${t.serial}</div></div>
+        <div class="t-field"><div class="tf-label">Amount</div><div>$${price}</div></div>
+      </div>
+      <div class="t-serial">${t.serial}</div>
+    </div>
+    <p style="font-size:13px;margin-top:8px;">Screenshot this as your reference. Serial: <strong>${t.serial}</strong></p>`;
+  buyStep(4);
+}
+
+function resetBuy(){
+  buyData = {type:'',price:0};
+  document.getElementById('b-name').value='';
+  document.getElementById('b-phone').value='';
+  document.getElementById('b-email').value='';
+  document.getElementById('b-chapter').value='';
+  document.querySelectorAll('[id^="tt-"]').forEach(el=>{ el.style.borderColor='rgba(201,168,76,0.5)'; el.style.background=''; });
+}
+
+// ============================================================
+// DASHBOARD
+// ============================================================
+function renderDashboard(){
+  tickets = getTickets();
+  const total = tickets.length;
+  const conf = tickets.filter(t=>t.status==='Confirmed').length;
+  const pend = tickets.filter(t=>t.status==='Pending').length;
+  const alloc = tickets.filter(t=>t.status==='Allocated').length;
+  const rev = tickets.filter(t=>t.status==='Confirmed').reduce((s,t)=>s+t.price,0);
+  document.getElementById('dash-stats').innerHTML = `
+    <div class="stat"><div class="num">${total}</div><div class="lbl">Total Tickets</div></div>
+    <div class="stat"><div class="num">${conf}</div><div class="lbl">Confirmed</div></div>
+    <div class="stat"><div class="num">${pend}</div><div class="lbl">Pending</div></div>
+    <div class="stat"><div class="num">${alloc}</div><div class="lbl">Available</div></div>
+    <div class="stat"><div class="num">$${rev.toLocaleString()}</div><div class="lbl">Revenue</div></div>`;
+
+  let rows = '';
+  CHAPTERS.forEach(ch=>{
+    const chTix = tickets.filter(t=>t.chapter===ch.code);
+    const chConf = chTix.filter(t=>t.status==='Confirmed').length;
+    const chPend = chTix.filter(t=>t.status==='Pending').length;
+    const status = chConf===5?'<span class="badge-status s-conf">✓ Full</span>':
+                   chPend>0?'<span class="badge-status s-pending">⏳ Pending</span>':
+                   '<span class="badge-status s-alloc">Allocated</span>';
+    rows += `<tr><td><strong>${ch.code}</strong><br><span class="text-sm">${ch.name}</span></td>
+      <td>${ch.chair}</td><td>${chTix.length}</td><td>${chConf}</td><td>${status}</td></tr>`;
+  });
+  document.getElementById('dash-tbody').innerHTML = rows;
+}
+
+// ============================================================
+// ALL TICKETS
+// ============================================================
+function renderTickets(){
+  tickets = getTickets();
+  const q = (document.getElementById('t-search').value||'').toLowerCase();
+  const f = document.getElementById('t-filter').value;
+  let filtered = tickets.filter(t=>{
+    const match = !q || t.serial.toLowerCase().includes(q)||t.name.toLowerCase().includes(q)||t.chapter.toLowerCase().includes(q);
+    const fmatch = !f || t.status===f;
+    return match && fmatch;
+  });
+  let rows = '';
+  filtered.forEach((t,i)=>{
+    const sc = t.status==='Confirmed'?'s-conf':t.status==='Pending'?'s-pending':'s-alloc';
+    rows += `<tr>
+      <td>${i+1}</td>
+      <td class="text-gold">${t.serial}</td>
+      <td>${t.name||'<span class="text-sm">—</span>'}</td>
+      <td>${t.type}</td>
+      <td><span class="tag">${t.chapter}</span></td>
+      <td>${t.phone||'—'}</td>
+      <td><span class="badge-status ${sc}">${t.status}</span></td>
+      <td><button class="btn-outline btn-sm" onclick="confirmTicket('${t.serial}')">✓ Confirm</button></td>
+    </tr>`;
+  });
+  document.getElementById('tickets-tbody').innerHTML = rows;
+  document.getElementById('ticket-count').textContent = `Showing ${filtered.length} of ${tickets.length} tickets`;
+}
+
+function confirmTicket(serial){
+  tickets = getTickets();
+  const t = tickets.find(x=>x.serial===serial);
+  if(!t) return;
+  if(t.status==='Confirmed'){ alert('Already confirmed.'); return; }
+  t.status = 'Confirmed';
+  saveTickets(tickets);
+  renderTickets();
+}
+
+function exportCSV(){
+  tickets = getTickets();
+  const rows = [['Serial','Chapter','Name','Phone','Email','Type','Price','Status']];
+  tickets.forEach(t=>rows.push([t.serial,t.chapter,t.name,t.phone,t.email,t.type,t.price,t.status]));
+  const csv = rows.map(r=>r.map(v=>'"'+String(v||'').replace(/"/g,'""')+'"').join(',')).join('\n');
+  const a = document.createElement('a');
+  a.href = 'data:text/csv;charset=utf-8,'+encodeURIComponent(csv);
+  a.download = 'DRC_Tickets_'+new Date().toISOString().slice(0,10)+'.csv';
+  a.click();
+}
+
+// ============================================================
+// CHAPTERS
+// ============================================================
+function renderChapters(){
+  tickets = getTickets();
+  let html = '';
+  CHAPTERS.forEach(ch=>{
+    const chTix = tickets.filter(t=>t.chapter===ch.code);
+    const conf = chTix.filter(t=>t.status==='Confirmed').length;
+    const pct = Math.round((conf/5)*100);
+    const isHost = ch.code==='DRC';
+    html += `<div class="ch-card" style="${isHost?'border-color:var(--gold);background:rgba(201,168,76,0.08)':''}">
+      <div class="ch-code">${ch.code}${isHost?' 🏠':''}</div>
+      <div class="ch-name">${ch.name}</div>
+      <div class="ch-chair">Chair: ${ch.chair}</div>
+      <div class="ch-chair" style="margin-top:2px;">${ch.phone}</div>
+      <div class="ch-prog"><div class="ch-prog-fill" style="width:${pct}%"></div></div>
+      <div style="font-size:11px;color:var(--gold-light);margin-top:4px;">${conf}/5 confirmed</div>
+    </div>`;
+  });
+  document.getElementById('chapters-grid').innerHTML = html;
+}
+
+// ============================================================
+// SEND PAGE
+// ============================================================
+function renderSendPage(){
+  const sel = document.getElementById('send-chapter-sel');
+  sel.innerHTML = '<option value="">— Select Chapter —</option>';
+  CHAPTERS.forEach(ch=>{ const o=document.createElement('option'); o.value=ch.code; o.textContent=ch.code+' – '+ch.name+' ('+ch.chair+')'; sel.appendChild(o); });
+}
+
+function renderSendPreview(){
+  const code = document.getElementById('send-chapter-sel').value;
+  if(!code){ document.getElementById('send-preview').innerHTML=''; return; }
+  const ch = CHAPTERS.find(c=>c.code===code);
+  tickets = getTickets();
+  const chTix = tickets.filter(t=>t.chapter===code);
+  const serials = chTix.map(t=>t.serial).join(', ');
+  const msg = `Dear ${ch.chair},\n\nGreetings from the SLPPNA DRC Chapter!\n\nWe are pleased to formally allocate your 5 tickets for the DRC Chapter Executive Inaugural Ball 2026.\n\nEVENT DETAILS:\n  Date: Saturday, July 25, 2026\n  Time: 8:00 PM – 2:00 AM\n  Venue: 5410 NC-55, Durham, NC 27713\n\nYOUR ALLOCATED TICKET SERIALS:\n  ${serials}\n\nTICKET PRICES:\n  Ordinary: $100 | Patron: $150 | Grand Chief Patron: By Donation\n\nPAYMENT:\n  Zelle: (919) 638-7503\n  Cash App: $SLPPNADRC\n  PayPal: adusheref@gmail.com\n\nPlease confirm receipt of this allocation and arrange payment at your earliest convenience. Contact us with any questions.\n\nWith warm regards,\nAdu Sheref – Secretary General, DRC\n(919) 638-7503 | adusheref@gmail.com\n\nAmina Kawa – Chair, DRC\n(984) 884-7808`;
+
+  document.getElementById('send-preview').innerHTML = `
+    <div class="card">
+      <div class="flex-between" style="margin-bottom:12px;">
+        <div>
+          <div class="text-gold" style="font-size:16px;">${ch.name} Chapter (${ch.code})</div>
+          <div class="text-sm">To: ${ch.chair} &nbsp;·&nbsp; ${ch.email} &nbsp;·&nbsp; ${ch.phone}</div>
+        </div>
+        <button class="btn btn-sm" onclick="copyMsg()">📋 Copy</button>
+      </div>
+      <div class="tbl-wrap"><table><thead><tr><th>Serial</th><th>Status</th><th>Name</th></tr></thead><tbody>
+        ${chTix.map(t=>`<tr><td class="text-gold">${t.serial}</td><td><span class="badge-status ${t.status==='Confirmed'?'s-conf':t.status==='Pending'?'s-pending':'s-alloc'}">${t.status}</span></td><td>${t.name||'—'}</td></tr>`).join('')}
+      </tbody></table></div>
+      <hr class="divider">
+      <p class="text-sm" style="margin-bottom:8px;">Email / WhatsApp template:</p>
+      <textarea id="send-msg" rows="20" style="font-family:monospace;font-size:12px;">${msg}</textarea>
+    </div>`;
+}
+
+function copyMsg(){
+  const el = document.getElementById('send-msg');
+  if(el){ navigator.clipboard.writeText(el.value).then(()=>alert('Message copied!')).catch(()=>{el.select();document.execCommand('copy');alert('Copied!');}); }
+}
+
+// ============================================================
+// ANALYTICS
+// ============================================================
+function renderAnalytics(){
+  tickets = getTickets();
+  const total = tickets.length;
+  const conf = tickets.filter(t=>t.status==='Confirmed').length;
+  const pend = tickets.filter(t=>t.status==='Pending').length;
+  const rev = tickets.filter(t=>t.status==='Confirmed').reduce((s,t)=>s+t.price,0);
+  const projRev = tickets.filter(t=>t.status!=='Allocated'||t.name).reduce((s,t)=>s+(t.price||100),0);
+
+  document.getElementById('ana-stats').innerHTML = `
+    <div class="stat"><div class="num">${conf}</div><div class="lbl">Confirmed Tickets</div></div>
+    <div class="stat"><div class="num">$${rev.toLocaleString()}</div><div class="lbl">Revenue Collected</div></div>
+    <div class="stat"><div class="num">${pend}</div><div class="lbl">Pending Payment</div></div>
+    <div class="stat"><div class="num">${Math.round((conf/total)*100)}%</div><div class="lbl">Sold Out %</div></div>`;
+
+  const types = [{label:'Ordinary ($100)',key:'Ordinary',color:'#1a5c2a'},{label:'Patron ($150)',key:'Patron',color:'#c9a84c'},{label:'Grand Chief Patron',key:'Grand Chief Patron',color:'#8b4513'}];
+  let revHtml = '';
+  types.forEach(ty=>{
+    const count = tickets.filter(t=>t.type===ty.key&&t.status==='Confirmed').length;
+    const r = tickets.filter(t=>t.type===ty.key&&t.status==='Confirmed').reduce((s,t)=>s+t.price,0);
+    revHtml += `<div class="ana-bar">
+      <div class="ana-label"><span>${ty.label}</span><span>${count} tickets · $${r.toLocaleString()}</span></div>
+      <div class="ana-track"><div class="ana-fill" style="width:${total?Math.round((count/total)*100):0}%;background:${ty.color}"></div></div>
+    </div>`;
+  });
+  document.getElementById('ana-revenue').innerHTML = revHtml;
+
+  let chHtml = '';
+  CHAPTERS.forEach(ch=>{
+    const chConf = tickets.filter(t=>t.chapter===ch.code&&t.status==='Confirmed').length;
+    chHtml += `<div class="ana-bar">
+      <div class="ana-label"><span>${ch.code} – ${ch.name}</span><span>${chConf}/5</span></div>
+      <div class="ana-track"><div class="ana-fill" style="width:${Math.round((chConf/5)*100)}%"></div></div>
+    </div>`;
+  });
+  document.getElementById('ana-chapters').innerHTML = chHtml;
+}
+
+// ============================================================
+// INIT
+// ============================================================
+renderDashboard();
+</script>
+</body>
+</html>
