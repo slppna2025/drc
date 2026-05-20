@@ -623,7 +623,7 @@ function renderBuySummary(){
       <div class="t-row">
         <div class="t-field"><div class="tf-label">Guest</div><div>${name}</div></div>
         <div class="t-field"><div class="tf-label">Date</div><div>Sat Jul 25, 2026</div></div>
-        <div class="t-field"><div class="tf-label">Amount</div><div style="color:var(--gold)">$${buyData.price}</div></div>
+        <div class="t-field"><div class="tf-label">Amount</div><div style="color:#c9a84c">$${buyData.price}</div></div>
       </div>
     </div>`;
 }
@@ -646,7 +646,7 @@ function confirmOrder(){
       <div class="t-event">SLPPNA DRC Executive Inaugural Ball · Sat Jul 25 2026</div>
       <div class="t-row">
         <div class="t-field"><div class="tf-label">Name</div><div>${name}</div></div>
-        <div class="t-field"><div class="tf-label">Serial</div><div style="color:var(--gold)">${t.serial}</div></div>
+        <div class="t-field"><div class="tf-label">Serial</div><div style="color:#c9a84c">${t.serial}</div></div>
         <div class="t-field"><div class="tf-label">Amount</div><div>$${buyData.price}</div></div>
       </div>
       <div class="t-serial">${t.serial}</div>
@@ -820,15 +820,15 @@ function renderChapters(){
     const isHost=ch.code==='DRC';
     const conf=isHost?0:tickets.filter(t=>t.chapter===ch.code&&t.status==='Confirmed Receipt via Email').length;
     const pct=isHost?100:Math.round((conf/5)*100);
-    return `<div class="ch-card" style="${isHost?'border-color:var(--gold);background:rgba(201,168,76,.08)':''}">
+    return `<div class="ch-card" style="${isHost?'border-color:#c9a84c;background:rgba(201,168,76,.08)':''}">
       <div class="ch-code">${ch.code}${isHost?' 🏠':''}</div>
       <div class="ch-name">${ch.name}</div>
       <div class="ch-chair">Chair: ${ch.chair}</div>
       <div class="ch-chair" style="margin-top:2px;">${ch.phone}</div>
       ${isHost
-        ?`<div style="margin-top:10px;font-size:11px;color:var(--gold);font-weight:bold;">HOST CHAPTER — No Tickets</div>`
+        ?`<div style="margin-top:10px;font-size:11px;color:#c9a84c;font-weight:bold;">HOST CHAPTER — No Tickets</div>`
         :`<div class="ch-prog"><div class="ch-prog-fill" style="width:${pct}%"></div></div>
-          <div style="font-size:11px;color:var(--gold-light);margin-top:4px;">${conf}/5 confirmed</div>`}
+          <div style="font-size:11px;color:#f0d080;margin-top:4px;">${conf}/5 confirmed</div>`}
     </div>`;
   }).join('');
 }
@@ -959,7 +959,7 @@ function renderAnalytics(){
     const chConf=tickets.filter(t=>t.chapter===ch.code&&t.status==='Confirmed Receipt via Email').length;
     return `<div class="ana-bar">
       <div class="ana-label"><span>${ch.code} – ${ch.name}</span><span>${chConf}/5</span></div>
-      <div class="ana-track"><div class="ana-fill" style="width:${Math.round((chConf/5)*100)}%;background:var(--green)"></div></div>
+      <div class="ana-track"><div class="ana-fill" style="width:${Math.round((chConf/5)*100)}%;background:#1a5c2a"></div></div>
     </div>`;
   }).join('');
 }
@@ -1187,7 +1187,7 @@ function appendBulkLog(code, name, email, success, errMsg){
   const row = document.createElement('div');
   row.style.cssText = 'padding:6px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:13px;';
   row.innerHTML = success===null
-    ? `<strong style="color:var(--gold)">${name}</strong>`
+    ? `<strong style="color:#c9a84c">${name}</strong>`
     : success
       ? `<span style="color:#7ef77e">✅ ${code}</span> — ${name} <span class="text-sm">&lt;${email}&gt;</span>`
       : `<span style="color:#f77e7e">❌ ${code}</span> — ${name} <span class="text-sm">${errMsg}</span>`;
@@ -1274,7 +1274,7 @@ Amina Kawa – Chair, DRC
             ? `<button class="btn btn-sm" id="send-btn-${code}" onclick="sendChapterEmail('${code}',this)">📧 Send Email Now</button>`
             : `<button class="btn btn-sm" style="opacity:.4;cursor:not-allowed;" title="Configure EmailJS in Settings first">📧 Send (Setup Required)</button>`
           }
-          <button class="btn btn-sm" style="background:var(--green);color:var(--gold);border:1px solid var(--gold);" onclick="openTicketModal('${code}')">🎟 View & Print Tickets</button>
+          <button class="btn btn-sm" style="background:#1a5c2a;color:#c9a84c;border:1px solid #c9a84c;" onclick="openTicketModal('${code}')">🎟 View & Print Tickets</button>
           <button class="btn-outline btn-sm" onclick="copyMsg()">📋 Copy</button>
         </div>
       </div>
@@ -1298,7 +1298,7 @@ Amina Kawa – Chair, DRC
 
       <!-- Bulk status actions -->
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
-        <span style="font-size:12px;color:var(--gold-light);padding-top:6px;">Mark all as:</span>
+        <span style="font-size:12px;color:#f0d080;padding-top:6px;">Mark all as:</span>
         ${STATUS_LIST.map(s=>`<button class="btn-outline btn-sm" onclick="bulkStatusChapter('${code}','${s}')">${statusShort(s)}</button>`).join('')}
       </div>
 
@@ -1461,24 +1461,24 @@ async function openTicketModal(code){
   const body  = document.getElementById('ticket-modal-body');
   const title = document.getElementById('ticket-modal-title');
   modal.classList.add('open');
-  body.innerHTML = '<div style="text-align:center;padding:40px;color:var(--gold);">⏳ Generating tickets with QR codes...</div>';
+  body.innerHTML = '<div style="text-align:center;padding:40px;color:#c9a84c;">⏳ Generating tickets with QR codes...</div>';
 
   const { ch, chTix, ticketHTMLs } = await generateChapterTickets(code);
   title.textContent = ch.name + ' Chapter (' + code + ') — ' + chTix.length + ' Tickets';
 
   body.innerHTML = `
     <div style="background:#162a1c;border:1px solid rgba(201,168,76,.3);border-radius:10px;padding:16px;margin-bottom:16px;">
-      <div style="font-size:13px;color:var(--light);margin-bottom:8px;">
-        <strong style="color:var(--gold);">Chair:</strong> ${ch.chair} &nbsp;·&nbsp;
-        <strong style="color:var(--gold);">Email:</strong> ${ch.email} &nbsp;·&nbsp;
-        <strong style="color:var(--gold);">Phone:</strong> ${ch.phone}
+      <div style="font-size:13px;color:#f5f0e8;margin-bottom:8px;">
+        <strong style="color:#c9a84c;">Chair:</strong> ${ch.chair} &nbsp;·&nbsp;
+        <strong style="color:#c9a84c;">Email:</strong> ${ch.email} &nbsp;·&nbsp;
+        <strong style="color:#c9a84c;">Phone:</strong> ${ch.phone}
       </div>
       <div class="msg msg-info" style="margin:0;font-size:12px;">
         💡 Each ticket has a unique QR code. Chapter chair shows QR on phone at the gate — staff scans or searches serial in the platform.
       </div>
     </div>
     ${ticketHTMLs.join('')}
-    <div style="text-align:center;padding:16px;font-size:12px;color:var(--gold-light);opacity:.6;">
+    <div style="text-align:center;padding:16px;font-size:12px;color:#f0d080;opacity:.6;">
       SLPPNA DRC Chapter — Executive Inaugural Ball 2026 — Tickets generated by platform
     </div>`;
 
