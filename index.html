@@ -592,13 +592,7 @@ function renderDashboard(){
     <div class="sb-item"><div class="sb-num">$${rev.toLocaleString()}</div><div class="sb-lbl">Revenue</div></div>`;
 
   // Type target cards
-  const typeData = [
-    { key:'Regular',   label:'Regular',   price:'$100', cls:'tc-regular',   color:'#5abf6a' },
-    { key:'Patron',    label:'Patron',     price:'$150', cls:'tc-patron',    color:var(--gold) },
-    { key:'Community', label:'Community',  price:'$50',  cls:'tc-community', color:'#9a80ff' },
-  ];
-  // JS inline — no template literal for CSS vars; use hex
-  const typeColors = { Regular:'#5abf6a', Patron:'#c9a84c', Community:'#9a80ff' };
+  const typeColors = { Regular:'#c9a84c', Patron:'#c9a84c', Community:'#9a80ff' };
   document.getElementById('dash-type-targets').innerHTML = Object.entries(TARGETS).map(([key,target])=>{
     const sold = tickets.filter(t=>t.type===key && t.status==='Confirmed Receipt via Email').length;
     const pct  = Math.min(100, Math.round((sold/target)*100));
