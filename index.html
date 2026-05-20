@@ -146,6 +146,10 @@
   .sb-lbl  { font-size:12px; opacity:.75; margin-top:2px; }
   .sb-div  { width:1px; background:rgba(201,168,76,.3); align-self:stretch; }
 </style>
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<!-- QR Code Generator -->
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 </head>
 <body>
 
@@ -167,6 +171,8 @@
   <button onclick="showPage('chapters',this)">🏛 Chapters</button>
   <button onclick="showPage('send',this)">📧 Send</button>
   <button onclick="showPage('analytics',this)">📈 Analytics</button>
+  <button onclick="showPage('settings',this)">⚙️ Settings</button>
+  <button onclick="showPage('gate',this)">🚪 Gate</button>
 </nav>
 
 <!-- ===== BUY TICKETS ===== -->
@@ -320,14 +326,98 @@
 <!-- ===== SEND ===== -->
 <div id="page-send" class="page">
   <h2 class="text-gold" style="margin-bottom:16px;">Send Allocation Emails</h2>
-  <div class="msg msg-info">📧 Each of the <strong>19 chapters</strong> receives <strong>5 Regular tickets ($100 each)</strong>. DRC is the host chapter — no ticket allocation.</div>
-  <div style="margin:16px 0;">
-    <span class="label">Select Chapter</span>
-    <select id="send-chapter-sel" onchange="renderSendPreview()">
-      <option value="">— Select Chapter —</option>
-    </select>
+
+  <div id="emailjs-warning" class="msg msg-warn" style="display:none;">
+    ⚠️ EmailJS not configured. Go to <strong>⚙️ Settings</strong> to enter your EmailJS credentials before sending emails.
   </div>
+  <div id="emailjs-ready" class="msg msg-success" style="display:none;">
+    ✅ EmailJS connected. You can send emails directly from this platform.
+  </div>
+
+  <div class="card" style="margin-bottom:16px;">
+    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;">
+      <div style="flex:1;min-width:180px;">
+        <span class="label">Select Chapter</span>
+        <select id="send-chapter-sel" onchange="renderSendPreview()" style="margin:0;">
+          <option value="">— Select Chapter —</option>
+        </select>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end;padding-top:18px;">
+        <button class="btn btn-sm" onclick="sendAllChapters()" style="background:#1a5c2a;color:var(--gold);border:1px solid var(--gold);">📨 Send ALL 19 Chapters</button>
+      </div>
+    </div>
+  </div>
+
   <div id="send-preview"></div>
+  <div id="send-log"></div>
+</div>
+
+<!-- ===== SETTINGS ===== -->
+<div id="page-settings" class="page">
+  <h2 class="text-gold" style="margin-bottom:16px;">⚙️ Settings — EmailJS Configuration</h2>
+
+  <div class="msg msg-info">
+    📧 This platform uses <strong>EmailJS</strong> to send emails directly from your browser — no server needed.<br><br>
+    <strong>Setup steps:</strong><br>
+    1. Sign up free at <strong>emailjs.com</strong> (200 emails/month free)<br>
+    2. Add an Email Service (Gmail, Outlook, etc.) → copy your <strong>Service ID</strong><br>
+    3. Create an Email Template → copy your <strong>Template ID</strong><br>
+    4. Go to Account → API Keys → copy your <strong>Public Key</strong><br>
+    5. Paste all three below and click Save
+  </div>
+
+  <div class="card">
+    <h3>EmailJS Credentials</h3>
+    <span class="label">Public Key (from Account → API Keys)</span>
+    <input id="ejs-pubkey" placeholder="e.g. user_xxxxxxxxxxxx" />
+    <span class="label">Service ID (from Email Services)</span>
+    <input id="ejs-service" placeholder="e.g. service_xxxxxxx" />
+    <span class="label">Template ID (from Email Templates)</span>
+    <input id="ejs-template" placeholder="e.g. template_xxxxxxx" />
+    <div style="display:flex;gap:10px;margin-top:8px;flex-wrap:wrap;">
+      <button class="btn" onclick="saveEmailJSConfig()">💾 Save & Connect</button>
+      <button class="btn-outline" onclick="testEmailJS()">🧪 Send Test Email</button>
+      <button class="btn-outline btn-sm" onclick="clearEmailJSConfig()" style="color:#f77e7e;border-color:#f77e7e;">✕ Clear</button>
+    </div>
+    <div id="ejs-status" style="margin-top:10px;"></div>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <h3>EmailJS Template Variables</h3>
+    <p style="font-size:13px;margin-bottom:12px;">When creating your template on emailjs.com, use these variable names:</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Variable</th><th>Value Sent</th></tr></thead>
+        <tbody>
+          <tr><td><code>{{to_email}}</code></td><td>Chapter chair email address</td></tr>
+          <tr><td><code>{{to_name}}</code></td><td>Chapter chair name</td></tr>
+          <tr><td><code>{{chapter_code}}</code></td><td>e.g. AZC, GAC, NYC</td></tr>
+          <tr><td><code>{{chapter_name}}</code></td><td>e.g. Arizona, Atlanta GA</td></tr>
+          <tr><td><code>{{serials}}</code></td><td>Comma-separated ticket serials</td></tr>
+          <tr><td><code>{{ticket_count}}</code></td><td>5</td></tr>
+          <tr><td><code>{{total_amount}}</code></td><td>$500</td></tr>
+          <tr><td><code>{{event_date}}</code></td><td>Saturday, July 25, 2026</td></tr>
+          <tr><td><code>{{venue}}</code></td><td>5410 NC-55, Durham, NC 27713</td></tr>
+          <tr><td><code>{{payment_info}}</code></td><td>Zelle/CashApp/PayPal details</td></tr>
+          <tr><td><code>{{from_name}}</code></td><td>Adu Sheref – Secretary General, DRC</td></tr>
+          <tr><td><code>{{reply_to}}</code></td><td>adusheref@gmail.com</td></tr>
+          <tr><td><code>{{message}}</code></td><td>Full email body text</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="msg msg-info" style="margin-top:12px;font-size:13px;">
+      💡 <strong>Simplest template:</strong> Just use <code>{{message}}</code> as the body — it contains the full formatted email text ready to send.
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <h3>Sender Info</h3>
+    <span class="label">From Name</span>
+    <input id="cfg-from-name" value="Adu Sheref – Secretary General, DRC" />
+    <span class="label">Reply-To Email</span>
+    <input id="cfg-reply-to" value="adusheref@gmail.com" />
+    <button class="btn btn-sm mt" onclick="saveSenderConfig()">💾 Save Sender Info</button>
+  </div>
 </div>
 
 <!-- ===== ANALYTICS ===== -->
@@ -503,6 +593,8 @@ function showPage(id,btn){
   if(id==='chapters')  renderChapters();
   if(id==='analytics') renderAnalytics();
   if(id==='send')      renderSendPage();
+  if(id==='settings')  renderSettingsPage();
+  if(id==='gate')      renderGatePage();
 }
 
 // ============================================================
@@ -872,8 +964,811 @@ function renderAnalytics(){
   }).join('');
 }
 
+// ============================================================
+// EMAILJS CONFIG
+// ============================================================
+function loadEmailJSConfig(){
+  return {
+    pubkey:   localStorage.getItem('drc_ejs_pubkey')   || '',
+    service:  localStorage.getItem('drc_ejs_service')  || '',
+    template: localStorage.getItem('drc_ejs_template') || '',
+    fromName: localStorage.getItem('drc_ejs_fromname') || 'Adu Sheref – Secretary General, DRC',
+    replyTo:  localStorage.getItem('drc_ejs_replyto')  || 'adusheref@gmail.com',
+  };
+}
+
+function saveEmailJSConfig(){
+  const pk = document.getElementById('ejs-pubkey').value.trim();
+  const sv = document.getElementById('ejs-service').value.trim();
+  const tm = document.getElementById('ejs-template').value.trim();
+  if(!pk||!sv||!tm){ setEJSStatus('Please fill in all three fields.','warn'); return; }
+  localStorage.setItem('drc_ejs_pubkey',   pk);
+  localStorage.setItem('drc_ejs_service',  sv);
+  localStorage.setItem('drc_ejs_template', tm);
+  emailjs.init(pk);
+  setEJSStatus('✅ Saved & connected! EmailJS is ready.','success');
+  updateSendPageBanner();
+}
+
+function saveSenderConfig(){
+  localStorage.setItem('drc_ejs_fromname', document.getElementById('cfg-from-name').value.trim());
+  localStorage.setItem('drc_ejs_replyto',  document.getElementById('cfg-reply-to').value.trim());
+  alert('Sender info saved!');
+}
+
+function clearEmailJSConfig(){
+  ['drc_ejs_pubkey','drc_ejs_service','drc_ejs_template'].forEach(k=>localStorage.removeItem(k));
+  ['ejs-pubkey','ejs-service','ejs-template'].forEach(id=>{ const el=document.getElementById(id); if(el) el.value=''; });
+  setEJSStatus('Credentials cleared.','warn');
+  updateSendPageBanner();
+}
+
+function setEJSStatus(msg, type){
+  const el = document.getElementById('ejs-status');
+  if(!el) return;
+  el.innerHTML = `<div class="msg ${type==='success'?'msg-success':'msg-warn'}" style="margin:0;">${msg}</div>`;
+}
+
+function isEmailJSReady(){
+  const cfg = loadEmailJSConfig();
+  return cfg.pubkey && cfg.service && cfg.template;
+}
+
+function initEmailJS(){
+  const cfg = loadEmailJSConfig();
+  if(cfg.pubkey){
+    emailjs.init(cfg.pubkey);
+  }
+}
+
+function updateSendPageBanner(){
+  const warn  = document.getElementById('emailjs-warning');
+  const ready = document.getElementById('emailjs-ready');
+  if(!warn||!ready) return;
+  if(isEmailJSReady()){ warn.style.display='none'; ready.style.display='block'; }
+  else { warn.style.display='block'; ready.style.display='none'; }
+}
+
+function testEmailJS(){
+  const cfg = loadEmailJSConfig();
+  if(!isEmailJSReady()){ setEJSStatus('Save credentials first.','warn'); return; }
+  setEJSStatus('Sending test email to adusheref@gmail.com...','success');
+  emailjs.send(cfg.service, cfg.template, {
+    to_email:     'ediepaulvandy@gmail.com',
+    to_name:      'Edie Vandy',
+    chapter_code: 'TEST',
+    chapter_name: 'Test Chapter',
+    serials:      'DRC-20260725-000',
+    ticket_count: '1',
+    total_amount: '$100',
+    event_date:   'Saturday, July 25, 2026',
+    venue:        '5410 NC-55, Durham, NC 27713',
+    payment_info: 'Zelle: (919) 638-7503 | Cash App: $SLPPNADRC | PayPal: adusheref@gmail.com',
+    from_name:    cfg.fromName,
+    reply_to:     cfg.replyTo,
+    message:      'This is a test email from the SLPPNA DRC Ticketing Platform.',
+  }).then(()=>{
+    setEJSStatus('✅ Test email sent successfully!','success');
+  }).catch(err=>{
+    setEJSStatus('❌ Error: ' + (err.text||JSON.stringify(err)),'warn');
+  });
+}
+
+// ============================================================
+// BUILD EMAIL PARAMS FOR A CHAPTER
+// ============================================================
+function buildEmailParams(ch, chTix){
+  const cfg = loadEmailJSConfig();
+  const serials = chTix.map(t=>t.serial).join(', ');
+  const msg =
+`Dear ${ch.chair},
+
+Greetings from the SLPPNA DRC Chapter!
+
+We are pleased to formally allocate your 5 tickets for the DRC Chapter Executive Inaugural Ball 2026.
+
+EVENT DETAILS:
+  Date:  Saturday, July 25, 2026
+  Time:  8:00 PM – 2:00 AM
+  Venue: 5410 NC-55, Durham, NC 27713
+
+YOUR ALLOCATED TICKET SERIALS:
+  ${serials}
+
+TICKET TYPE & PRICE:
+  Regular: $100 per ticket (5 tickets = $500 total)
+
+PAYMENT OPTIONS:
+  Zelle:    (919) 638-7503
+  Cash App: $SLPPNADRC
+  PayPal:   adusheref@gmail.com
+
+Please REPLY TO THIS EMAIL to confirm receipt of your ticket allocation.
+
+With warm regards,
+${cfg.fromName}
+(919) 638-7503 | ${cfg.replyTo}
+
+Amina Kawa – Chair, DRC
+(984) 884-7808`;
+
+  return {
+    to_email:     ch.email,
+    to_name:      ch.chair,
+    chapter_code: ch.code,
+    chapter_name: ch.name,
+    serials:      serials,
+    ticket_count: '5',
+    total_amount: '$500',
+    event_date:   'Saturday, July 25, 2026',
+    venue:        '5410 NC-55, Durham, NC 27713',
+    payment_info: 'Zelle: (919) 638-7503 | Cash App: $SLPPNADRC | PayPal: adusheref@gmail.com',
+    from_name:    cfg.fromName,
+    reply_to:     cfg.replyTo,
+    message:      msg,
+  };
+}
+
+// ============================================================
+// SEND SINGLE CHAPTER EMAIL
+// ============================================================
+function sendChapterEmail(code, btn){
+  if(!isEmailJSReady()){
+    alert('EmailJS not configured. Go to ⚙️ Settings first.');
+    return;
+  }
+  const ch = CHAPTERS.find(c=>c.code===code);
+  if(!ch) return;
+  tickets = getTickets();
+  const chTix = tickets.filter(t=>t.chapter===code);
+  const cfg = loadEmailJSConfig();
+  const params = buildEmailParams(ch, chTix);
+
+  if(btn){ btn.disabled=true; btn.textContent='Sending...'; }
+  const logEl = document.getElementById('send-log');
+
+  emailjs.send(cfg.service, cfg.template, params)
+    .then(()=>{
+      // Update all tickets for this chapter to "Ticket Sent by Email"
+      tickets = getTickets();
+      tickets.forEach(t=>{ if(t.chapter===code) t.status='Ticket Sent by Email'; });
+      saveTickets(tickets);
+      if(btn){ btn.disabled=false; btn.textContent='✅ Sent!'; btn.style.background='#1a4a1a'; btn.style.color='#7ef77e'; }
+      renderSendPreview();
+      appendSendLog(ch.name, ch.email, 'success');
+    })
+    .catch(err=>{
+      if(btn){ btn.disabled=false; btn.textContent='❌ Retry'; btn.style.background='#4a1a1a'; btn.style.color='#f77e7e'; }
+      appendSendLog(ch.name, ch.email, 'error', err.text||JSON.stringify(err));
+    });
+}
+
+// ============================================================
+// SEND ALL 19 CHAPTERS (with delay to avoid rate limiting)
+// ============================================================
+async function sendAllChapters(){
+  if(!isEmailJSReady()){
+    alert('EmailJS not configured. Go to ⚙️ Settings first.');
+    return;
+  }
+  if(!confirm('Send allocation emails to ALL 19 chapters now?')) return;
+
+  const cfg = loadEmailJSConfig();
+  tickets = getTickets();
+  const chaptersToSend = CHAPTERS.filter(ch=>ch.code!=='DRC');
+  let sent=0, failed=0;
+  const logEl = document.getElementById('send-log');
+  logEl.innerHTML = `<div class="card"><h3>Bulk Send Log</h3><div id="bulk-log-inner"></div></div>`;
+
+  for(const ch of chaptersToSend){
+    const chTix = tickets.filter(t=>t.chapter===ch.code);
+    const params = buildEmailParams(ch, chTix);
+    try {
+      await emailjs.send(cfg.service, cfg.template, params);
+      // Update status
+      tickets = getTickets();
+      tickets.forEach(t=>{ if(t.chapter===ch.code && t.status==='Ticket Created in System') t.status='Ticket Sent by Email'; });
+      saveTickets(tickets);
+      sent++;
+      appendBulkLog(ch.code, ch.chair, ch.email, true);
+    } catch(err){
+      failed++;
+      appendBulkLog(ch.code, ch.chair, ch.email, false, err.text||'Error');
+    }
+    // Small delay to avoid rate limiting
+    await new Promise(r=>setTimeout(r,1200));
+  }
+  appendBulkLog('DONE', `Sent: ${sent} ✅  Failed: ${failed} ❌`, '', null);
+}
+
+function appendBulkLog(code, name, email, success, errMsg){
+  const el = document.getElementById('bulk-log-inner');
+  if(!el) return;
+  const row = document.createElement('div');
+  row.style.cssText = 'padding:6px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:13px;';
+  row.innerHTML = success===null
+    ? `<strong style="color:var(--gold)">${name}</strong>`
+    : success
+      ? `<span style="color:#7ef77e">✅ ${code}</span> — ${name} <span class="text-sm">&lt;${email}&gt;</span>`
+      : `<span style="color:#f77e7e">❌ ${code}</span> — ${name} <span class="text-sm">${errMsg}</span>`;
+  el.appendChild(row);
+  el.scrollTop = el.scrollHeight;
+}
+
+function appendSendLog(name, email, status, err){
+  const logEl = document.getElementById('send-log');
+  if(!logEl) return;
+  const cls = status==='success'?'msg-success':'msg-warn';
+  const ico = status==='success'?'✅':'❌';
+  logEl.innerHTML = `<div class="msg ${cls}">${ico} Email ${status==='success'?'sent to':'failed for'} <strong>${name}</strong> &lt;${email}&gt;${err?' — '+err:''}</div>`;
+}
+
+// ============================================================
+// ENHANCED SEND PAGE
+// ============================================================
+function renderSendPage(){
+  updateSendPageBanner();
+  const sel=document.getElementById('send-chapter-sel');
+  sel.innerHTML='<option value="">— Select Chapter —</option>';
+  CHAPTERS.forEach(ch=>{
+    if(ch.code==='DRC') return;
+    const o=document.createElement('option'); o.value=ch.code;
+    tickets = getTickets();
+    const chTix = tickets.filter(t=>t.chapter===ch.code);
+    const allSent = chTix.every(t=>t.status!=='Ticket Created in System');
+    o.textContent = ch.code+' – '+ch.name+' ('+ch.chair+')'+(allSent?' ✓':'');
+    sel.appendChild(o);
+  });
+}
+
+function renderSendPreview(){
+  const code=document.getElementById('send-chapter-sel').value;
+  if(!code){ document.getElementById('send-preview').innerHTML=''; return; }
+  const ch=CHAPTERS.find(c=>c.code===code);
+  tickets=getTickets();
+  const chTix=tickets.filter(t=>t.chapter===code);
+  const serials=chTix.map(t=>t.serial).join(', ');
+  const cfg = loadEmailJSConfig();
+
+  const msg=`Dear ${ch.chair},
+
+Greetings from the SLPPNA DRC Chapter!
+
+We are pleased to formally allocate your 5 tickets for the DRC Chapter Executive Inaugural Ball 2026.
+
+EVENT DETAILS:
+  Date:  Saturday, July 25, 2026
+  Time:  8:00 PM – 2:00 AM
+  Venue: 5410 NC-55, Durham, NC 27713
+
+YOUR ALLOCATED TICKET SERIALS:
+  ${serials}
+
+TICKET TYPE & PRICE:
+  Regular: $100 per ticket (5 tickets = $500 total)
+
+PAYMENT OPTIONS:
+  Zelle:    (919) 638-7503
+  Cash App: $SLPPNADRC
+  PayPal:   adusheref@gmail.com
+
+Please REPLY TO THIS EMAIL to confirm receipt of your ticket allocation.
+
+With warm regards,
+${cfg.fromName}
+(919) 638-7503 | ${cfg.replyTo}
+
+Amina Kawa – Chair, DRC
+(984) 884-7808`;
+
+  const ejsReady = isEmailJSReady();
+  document.getElementById('send-preview').innerHTML=`
+    <div class="card">
+      <div class="flex-between" style="margin-bottom:14px;">
+        <div>
+          <div class="text-gold" style="font-size:16px;">${ch.name} Chapter (${ch.code})</div>
+          <div class="text-sm">To: ${ch.chair} · ${ch.email} · ${ch.phone}</div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          ${ejsReady
+            ? `<button class="btn btn-sm" id="send-btn-${code}" onclick="sendChapterEmail('${code}',this)">📧 Send Email Now</button>`
+            : `<button class="btn btn-sm" style="opacity:.4;cursor:not-allowed;" title="Configure EmailJS in Settings first">📧 Send (Setup Required)</button>`
+          }
+          <button class="btn btn-sm" style="background:var(--green);color:var(--gold);border:1px solid var(--gold);" onclick="openTicketModal('${code}')">🎟 View & Print Tickets</button>
+          <button class="btn-outline btn-sm" onclick="copyMsg()">📋 Copy</button>
+        </div>
+      </div>
+
+      <!-- Ticket status table -->
+      <div class="tbl-wrap"><table><thead><tr><th>Serial</th><th>Name</th><th>Type</th><th>Status</th><th>Quick Update</th></tr></thead><tbody>
+        ${chTix.map(t=>`<tr>
+          <td class="text-gold" style="font-size:12px;">${t.serial}</td>
+          <td style="font-size:12px;">${t.name||'—'}</td>
+          <td><span class="${typeClass(t.type)}">${t.type}</span></td>
+          <td><span class="badge-status ${statusClass(t.status)}">${statusShort(t.status)}</span></td>
+          <td>
+            <select style="margin:0;padding:3px 6px;font-size:11px;width:auto;" onchange="quickStatus('${t.serial}',this.value);this.value='';renderSendPreview();">
+              <option value="">▶ Update</option>
+              ${STATUS_LIST.map(s=>`<option value="${s}">${statusShort(s)}</option>`).join('')}
+            </select>
+          </td>
+        </tr>`).join('')}
+      </tbody></table></div>
+      <hr class="divider">
+
+      <!-- Bulk status actions -->
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
+        <span style="font-size:12px;color:var(--gold-light);padding-top:6px;">Mark all as:</span>
+        ${STATUS_LIST.map(s=>`<button class="btn-outline btn-sm" onclick="bulkStatusChapter('${code}','${s}')">${statusShort(s)}</button>`).join('')}
+      </div>
+
+      <!-- Email preview -->
+      <p class="text-sm" style="margin-bottom:8px;">📝 Email preview (editable):</p>
+      <textarea id="send-msg" rows="20" style="font-family:monospace;font-size:12px;">${msg}</textarea>
+    </div>`;
+}
+
+function bulkStatusChapter(code, status){
+  tickets = getTickets();
+  tickets.forEach(t=>{ if(t.chapter===code) t.status=status; });
+  saveTickets(tickets);
+  renderSendPreview();
+  renderDashboard();
+}
+
+function copyMsg(){
+  const el=document.getElementById('send-msg');
+  if(el){ navigator.clipboard.writeText(el.value).then(()=>alert('Copied!')).catch(()=>{el.select();document.execCommand('copy');alert('Copied!');}); }
+}
+
+// ============================================================
+// SETTINGS PAGE INIT
+// ============================================================
+function renderSettingsPage(){
+  const cfg = loadEmailJSConfig();
+  document.getElementById('ejs-pubkey').value  = cfg.pubkey;
+  document.getElementById('ejs-service').value = cfg.service;
+  document.getElementById('ejs-template').value= cfg.template;
+  document.getElementById('cfg-from-name').value = cfg.fromName;
+  document.getElementById('cfg-reply-to').value  = cfg.replyTo;
+  if(cfg.pubkey && cfg.service && cfg.template){
+    setEJSStatus('✅ EmailJS is configured and ready.','success');
+  }
+}
+
+
+// ============================================================
+// QR CODE + TICKET GENERATION
+// ============================================================
+
+function qrDataForTicket(t, ch){
+  return JSON.stringify({
+    serial:  t.serial,
+    event:   'SLPPNA DRC Executive Inaugural Ball 2026',
+    date:    '2026-07-25',
+    type:    t.type,
+    name:    t.name,
+    chapter: t.chapter,
+  });
+}
+
+// Generate a QR code as base64 PNG using canvas
+function generateQRBase64(text, size){
+  return new Promise((resolve, reject) => {
+    const container = document.createElement('div');
+    container.style.cssText = 'position:absolute;left:-9999px;top:-9999px;';
+    document.body.appendChild(container);
+    try {
+      new QRCode(container, {
+        text: text,
+        width: size || 120,
+        height: size || 120,
+        colorDark: '#0d1f12',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.M,
+      });
+      setTimeout(() => {
+        const canvas = container.querySelector('canvas');
+        const img    = container.querySelector('img');
+        let src = '';
+        if(canvas) src = canvas.toDataURL('image/png');
+        else if(img) src = img.src;
+        document.body.removeChild(container);
+        resolve(src);
+      }, 200);
+    } catch(e) {
+      document.body.removeChild(container);
+      reject(e);
+    }
+  });
+}
+
+function typeClassTk(t){
+  if(t==='Patron')    return 'tk-type-patron';
+  if(t==='Community') return 'tk-type-community';
+  return 'tk-type-regular';
+}
+
+// Build one visual ticket card HTML (with QR as base64 src)
+function buildTicketCardHTML(t, ch, qrSrc){
+  return `
+  <div class="ticket-card" style="position:relative;">
+    <div class="ticket-notch-l"></div>
+    <div class="ticket-left">
+      <div class="tk-org">SLPPNA North Carolina • DRC Chapter</div>
+      <div class="tk-event">Executive Inaugural Ball 2026</div>
+      <span class="tk-type ${typeClassTk(t.type)}">${t.type} Ticket</span>
+      <div class="tk-grid">
+        <div class="tk-field">
+          <span class="tk-label">Guest Name</span>
+          <span class="tk-value">${t.name||'—'}</span>
+        </div>
+        <div class="tk-field">
+          <span class="tk-label">Chapter</span>
+          <span class="tk-value">${ch ? ch.name : t.chapter}</span>
+        </div>
+        <div class="tk-field">
+          <span class="tk-label">Date</span>
+          <span class="tk-value">Saturday, July 25 2026</span>
+        </div>
+        <div class="tk-field">
+          <span class="tk-label">Time</span>
+          <span class="tk-value">8:00 PM – 2:00 AM</span>
+        </div>
+        <div class="tk-field" style="grid-column:1/-1;">
+          <span class="tk-label">Venue</span>
+          <span class="tk-value">5410 NC-55, Durham, NC 27713</span>
+        </div>
+        <div class="tk-field">
+          <span class="tk-label">Price</span>
+          <span class="tk-value" style="color:#c9a84c;font-weight:bold;">$${t.price}</span>
+        </div>
+        <div class="tk-field">
+          <span class="tk-label">Status</span>
+          <span class="tk-value">${t.status}</span>
+        </div>
+      </div>
+      <div class="tk-serial">${t.serial}</div>
+    </div>
+    <div class="ticket-right">
+      ${qrSrc ? `<img src="${qrSrc}" style="width:110px;height:110px;border-radius:6px;background:#fff;padding:4px;" alt="QR" />` : '<div style="width:110px;height:110px;background:#1a3a1a;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#c9a84c;">QR Loading...</div>'}
+      <div class="tk-qr-label">Scan at Gate</div>
+    </div>
+    <div class="ticket-notch-r"></div>
+  </div>`;
+}
+
+// Generate all 5 tickets for a chapter with QR codes
+async function generateChapterTickets(code){
+  tickets = getTickets();
+  const ch = CHAPTERS.find(c=>c.code===code);
+  const chTix = tickets.filter(t=>t.chapter===code);
+  const ticketHTMLs = [];
+  for(const t of chTix){
+    const qrText = qrDataForTicket(t, ch);
+    let qrSrc = '';
+    try { qrSrc = await generateQRBase64(qrText, 120); } catch(e){ console.warn('QR error',e); }
+    ticketHTMLs.push(buildTicketCardHTML(t, ch, qrSrc));
+  }
+  return { ch, chTix, ticketHTMLs };
+}
+
+// ============================================================
+// TICKET MODAL — view/print/download
+// ============================================================
+async function openTicketModal(code){
+  const modal = document.getElementById('ticket-modal');
+  const body  = document.getElementById('ticket-modal-body');
+  const title = document.getElementById('ticket-modal-title');
+  modal.classList.add('open');
+  body.innerHTML = '<div style="text-align:center;padding:40px;color:var(--gold);">⏳ Generating tickets with QR codes...</div>';
+
+  const { ch, chTix, ticketHTMLs } = await generateChapterTickets(code);
+  title.textContent = ch.name + ' Chapter (' + code + ') — ' + chTix.length + ' Tickets';
+
+  body.innerHTML = `
+    <div style="background:#162a1c;border:1px solid rgba(201,168,76,.3);border-radius:10px;padding:16px;margin-bottom:16px;">
+      <div style="font-size:13px;color:var(--light);margin-bottom:8px;">
+        <strong style="color:var(--gold);">Chair:</strong> ${ch.chair} &nbsp;·&nbsp;
+        <strong style="color:var(--gold);">Email:</strong> ${ch.email} &nbsp;·&nbsp;
+        <strong style="color:var(--gold);">Phone:</strong> ${ch.phone}
+      </div>
+      <div class="msg msg-info" style="margin:0;font-size:12px;">
+        💡 Each ticket has a unique QR code. Chapter chair shows QR on phone at the gate — staff scans or searches serial in the platform.
+      </div>
+    </div>
+    ${ticketHTMLs.join('')}
+    <div style="text-align:center;padding:16px;font-size:12px;color:var(--gold-light);opacity:.6;">
+      SLPPNA DRC Chapter — Executive Inaugural Ball 2026 — Tickets generated by platform
+    </div>`;
+
+  // Store for print/download
+  window._currentTicketHTML = {
+    title: ch.name + ' Chapter — DRC Ball 2026 Tickets',
+    body: ticketHTMLs.join(''),
+    code: code,
+  };
+}
+
+function closeTicketModal(){
+  document.getElementById('ticket-modal').classList.remove('open');
+}
+
+function printTickets(){
+  if(!window._currentTicketHTML) return;
+  const win = window.open('', '_blank');
+  win.document.write(printableTicketPage(window._currentTicketHTML.title, window._currentTicketHTML.body));
+  win.document.close();
+  win.focus();
+  setTimeout(()=>win.print(), 600);
+}
+
+function downloadTicketPage(){
+  if(!window._currentTicketHTML) return;
+  const content = printableTicketPage(window._currentTicketHTML.title, window._currentTicketHTML.body);
+  const a = document.createElement('a');
+  a.href = 'data:text/html;charset=utf-8,' + encodeURIComponent(content);
+  a.download = 'DRC_Tickets_' + window._currentTicketHTML.code + '_2026.html';
+  a.click();
+}
+
+function printableTicketPage(title, ticketsHTML){
+  return `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${title}</title>
+  <style>
+    body { margin:0; padding:20px; background:#0d1f12; font-family:Georgia,serif; }
+    @media print { body { background: white; } .ticket-card { border-color: #333 !important; page-break-inside: avoid; } }
+    .ticket-card { width:680px; max-width:100%; background:linear-gradient(135deg,#0a1f0d,#0f2e18,#0a1a0d); border:2px solid #c9a84c; border-radius:14px; overflow:hidden; margin:12px auto; display:flex; font-family:Georgia,serif; box-shadow:0 4px 24px rgba(0,0,0,.5); position:relative; }
+    .ticket-left { flex:1; padding:20px 20px 20px 22px; display:flex; flex-direction:column; gap:6px; border-right:2px dashed rgba(201,168,76,.4); min-width:0; }
+    .ticket-right { width:140px; flex-shrink:0; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:16px 12px; background:rgba(0,0,0,.2); }
+    .tk-org { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#c9a84c; opacity:.8; }
+    .tk-event { font-size:15px; font-weight:bold; color:#c9a84c; line-height:1.2; margin:2px 0; }
+    .tk-type { display:inline-block; font-size:11px; font-weight:bold; padding:2px 10px; border-radius:10px; margin:2px 0; }
+    .tk-type-regular { background:#1a3a1a; color:#a0f0a0; }
+    .tk-type-patron { background:#3a2a00; color:#f0c050; }
+    .tk-type-community { background:#2a1a3a; color:#d0a0ff; }
+    .tk-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px 16px; margin-top:6px; }
+    .tk-field { font-size:11px; }
+    .tk-label { color:#c9a84c; opacity:.65; font-size:9px; text-transform:uppercase; letter-spacing:1px; display:block; }
+    .tk-value { color:#f5f0e8; font-size:12px; }
+    .tk-serial { font-size:10px; letter-spacing:3px; color:#c9a84c; margin-top:8px; border-top:1px solid rgba(201,168,76,.3); padding-top:6px; }
+    .tk-qr-label { font-size:9px; color:#c9a84c; text-align:center; margin-top:6px; opacity:.7; letter-spacing:1px; text-transform:uppercase; }
+    .ticket-notch-l { position:absolute; left:-10px; top:50%; transform:translateY(-50%); width:20px; height:20px; background:#0d1f12; border-radius:50%; border:2px solid #c9a84c; }
+    .ticket-notch-r { position:absolute; right:-10px; top:50%; transform:translateY(-50%); width:20px; height:20px; background:#0d1f12; border-radius:50%; border:2px solid #c9a84c; }
+    h1 { color:#c9a84c; text-align:center; font-size:18px; margin-bottom:20px; letter-spacing:2px; }
+  </style></head><body>
+  <h1>${title}</h1>
+  ${ticketsHTML}
+  </body></html>`;
+}
+
+// ============================================================
+// ENHANCED EMAIL SEND WITH TICKETS
+// ============================================================
+async function sendChapterEmail(code, btn){
+  if(!isEmailJSReady()){
+    alert('EmailJS not configured. Go to ⚙️ Settings first.');
+    return;
+  }
+  const ch = CHAPTERS.find(c=>c.code===code);
+  if(!ch) return;
+  tickets = getTickets();
+  const chTix = tickets.filter(t=>t.chapter===code);
+  const cfg = loadEmailJSConfig();
+
+  if(btn){ btn.disabled=true; btn.textContent='⏳ Generating tickets & QR codes...'; }
+
+  // Generate QR codes for each ticket
+  const qrImages = [];
+  for(const t of chTix){
+    let qrSrc = '';
+    try { qrSrc = await generateQRBase64(qrDataForTicket(t, ch), 150); } catch(e){ console.warn(e); }
+    qrImages.push(qrSrc);
+  }
+
+  // Build ticket HTML blocks for email (inline images)
+  const ticketBlocks = chTix.map((t, i) => {
+    const qr = qrImages[i] || '';
+    return `
+--- TICKET ${i+1} of 5 ---
+Serial: ${t.serial}
+Type:   ${t.type} ($${t.price})
+Name:   ${t.name}
+Chapter: ${ch.name}
+Date:   Saturday, July 25, 2026 | 8:00 PM
+Venue:  5410 NC-55, Durham NC 27713
+QR Code: Show the QR image on your phone at the entrance gate.
+`;
+  }).join('
+');
+
+  const serials = chTix.map(t=>t.serial).join(', ');
+
+  const msg = `Dear ${ch.chair},
+
+Greetings from the SLPPNA DRC Chapter!
+
+Your 5 tickets for the Executive Inaugural Ball 2026 are attached below.
+
+EVENT DETAILS:
+  Date:  Saturday, July 25, 2026
+  Time:  8:00 PM – 2:00 AM
+  Venue: 5410 NC-55, Durham, NC 27713
+
+YOUR TICKETS:
+${ticketBlocks}
+
+HOW TO USE YOUR TICKETS:
+  Option 1: Show the QR code image on your phone at the entrance gate
+  Option 2: Print this email and present at the gate
+  Option 3: Provide your serial number — staff will verify in the system
+
+PAYMENT ($500 total for 5 tickets):
+  Zelle:    (919) 638-7503
+  Cash App: $SLPPNADRC
+  PayPal:   adusheref@gmail.com
+
+Please REPLY TO THIS EMAIL to confirm receipt of your tickets.
+
+With warm regards,
+${cfg.fromName}
+(919) 638-7503 | ${cfg.replyTo}
+
+Amina Kawa – Chair, DRC
+(984) 884-7808`;
+
+  const params = {
+    to_email:     ch.email,
+    to_name:      ch.chair,
+    chapter_code: ch.code,
+    chapter_name: ch.name,
+    serials:      serials,
+    ticket_count: '5',
+    total_amount: '$500',
+    event_date:   'Saturday, July 25, 2026',
+    venue:        '5410 NC-55, Durham, NC 27713',
+    payment_info: 'Zelle: (919) 638-7503 | Cash App: $SLPPNADRC | PayPal: adusheref@gmail.com',
+    from_name:    cfg.fromName,
+    reply_to:     cfg.replyTo,
+    message:      msg,
+    // QR images as separate params (use in template if email client supports)
+    qr_1: qrImages[0]||'', qr_2: qrImages[1]||'',
+    qr_3: qrImages[2]||'', qr_4: qrImages[3]||'',
+    qr_5: qrImages[4]||'',
+  };
+
+  if(btn) btn.textContent = '📧 Sending email...';
+
+  emailjs.send(cfg.service, cfg.template, params)
+    .then(()=>{
+      tickets = getTickets();
+      tickets.forEach(t=>{ if(t.chapter===code) t.status='Ticket Sent by Email'; });
+      saveTickets(tickets);
+      if(btn){ btn.disabled=false; btn.textContent='✅ Sent!'; btn.style.background='#1a4a1a'; btn.style.color='#7ef77e'; }
+      renderSendPreview();
+      appendSendLog(ch.name, ch.email, 'success');
+    })
+    .catch(err=>{
+      if(btn){ btn.disabled=false; btn.textContent='❌ Retry'; btn.style.background='#4a1a1a'; btn.style.color='#f77e7e'; }
+      appendSendLog(ch.name, ch.email, 'error', err.text||JSON.stringify(err));
+    });
+}
+
+// ============================================================
+// GATE VERIFICATION — scan or search serial
+// ============================================================
+function verifySerial(serial){
+  if(!serial) return;
+  tickets = getTickets();
+  const t = tickets.find(x => x.serial.toLowerCase() === serial.toLowerCase().trim());
+  const el = document.getElementById('gate-result');
+  if(!t){
+    el.innerHTML = '<div class="msg" style="background:#4a1a1a;border-left:4px solid #f77e7e;color:#f7c0c0;">❌ Ticket NOT FOUND. Serial: ' + serial + '</div>';
+    return;
+  }
+  const ch = CHAPTERS.find(c=>c.code===t.chapter);
+  const ok = t.status !== 'Ticket Created in System';
+  el.innerHTML = `<div class="msg ${ok?'msg-success':'msg-warn'}">
+    ${ok?'✅ VALID TICKET':'⚠️ TICKET NOT YET SENT — Verify with secretary'}
+    <div style="margin-top:8px;font-size:13px;">
+      <strong>Serial:</strong> ${t.serial}<br>
+      <strong>Name:</strong> ${t.name||'—'}<br>
+      <strong>Type:</strong> ${t.type} ($${t.price})<br>
+      <strong>Chapter:</strong> ${t.chapter}${ch?' – '+ch.name:''}<br>
+      <strong>Status:</strong> ${t.status}
+    </div>
+    ${ok?`<button class="btn btn-sm" style="margin-top:10px;" onclick="markAdmitted('${t.serial}')">✅ Mark as Admitted</button>`:''}
+  </div>`;
+}
+
+function markAdmitted(serial){
+  tickets = getTickets();
+  const t = tickets.find(x=>x.serial===serial);
+  if(t){ t.status='Confirmed Receipt via Email'; t.notes=(t.notes?t.notes+' | ':'')+'Admitted at gate '+new Date().toLocaleString(); saveTickets(tickets); }
+  document.getElementById('gate-result').innerHTML += '<div class="msg msg-success" style="margin-top:8px;">✅ Marked as admitted!</div>';
+}
+
+
+function renderGatePage(){
+  tickets = getTickets();
+  const conf  = tickets.filter(t=>t.status==='Confirmed Receipt via Email').length;
+  const deliv = tickets.filter(t=>t.status==='Delivered (Digital)').length;
+  const sent  = tickets.filter(t=>t.status==='Ticket Sent by Email').length;
+  const total = 220;
+  document.getElementById('gate-stats').innerHTML = `
+    <div class="stat"><div class="num">${total}</div><div class="lbl">Total Tickets</div></div>
+    <div class="stat"><div class="num">${sent+deliv+conf}</div><div class="lbl">Issued</div></div>
+    <div class="stat"><div class="num">${conf}</div><div class="lbl">Confirmed / Admitted</div></div>
+    <div class="stat"><div class="num">${total-(sent+deliv+conf)}</div><div class="lbl">Not Yet Sent</div></div>`;
+  
+  const admitted = tickets.filter(t=>t.status==='Confirmed Receipt via Email');
+  let rows = '';
+  admitted.forEach((t,i)=>{
+    const ch = CHAPTERS.find(c=>c.code===t.chapter);
+    rows += `<tr>
+      <td class="text-gold" style="font-size:12px;">${t.serial}</td>
+      <td>${t.name||'—'}</td>
+      <td><span class="${typeClass(t.type)}">${t.type}</span></td>
+      <td><span class="tag">${t.chapter}</span></td>
+      <td><span class="badge-status s-confirmed">✅ Confirmed</span></td>
+    </tr>`;
+  });
+  document.getElementById('gate-admitted-tbody').innerHTML = rows || '<tr><td colspan="5" style="text-align:center;opacity:.5;">No confirmed tickets yet</td></tr>';
+  document.getElementById('gate-admitted-count').textContent = admitted.length + ' confirmed tickets';
+}
+
 // INIT
 renderDashboard();
+initEmailJS();
 </script>
+
+
+<!-- ===== GATE VERIFICATION ===== -->
+<div id="page-gate" class="page">
+  <h2 class="text-gold" style="margin-bottom:16px;">🚪 Gate Verification</h2>
+  <div class="msg msg-info">Scan QR code or enter ticket serial number to verify admission at the gate.</div>
+
+  <div class="card" style="margin-top:16px;">
+    <h3>Search / Verify Ticket</h3>
+    <div style="display:flex;gap:10px;margin-bottom:12px;flex-wrap:wrap;">
+      <input id="gate-serial-input" placeholder="Enter serial e.g. DRC-20260725-001" style="flex:1;min-width:200px;margin:0;font-size:16px;" 
+             onkeydown="if(event.key==='Enter') verifySerial(this.value)" />
+      <button class="btn" onclick="verifySerial(document.getElementById('gate-serial-input').value)">🔍 Verify</button>
+      <button class="btn-outline" onclick="document.getElementById('gate-serial-input').value='';document.getElementById('gate-result').innerHTML='';">Clear</button>
+    </div>
+    <div id="gate-result"></div>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <h3>Quick Stats</h3>
+    <div class="stats" id="gate-stats" style="margin-bottom:0;"></div>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <h3>All Tickets — Admitted Today</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Serial</th><th>Name</th><th>Type</th><th>Chapter</th><th>Status</th></tr></thead>
+        <tbody id="gate-admitted-tbody"></tbody>
+      </table>
+    </div>
+    <p class="text-sm mt" id="gate-admitted-count"></p>
+  </div>
+</div>
+
+<!-- TICKET VIEWER MODAL -->
+<div class="ticket-modal-bg" id="ticket-modal">
+  <div class="ticket-modal-inner">
+    <div class="ticket-modal-header">
+      <h2 style="color:var(--gold);font-size:18px;" id="ticket-modal-title">Chapter Tickets</h2>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <button class="btn btn-sm" onclick="printTickets()">🖨️ Print</button>
+        <button class="btn btn-sm" onclick="downloadTicketPage()">⬇️ Download HTML</button>
+        <button class="btn-outline btn-sm" onclick="closeTicketModal()">✕ Close</button>
+      </div>
+    </div>
+    <div id="ticket-modal-body"></div>
+  </div>
+</div>
+
 </body>
 </html>
