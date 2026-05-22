@@ -1,849 +1,1148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SLPPNA DRC Chapter – Executive Inaugural Ball 2026</title>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>DRC Executive Inaugural Ball 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Georgia,serif;background:#0d1f12;color:#f5f0e8;min-height:100vh}
-nav{background:#1a5c2a;border-bottom:3px solid #c9a84c;display:flex;flex-wrap:wrap;padding:0 8px;position:sticky;top:0;z-index:100}
-nav button{background:none;border:none;color:#f5f0e8;font-family:Georgia,serif;font-size:12px;padding:11px 10px;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-3px}
-nav button:hover{color:#f0d080}
-nav button.active{color:#c9a84c;border-bottom-color:#c9a84c;font-weight:bold}
-.hdr{background:linear-gradient(135deg,#1a5c2a,#0d3518);text-align:center;padding:30px 20px;border-bottom:2px solid #c9a84c}
-.hdr img{width:90px;height:90px;border-radius:50%;border:3px solid #c9a84c;object-fit:cover;margin:0 auto 12px;display:block}
-.hdr h1{font-size:clamp(16px,4vw,26px);color:#c9a84c;letter-spacing:2px;text-transform:uppercase}
-.hdr p{font-size:13px;margin-top:4px;opacity:.85}
-.badges{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:12px}
-.badge{background:rgba(201,168,76,.15);border:1px solid #c9a84c;border-radius:20px;padding:5px 14px;font-size:12px;color:#f0d080}
-.page{display:none;padding:16px;max-width:960px;margin:0 auto}
-.page.active{display:block}
-.card{background:#162a1c;border:1px solid rgba(201,168,76,.3);border-radius:10px;padding:18px;margin-bottom:14px}
-.card h3{color:#c9a84c;margin-bottom:10px;font-size:15px}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-bottom:16px}
-.stat{background:#1a5c2a;border-radius:8px;padding:14px;text-align:center}
-.stat .n{font-size:24px;font-weight:bold;color:#c9a84c}
-.stat .l{font-size:11px;opacity:.8;margin-top:3px}
-.tbl-wrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse;font-size:12px}
-th{background:#1a5c2a;color:#c9a84c;padding:9px 7px;text-align:left;white-space:nowrap}
-td{padding:8px 7px;border-bottom:1px solid rgba(255,255,255,.07);vertical-align:middle}
-tr:hover td{background:rgba(201,168,76,.04)}
-.bs{border-radius:10px;padding:2px 9px;font-size:11px;font-weight:bold;display:inline-block;white-space:nowrap}
-.s0{background:#1a1a3a;color:#aaf}.s1{background:#1a3a5c;color:#7cf}.s2{background:#2a3a00;color:#cf7}.s3{background:#1a4a1a;color:#7f7}
-.tr{background:#1a3a1a;color:#a0f0a0;border-radius:10px;padding:2px 8px;font-size:11px}
-.tp{background:#3a2a00;color:#f0c050;border-radius:10px;padding:2px 8px;font-size:11px}
-.tc{background:#2a1a3a;color:#d0a0ff;border-radius:10px;padding:2px 8px;font-size:11px}
-input,select,textarea{background:#0d1f12;border:1px solid rgba(201,168,76,.4);border-radius:6px;color:#f5f0e8;font-family:Georgia,serif;font-size:13px;padding:8px 11px;width:100%;margin-bottom:8px}
-input:focus,select:focus,textarea:focus{outline:none;border-color:#c9a84c}
-.btn{background:#c9a84c;color:#0d1f12;border:none;border-radius:6px;padding:10px 22px;font-family:Georgia,serif;font-size:13px;font-weight:bold;cursor:pointer}
-.btn:hover{background:#f0d080}
-.btn:disabled{opacity:.5;cursor:not-allowed}
-.btno{background:transparent;border:2px solid #c9a84c;color:#c9a84c;border-radius:6px;padding:8px 18px;font-family:Georgia,serif;font-size:12px;cursor:pointer}
-.btno:hover{background:rgba(201,168,76,.15)}
-.btns{padding:5px 11px;font-size:11px}
-.btng{background:#1a5c2a;color:#c9a84c;border:1px solid #c9a84c;border-radius:6px;padding:5px 11px;font-size:11px;font-family:Georgia,serif;cursor:pointer}
-.lbl{font-size:11px;color:#f0d080;margin-bottom:3px;display:block}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:560px){.g2{grid-template-columns:1fr}}
-.msg{border-radius:6px;padding:11px 14px;margin:10px 0;font-size:13px}
-.ms{background:#1a3a1a;border-left:4px solid #7f7;color:#b0f7b0}
-.mi{background:#1a2a3a;border-left:4px solid #7cf;color:#b0d8f7}
-.mw{background:#3a2a00;border-left:4px solid #fd7;color:#f7e0a0}
-.me{background:#3a1a1a;border-left:4px solid #f77;color:#f7c0c0}
-hr{border:none;border-top:1px solid rgba(201,168,76,.2);margin:14px 0}
-.tag{background:#1a5c2a;border:1px solid rgba(201,168,76,.4);border-radius:4px;padding:2px 7px;font-size:11px;color:#f0d080;display:inline-block}
-.tg{color:#c9a84c}
-.ts{font-size:11px;opacity:.65}
-.mt{margin-top:10px}
-.fb{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
-.sr{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
-.sr input{flex:1;min-width:140px;margin:0}
-.sr select{width:auto;margin:0;min-width:120px}
-.steps{display:flex;margin-bottom:20px}
-.step{flex:1;text-align:center;font-size:11px;padding:7px 3px;border-bottom:3px solid rgba(255,255,255,.15);color:rgba(255,255,255,.4)}
-.step.done{border-color:#c9a84c;color:#c9a84c}
-.step.active{border-color:#f0d080;color:#f0d080;font-weight:bold}
-.paybox{background:rgba(201,168,76,.08);border:1px solid #c9a84c;border-radius:8px;padding:14px;margin:10px 0}
-.pm{display:flex;align-items:center;gap:9px;margin:7px 0;font-size:13px}
-.pi{width:30px;height:30px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:10px;flex-shrink:0}
-.bcard{background:#162a1c;border:2px solid rgba(201,168,76,.3);border-radius:12px;padding:20px;cursor:pointer;transition:all .2s}
-.bcard:hover,.bcard.sel{border-color:#c9a84c;background:rgba(201,168,76,.08)}
-.bcard .bp{font-size:26px;font-weight:bold;color:#c9a84c}
-.bcard .bn{font-size:17px;margin:5px 0 3px}
-.bcard .bd{font-size:12px;opacity:.6}
-.chg{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
-.chc{background:#162a1c;border:1px solid rgba(201,168,76,.25);border-radius:8px;padding:13px;transition:border-color .2s}
-.chc:hover{border-color:#c9a84c}
-.chcode{font-size:20px;font-weight:bold;color:#c9a84c}
-.chname{font-size:12px;margin:3px 0;opacity:.8}
-.chchair{font-size:11px;color:#f0d080;opacity:.7}
-.chprog{height:4px;background:rgba(255,255,255,.1);border-radius:2px;margin-top:9px}
-.chfill{height:100%;background:#c9a84c;border-radius:2px}
-.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:500;align-items:center;justify-content:center}
-.modal-bg.open{display:flex}
-.modal{background:#162a1c;border:2px solid #c9a84c;border-radius:12px;padding:22px;width:min(480px,95vw);max-height:90vh;overflow-y:auto}
-.modal h3{color:#c9a84c;margin-bottom:14px}
-.tmod{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:600;overflow-y:auto;padding:16px}
-.tmod.open{display:block}
-.tmodinner{max-width:720px;margin:0 auto}
-/* Ticket */
-.tk{width:100%;max-width:680px;background:linear-gradient(135deg,#0a1f0d,#0f2e18);border:2px solid #c9a84c;border-radius:12px;display:flex;margin:10px auto;position:relative;overflow:hidden}
-.tkl{flex:1;padding:18px 18px 18px 20px;border-right:2px dashed rgba(201,168,76,.35);min-width:0}
-.tkr{width:130px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px 10px;background:rgba(0,0,0,.2)}
-.tko{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#c9a84c;opacity:.75}
-.tke{font-size:14px;font-weight:bold;color:#c9a84c;line-height:1.2;margin:2px 0}
-.tktype{display:inline-block;font-size:10px;font-weight:bold;padding:2px 9px;border-radius:9px;margin:2px 0}
-.tkgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;margin-top:5px}
-.tkf .tkl2{color:#c9a84c;opacity:.6;font-size:8px;text-transform:uppercase;letter-spacing:1px;display:block}
-.tkf .tkv{color:#f5f0e8;font-size:11px}
-.tkser{font-size:9px;letter-spacing:3px;color:#c9a84c;margin-top:7px;border-top:1px solid rgba(201,168,76,.25);padding-top:5px}
-.tkqrl{font-size:8px;color:#c9a84c;text-align:center;margin-top:5px;opacity:.7;text-transform:uppercase;letter-spacing:1px}
-.tknl{position:absolute;left:-9px;top:50%;transform:translateY(-50%);width:18px;height:18px;background:#0d1f12;border-radius:50%;border:2px solid #c9a84c}
-.tknr{position:absolute;right:-9px;top:50%;transform:translateY(-50%);width:18px;height:18px;background:#0d1f12;border-radius:50%;border:2px solid #c9a84c}
-.ana-bar{margin:8px 0}
-.ana-lbl{display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px}
-.ana-tr{height:9px;background:rgba(255,255,255,.1);border-radius:4px}
-.ana-fi{height:100%;border-radius:4px}
-code{background:rgba(201,168,76,.15);padding:1px 5px;border-radius:3px;font-size:11px;color:#f0d080}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --g1:#063a12;--g2:#0d6b27;--g3:#12a036;--g4:#1ec44a;--g5:#6de89a;
+  --b1:#07225a;--b2:#0e3a8c;--b3:#1a56c4;--b4:#4d8bef;--b5:#9dc4ff;
+  --gd1:#7a5500;--gd2:#c9a227;--gd3:#e8bc2f;--gd4:#f7d860;--gd5:#fdf0a0;
+  --wh:#ffffff;--off:#f7faf8;--light:#eaf3ed;--muted:#c5ddc9;
+  --dk:#051209;--dk2:#0a2414;--dk3:#102c1a;
+  --tx:#162b1b;--tx2:#3d5e44;--tx3:#7da885;
+  --sh:0 4px 24px rgba(6,58,18,0.13);--sh2:0 10px 48px rgba(6,58,18,0.2);
+  --r:16px;--r2:12px;--r3:8px;--r4:6px;
+}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--off);color:var(--tx);min-height:100vh;overflow-x:hidden}
+
+/* HEADER */
+.hdr{background:linear-gradient(160deg,var(--dk) 0%,var(--dk2) 30%,#0a4a1e 65%,var(--g2) 100%);position:relative;overflow:hidden}
+.hdr-grid{content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(201,162,39,.12) 1px,transparent 1px);
+  background-size:32px 32px;pointer-events:none}
+.hdr-glow{position:absolute;top:-100px;right:-60px;width:400px;height:400px;
+  background:radial-gradient(circle,rgba(201,162,39,.08),transparent 65%);border-radius:50%;pointer-events:none}
+.hdr-in{position:relative;max-width:1300px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;gap:18px}
+.hdr-logo{width:62px;height:62px;border-radius:50%;border:2.5px solid var(--gd3);overflow:hidden;flex-shrink:0;
+  box-shadow:0 0 28px rgba(201,162,39,.35),0 4px 16px rgba(0,0,0,.4)}
+.hdr-logo img{width:100%;height:100%;object-fit:cover}
+.hdr-logo-fb{width:100%;height:100%;background:linear-gradient(135deg,var(--g2),var(--b3));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;color:var(--gd4);font-size:1.4rem;font-weight:700}
+.hdr-tx{flex:1}
+.hdr-tx h1{font-family:'Cormorant Garamond',serif;font-size:1.45rem;color:#fff;line-height:1.15;font-weight:700}
+.hdr-tx p{font-size:.68rem;color:var(--gd4);letter-spacing:.12em;text-transform:uppercase;margin-top:3px;font-weight:500}
+.hdr-chips{display:flex;flex-direction:column;gap:5px;align-items:flex-end}
+.hchip{padding:4px 14px;border-radius:99px;font-size:.66rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}
+.hchip-gd{background:linear-gradient(135deg,var(--gd1),var(--gd3));color:#fff;box-shadow:0 2px 10px rgba(201,162,39,.4)}
+.hchip-bl{background:linear-gradient(135deg,var(--b1),var(--b3));color:#fff}
+
+/* TICKER */
+.ticker{background:linear-gradient(90deg,var(--b2),var(--b3));padding:9px 0;overflow:hidden;position:relative}
+.ticker::before,.ticker::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
+.ticker::before{left:0;background:linear-gradient(90deg,var(--b2),transparent)}
+.ticker::after{right:0;background:linear-gradient(-90deg,var(--b3),transparent)}
+.tk-track{display:flex;width:max-content;animation:tk 32s linear infinite}
+.tk-item{display:flex;align-items:center;gap:8px;padding:0 36px;color:rgba(255,255,255,.9);
+  font-size:.73rem;font-weight:500;white-space:nowrap;border-right:1px solid rgba(255,255,255,.15)}
+.tk-dot{width:6px;height:6px;border-radius:50%;background:var(--gd4);flex-shrink:0}
+@keyframes tk{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* NAV */
+.nav{background:var(--dk2);border-bottom:2.5px solid var(--gd2);overflow-x:auto;scrollbar-width:none;
+  position:sticky;top:0;z-index:80;box-shadow:0 4px 20px rgba(0,0,0,.4)}
+.nav::-webkit-scrollbar{display:none}
+.nav-in{max-width:1300px;margin:0 auto;display:flex;padding:0 16px}
+.nb{background:none;border:none;color:rgba(255,255,255,.5);font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:.75rem;font-weight:700;padding:14px 20px;cursor:pointer;white-space:nowrap;
+  border-bottom:3px solid transparent;transition:all .2s;letter-spacing:.05em;text-transform:uppercase;position:relative}
+.nb:hover{color:rgba(255,255,255,.9);background:rgba(255,255,255,.04)}
+.nb.on{color:var(--gd3);border-bottom-color:var(--gd3)}
+.nbadge{position:absolute;top:8px;right:6px;background:var(--gd3);color:var(--dk);
+  border-radius:99px;font-size:.58rem;font-weight:900;padding:1px 5px;min-width:15px;text-align:center}
+
+/* MAIN */
+.main{max-width:1300px;margin:0 auto;padding:24px 16px 60px}
+.pg{display:none}.pg.on{display:block}
+
+/* HERO */
+.hero{background:linear-gradient(145deg,var(--dk) 0%,var(--dk3) 40%,#0e5a24 80%,var(--g2) 100%);
+  border-radius:var(--r);padding:40px 36px;color:#fff;margin-bottom:24px;
+  position:relative;overflow:hidden;border:1.5px solid rgba(201,162,39,.2)}
+.hero::before{content:'🎟';position:absolute;right:28px;top:50%;transform:translateY(-50%) rotate(-12deg);
+  font-size:9rem;opacity:.04;pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-80px;left:-40px;width:260px;height:260px;
+  border:2px solid rgba(201,162,39,.06);border-radius:50%;pointer-events:none}
+.hero h2{font-family:'Cormorant Garamond',serif;font-size:2.2rem;margin-bottom:6px;line-height:1.15}
+.hero h2 em{color:var(--gd4);font-style:normal}
+.hero-sub{color:rgba(255,255,255,.65);font-size:.88rem;margin-bottom:22px;font-weight:300}
+.pills{display:flex;gap:10px;flex-wrap:wrap}
+.pill{display:flex;align-items:center;gap:7px;
+  background:rgba(255,255,255,.08);backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.12);border-radius:99px;
+  padding:7px 16px;font-size:.77rem;color:rgba(255,255,255,.88);transition:all .2s}
+.pill:hover{background:rgba(255,255,255,.12)}
+.pico{color:var(--gd4)}
+
+/* STATS */
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-bottom:24px}
+.sc{border-radius:var(--r2);padding:20px 16px;text-align:center;position:relative;overflow:hidden;
+  cursor:default;transition:transform .2s;box-shadow:var(--sh)}
+.sc:hover{transform:translateY(-4px)}
+.sc::after{content:'';position:absolute;top:-24px;right:-24px;width:80px;height:80px;
+  border-radius:50%;background:rgba(255,255,255,.07);pointer-events:none}
+.sc-g{background:linear-gradient(145deg,var(--g1),var(--g2));color:#fff}
+.sc-b{background:linear-gradient(145deg,var(--b1),var(--b3));color:#fff}
+.sc-gd{background:linear-gradient(145deg,var(--gd1),var(--gd3));color:#fff}
+.sc-w{background:#fff;border:1.5px solid var(--light);color:var(--tx)}
+.sc-t{background:linear-gradient(145deg,#07402e,#0e8060);color:#fff}
+.sn{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:700;line-height:1;position:relative}
+.sl{font-size:.66rem;margin-top:5px;opacity:.82;text-transform:uppercase;letter-spacing:.07em;font-weight:700;position:relative}
+.sc-w .sn{color:var(--g2)}.sc-w .sl{color:var(--tx2)}
+
+/* CAROUSEL */
+.cr-wrap{position:relative;padding:0 50px;overflow:hidden;margin-bottom:24px}
+.cr-track{display:flex;gap:14px;transition:transform .4s cubic-bezier(.25,.46,.45,.94);padding:6px 0}
+.cr-btn{position:absolute;top:50%;transform:translateY(-50%);
+  background:linear-gradient(135deg,var(--g1),var(--g2));color:#fff;
+  border:none;border-radius:50%;width:40px;height:40px;cursor:pointer;z-index:10;
+  font-size:1.2rem;display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--sh2);transition:all .2s;font-family:sans-serif}
+.cr-btn:hover{background:linear-gradient(135deg,var(--g2),var(--g3));transform:translateY(-50%) scale(1.12)}
+.cr-btn.prev{left:4px}.cr-btn.next{right:4px}
+.cr-dots{display:flex;justify-content:center;gap:6px;margin-top:12px}
+.cr-dot{width:8px;height:8px;border-radius:50%;background:var(--muted);border:none;cursor:pointer;
+  transition:all .25s;padding:0}
+.cr-dot.on{background:var(--g2);width:24px;border-radius:4px}
+
+/* CHAPTER CARDS */
+.cc{border-radius:var(--r2);padding:22px;min-width:215px;flex:0 0 215px;
+  cursor:pointer;transition:all .25s;position:relative;overflow:hidden;
+  border:2px solid transparent;box-shadow:var(--sh)}
+.cc:hover{transform:translateY(-5px) scale(1.025);border-color:var(--gd3);box-shadow:var(--sh2)}
+.cc.cg{background:linear-gradient(145deg,#0a4a1e,var(--g2))}
+.cc.cb{background:linear-gradient(145deg,var(--b1),var(--b3))}
+.cc.ct{background:linear-gradient(145deg,#074030,#0e8060)}
+.cc.ci{background:linear-gradient(145deg,#2a0a6a,#5030c0)}
+.cc.cp{background:linear-gradient(145deg,#4a0a0a,#a03020)}
+.cc.host{border-color:var(--gd3)!important;box-shadow:0 0 24px rgba(201,162,39,.3),var(--sh2)!important}
+.cc::before{content:'';position:absolute;bottom:-35px;right:-35px;width:120px;height:120px;
+  border-radius:50%;background:rgba(255,255,255,.06);pointer-events:none}
+.cc-id{font-size:.62rem;letter-spacing:.14em;color:rgba(255,255,255,.55);text-transform:uppercase;margin-bottom:5px;font-weight:600}
+.cc-name{font-family:'Cormorant Garamond',serif;font-size:1.18rem;color:#fff;font-weight:700;margin-bottom:3px;line-height:1.2}
+.cc-chair{font-size:.73rem;color:rgba(255,255,255,.6);margin-bottom:14px}
+.cc-dots{display:flex;gap:5px;margin-bottom:7px}
+.cdot{width:14px;height:14px;border-radius:4px;transition:all .2s}
+.cdot.empty{background:rgba(255,255,255,.14)}
+.cdot.alloc{background:var(--b4)}
+.cdot.conf{background:var(--g4)}
+.cdot.paid{background:var(--gd3)}
+.cdot.sent{background:#c080ff}
+.cc-count{font-size:.68rem;color:rgba(255,255,255,.5)}
+.hstar{position:absolute;top:10px;right:12px;font-size:1.1rem;
+  filter:drop-shadow(0 0 6px rgba(201,162,39,.9))}
+
+/* TICKET CARD DISPLAY */
+.tkt{background:linear-gradient(145deg,var(--dk) 0%,var(--dk3) 45%,var(--g1) 100%);
+  border-radius:18px;padding:26px;color:#fff;position:relative;overflow:hidden;
+  border:1.5px solid var(--gd2);box-shadow:0 8px 36px rgba(0,0,0,.3)}
+.tkt::before{content:'';position:absolute;top:-50px;right:-50px;
+  width:180px;height:180px;border-radius:50%;border:2px solid rgba(201,162,39,.1)}
+.tkt::after{content:'';position:absolute;bottom:-60px;left:-20px;
+  width:200px;height:200px;border-radius:50%;border:2px solid rgba(201,162,39,.06)}
+.tkt-ey{font-size:.6rem;letter-spacing:.18em;color:var(--gd4);text-transform:uppercase;margin-bottom:6px;font-weight:600}
+.tkt-ev{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;line-height:1.2;margin-bottom:3px}
+.tkt-mt{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:16px;line-height:1.6}
+.tkt-hn{font-size:1.1rem;font-weight:700;color:var(--gd3)}
+.tkt-ty{display:inline-flex;align-items:center;margin-top:10px;
+  background:rgba(201,162,39,.15);border:1px solid rgba(201,162,39,.3);
+  color:var(--gd4);padding:3px 12px;border-radius:99px;
+  font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.tkt-sr{font-size:.64rem;color:rgba(255,255,255,.35);font-family:monospace;
+  margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08)}
+
+/* CARDS */
+.card{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:26px;margin-bottom:20px;
+  border:1px solid rgba(0,0,0,.03)}
+.ct{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--g2);margin-bottom:20px;
+  display:flex;align-items:center;gap:10px}
+.ct::after{content:'';flex:1;height:1.5px;background:linear-gradient(90deg,var(--light),transparent);margin-left:4px}
+
+/* FORMS */
+.fg{margin-bottom:15px}
+.fl{display:block;font-size:.7rem;font-weight:700;color:var(--tx2);margin-bottom:5px;
+  text-transform:uppercase;letter-spacing:.06em}
+.fi,.fs,.ft{width:100%;padding:11px 14px;border:1.5px solid #cfe0d3;border-radius:var(--r3);
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:.88rem;color:var(--tx);
+  background:#fff;transition:border .2s,box-shadow .2s}
+.fi:focus,.fs:focus,.ft:focus{outline:none;border-color:var(--g3);
+  box-shadow:0 0 0 3px rgba(18,160,54,.1)}
+.ft{resize:vertical;min-height:90px}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:11px 22px;border-radius:var(--r3);
+  border:none;font-family:'Plus Jakarta Sans',sans-serif;font-size:.8rem;font-weight:700;
+  cursor:pointer;transition:all .2s;letter-spacing:.03em}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:none}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none!important}
+.btn-g{background:linear-gradient(135deg,var(--g1),var(--g3));color:#fff;box-shadow:0 4px 16px rgba(13,107,39,.3)}
+.btn-g:hover{box-shadow:0 8px 24px rgba(13,107,39,.4)}
+.btn-b{background:linear-gradient(135deg,var(--b1),var(--b4));color:#fff;box-shadow:0 4px 16px rgba(14,58,140,.3)}
+.btn-gd{background:linear-gradient(135deg,var(--gd1),var(--gd3));color:#fff;box-shadow:0 4px 16px rgba(201,162,39,.35)}
+.btn-t{background:linear-gradient(135deg,#074030,#0e8060);color:#fff}
+.btn-ol{background:transparent;border:2px solid var(--g2);color:var(--g2)}
+.btn-ol:hover{background:var(--g2);color:#fff}
+.btn-sm{padding:7px 14px;font-size:.74rem}
+.btn-xs{padding:5px 11px;font-size:.68rem;border-radius:5px}
+
+/* BADGES */
+.bdg{display:inline-block;padding:3px 10px;border-radius:99px;font-size:.66rem;font-weight:700;letter-spacing:.04em}
+.b-pend{background:#fff3e0;color:#bf360c}
+.b-alloc{background:#e3f2fd;color:var(--b2)}
+.b-conf{background:#e8f5e9;color:#1b5e20}
+.b-paid{background:linear-gradient(135deg,#fffde7,#fff9c4);color:#7c5a00;border:1px solid var(--gd3)}
+.b-sent{background:#f3e5f5;color:#4a148c}
+.b-host{background:linear-gradient(135deg,var(--gd4),var(--gd3));color:var(--dk)}
+
+/* TABLE */
+.tw{overflow-x:auto;border-radius:var(--r3)}
+table{width:100%;border-collapse:collapse;font-size:.81rem}
+thead tr{background:linear-gradient(135deg,var(--dk),var(--dk3))}
+th{padding:12px 14px;text-align:left;color:#fff;font-weight:700;font-size:.68rem;
+  text-transform:uppercase;letter-spacing:.07em}
+td{padding:11px 14px;border-bottom:1px solid #e8f2ea;vertical-align:middle}
+tbody tr:hover td{background:var(--light)}
+tbody tr:last-child td{border-bottom:none}
+
+/* ALERTS */
+.al{padding:12px 16px;border-radius:var(--r3);font-size:.81rem;margin-bottom:14px;border-left:4px solid}
+.al-ok{background:#e8f5e9;border-color:var(--g3);color:#1b5e20}
+.al-nfo{background:#e3f2fd;border-color:var(--b3);color:#0d47a1}
+.al-warn{background:#fff8e1;border-color:var(--gd3);color:#7c5a00}
+
+/* STEPS */
+.steps{display:flex;align-items:center;gap:0;margin-bottom:26px}
+.stp{display:flex;align-items:center;gap:8px;font-size:.76rem;font-weight:700;color:var(--tx3)}
+.stp.on{color:var(--g2)}.stp.dn{color:var(--gd2)}
+.stp-n{width:32px;height:32px;border-radius:50%;border:2px solid currentColor;
+  display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;
+  flex-shrink:0;transition:all .3s}
+.stp.on .stp-n{background:linear-gradient(135deg,var(--g1),var(--g3));border-color:var(--g3);color:#fff}
+.stp.dn .stp-n{background:linear-gradient(135deg,var(--gd1),var(--gd3));border-color:var(--gd3);color:#fff}
+.stp-ln{flex:1;height:2px;background:var(--muted);min-width:20px}
+.stp-ln.dn{background:linear-gradient(90deg,var(--gd2),var(--gd3))}
+
+/* TICKET TYPE CARDS */
+.ttg{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:12px;margin-bottom:16px}
+.ttc{border-radius:var(--r2);padding:20px;cursor:pointer;border:2.5px solid transparent;
+  transition:all .22s;position:relative;overflow:hidden}
+.ttc.g{background:linear-gradient(145deg,var(--g1),var(--g3))}
+.ttc.b{background:linear-gradient(145deg,var(--b1),var(--b4))}
+.ttc.gd{background:linear-gradient(145deg,var(--gd1),var(--gd3))}
+.ttc.sel{border-color:#fff;box-shadow:0 0 0 3.5px var(--gd3),0 10px 30px rgba(0,0,0,.25);transform:scale(1.04)}
+.ttc::before{content:'';position:absolute;top:-22px;right:-22px;width:88px;height:88px;
+  border-radius:50%;background:rgba(255,255,255,.08)}
+.tt-nm{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:#fff;font-weight:700;margin-bottom:5px}
+.tt-pr{font-size:1.7rem;font-weight:800;color:#fff;margin-bottom:5px;line-height:1}
+.tt-ds{font-size:.71rem;color:rgba(255,255,255,.75);line-height:1.5}
+.tt-ck{position:absolute;top:10px;right:10px;background:var(--gd3);color:var(--dk);
+  width:24px;height:24px;border-radius:50%;display:none;align-items:center;justify-content:center;
+  font-size:.78rem;font-weight:900}
+.ttc.sel .tt-ck{display:flex}
+
+/* PAYMENT CARDS */
+.pg2{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px}
+.pc{border-radius:var(--r2);padding:18px;text-align:center;border:1.5px solid #cfe0d3;background:#fff;
+  transition:all .2s}
+.pc:hover{border-color:var(--g3);box-shadow:var(--sh);transform:translateY(-2px)}
+.p-ico{font-size:2.1rem;margin-bottom:7px}
+.p-nm{font-weight:700;color:var(--g2);font-size:.88rem}
+.p-dt{font-size:.73rem;color:var(--tx2);margin-top:3px}
+
+/* MODAL */
+.mo{position:fixed;inset:0;background:rgba(5,18,9,.65);backdrop-filter:blur(5px);
+  z-index:200;display:none;align-items:center;justify-content:center;padding:16px}
+.mo.open{display:flex}
+.mb{background:#fff;border-radius:var(--r);padding:30px;max-width:520px;width:100%;
+  max-height:90vh;overflow-y:auto;box-shadow:0 28px 90px rgba(0,0,0,.35);
+  animation:mIn .25s ease}
+@keyframes mIn{from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:none}}
+.m-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--g2);margin-bottom:20px}
+
+/* QA GRID */
+.qag{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:12px}
+.qac{border-radius:var(--r2);padding:22px;cursor:pointer;transition:all .22s;
+  position:relative;overflow:hidden;border:none;font-family:inherit;text-align:left}
+.qac:hover{transform:translateY(-4px);box-shadow:var(--sh2)}
+.qac.g{background:linear-gradient(145deg,var(--g1),var(--g3))}
+.qac.b{background:linear-gradient(145deg,var(--b1),var(--b3))}
+.qac.gd{background:linear-gradient(145deg,var(--gd1),var(--gd3))}
+.qac.t{background:linear-gradient(145deg,#074030,#0e8060)}
+.qa-ico{font-size:2rem;margin-bottom:10px}
+.qa-lb{font-size:.85rem;font-weight:700;color:#fff;margin-bottom:2px}
+.qa-sb{font-size:.71rem;color:rgba(255,255,255,.65)}
+
+/* ANALYTICS */
+.ab-wrap{background:#e4f0e7;border-radius:8px;height:20px;overflow:hidden;margin:4px 0}
+.ab-fill{height:100%;border-radius:8px;transition:width .7s cubic-bezier(.25,.46,.45,.94)}
+.ab-g{background:linear-gradient(90deg,var(--g2),var(--g4))}
+.ab-b{background:linear-gradient(90deg,var(--b2),var(--b4))}
+.ab-gd{background:linear-gradient(90deg,var(--gd1),var(--gd4))}
+.ab-t{background:linear-gradient(90deg,#074030,#20c080)}
+
+/* REV CARD */
+.rc{background:linear-gradient(145deg,var(--dk),var(--dk3));border-radius:var(--r);
+  padding:28px;color:#fff;position:relative;overflow:hidden;box-shadow:var(--sh2)}
+.rc::before{content:'$';position:absolute;right:18px;top:8px;
+  font-size:6rem;color:rgba(201,162,39,.07);font-family:'Cormorant Garamond',serif;font-weight:700;line-height:1}
+.r-amt{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:700;color:var(--gd3);line-height:1}
+.r-lb{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:4px;text-transform:uppercase;letter-spacing:.1em}
+
+/* EMAIL PREVIEW */
+.ep{background:var(--off);border:1.5px solid #cfe0d3;border-radius:var(--r3);padding:18px;
+  font-size:.78rem;line-height:1.9;color:var(--tx2);white-space:pre-wrap;font-family:monospace;
+  max-height:270px;overflow-y:auto}
+
+/* MISC */
+.sb{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.si{flex:1;min-width:180px;padding:11px 14px;border:1.5px solid #cfe0d3;border-radius:var(--r3);
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:.86rem;color:var(--tx)}
+.si:focus{outline:none;border-color:var(--g3)}
+.tc{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.thc{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.flex{display:flex}.fw{flex-wrap:wrap}.aic{align-items:center}.g2{gap:8px}.g3{gap:12px}
+.mt2{margin-top:8px}.mt3{margin-top:12px}.mt4{margin-top:16px}
+.tmuted{color:var(--tx2);font-size:.79rem}.tct{text-align:center}
+.wf{width:100%}
+code{font-family:monospace;font-size:.76rem;background:var(--light);padding:2px 7px;border-radius:4px;color:var(--g2)}
+@media(max-width:640px){
+  .hdr-tx h1{font-size:1.15rem}.hero h2{font-size:1.5rem}
+  .sg{grid-template-columns:repeat(2,1fr)}.main{padding:14px 10px 40px}
+  .hero{padding:26px 20px}
+}
+@media print{.hdr,.ticker,.nav,.btn,.qag{display:none!important}.tkt{break-inside:avoid}}
 </style>
 </head>
 <body>
 
 <div class="hdr">
-  <img id="logo-img" src="" alt="DRC Logo" onerror="this.style.display='none'" />
-  <h1>SLPPNA DRC Chapter</h1>
-  <p>Executive Inaugural Ball 2026 — Ticketing Platform</p>
-  <div class="badges">
-    <span class="badge">📅 Saturday July 25, 2026</span>
-    <span class="badge">⏰ 8 PM – 2 AM</span>
-    <span class="badge">📍 5410 NC-55, Durham NC 27713</span>
+  <div class="hdr-grid"></div><div class="hdr-glow"></div>
+  <div class="hdr-in">
+    <div class="hdr-logo">
+      <img src="https://slppna2025.github.io/drc/logo_drc_new.JPG" alt="DRC Logo"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="hdr-logo-fb" style="display:none">DRC</div>
+    </div>
+    <div class="hdr-tx">
+      <h1>SLPPNA DRC Chapter</h1>
+      <p>Executive Inaugural Ball · Official Ticketing Platform</p>
+    </div>
+    <div class="hdr-chips">
+      <span class="hchip hchip-gd">July 25, 2026</span>
+      <span class="hchip hchip-bl">Durham, NC</span>
+    </div>
   </div>
 </div>
 
-<nav id="main-nav">
-  <button class="active" onclick="showPage('buy',this)">🎟 Buy</button>
-  <button onclick="showPage('dashboard',this)">📊 Dashboard</button>
-  <button onclick="showPage('tickets',this)">📋 Tickets</button>
-  <button onclick="showPage('chapters',this)">🏛 Chapters</button>
-  <button onclick="showPage('send',this)">📧 Send</button>
-  <button onclick="showPage('analytics',this)">📈 Analytics</button>
-  <button onclick="showPage('gate',this)">🚪 Gate</button>
-  <button onclick="showPage('settings',this)">⚙️ Settings</button>
+<div class="ticker">
+  <div class="tk-track" id="tktrack">
+    <div class="tk-item"><div class="tk-dot"></div><span id="tki1">Loading...</span></div>
+    <div class="tk-item"><div class="tk-dot"></div><span id="tki2">0 Paid</span></div>
+    <div class="tk-item"><div class="tk-dot"></div><span id="tki3">$0 Revenue</span></div>
+    <div class="tk-item"><div class="tk-dot"></div>📅 Saturday, July 25, 2026 · 8:00 PM – 2:00 AM</div>
+    <div class="tk-item"><div class="tk-dot"></div>📍 5410 NC-55, Durham NC 27713</div>
+    <div class="tk-item"><div class="tk-dot"></div>💳 Zelle: (919) 638-7503</div>
+    <div class="tk-item"><div class="tk-dot"></div>💚 Cash App: $SLPPNADRC</div>
+    <div class="tk-item"><div class="tk-dot"></div><span id="tki4">Loading...</span></div>
+    <div class="tk-item"><div class="tk-dot"></div><span id="tki5">0 Paid</span></div>
+    <div class="tk-item"><div class="tk-dot"></div><span id="tki6">$0 Revenue</span></div>
+    <div class="tk-item"><div class="tk-dot"></div>📅 Saturday, July 25, 2026 · 8:00 PM – 2:00 AM</div>
+    <div class="tk-item"><div class="tk-dot"></div>📍 5410 NC-55, Durham NC 27713</div>
+    <div class="tk-item"><div class="tk-dot"></div>💳 Zelle: (919) 638-7503</div>
+    <div class="tk-item"><div class="tk-dot"></div>💚 Cash App: $SLPPNADRC</div>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-in">
+    <button class="nb on" onclick="showPg('home')">🏠 Home</button>
+    <button class="nb" onclick="showPg('buy')">🎟 Buy Tickets</button>
+    <button class="nb" onclick="showPg('dash')">📊 Dashboard</button>
+    <button class="nb" id="nav-tks" onclick="showPg('tks')">📋 All Tickets</button>
+    <button class="nb" onclick="showPg('chs')">🏛 Chapters</button>
+    <button class="nb" onclick="showPg('send')">📧 Send</button>
+    <button class="nb" onclick="showPg('analytics')">📈 Analytics</button>
+    <button class="nb" onclick="showPg('qr')">📱 QR Codes</button>
+    <button class="nb" id="nav-gate" onclick="showPg('gate')">🚪 Gate</button>
+  </div>
 </nav>
 
-<!-- BUY -->
-<div id="page-buy" class="page active">
-  <div class="steps"><div class="step active" id="st1">① Type</div><div class="step" id="st2">② Details</div><div class="step" id="st3">③ Pay</div><div class="step" id="st4">✓ Done</div></div>
-  <div id="buy-s1">
-    <h2 class="tg" style="margin-bottom:14px">Choose Your Ticket</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px">
-      <div class="bcard" id="tt-Regular" onclick="selTicket('Regular',100)"><div class="bp">$100</div><div class="bn">Regular</div><div class="bd">Standard admission. Dinner &amp; dance included.</div><span class="bs tr" style="margin-top:8px;display:inline-block">130 tickets</span></div>
-      <div class="bcard" id="tt-Patron" onclick="selTicket('Patron',150)"><div class="bp">$150</div><div class="bn">Patron</div><div class="bd">Premium with Patron recognition.</div><span class="bs tp" style="margin-top:8px;display:inline-block">30 tickets</span></div>
-      <div class="bcard" id="tt-Community" onclick="selTicket('Community',50)"><div class="bp">$50</div><div class="bn">Community</div><div class="bd">Community supporter level. Accessible for all.</div><span class="bs tc" style="margin-top:8px;display:inline-block">60 tickets</span></div>
+<div class="main">
+
+<!-- HOME -->
+<div id="pg-home" class="pg on">
+  <div class="hero">
+    <h2>Executive Inaugural <em>Ball 2026</em></h2>
+    <p class="hero-sub">SLPPNA DRC Chapter — Durham, Raleigh &amp; Chapel Hill, North Carolina</p>
+    <div class="pills">
+      <div class="pill"><span class="pico">📅</span> Saturday, July 25, 2026</div>
+      <div class="pill"><span class="pico">🕗</span> 8:00 PM – 2:00 AM</div>
+      <div class="pill"><span class="pico">📍</span> 5410 NC-55, Durham NC 27713</div>
+      <div class="pill"><span class="pico">👑</span> Chair: Amina Kawa</div>
     </div>
   </div>
-  <div id="buy-s2" style="display:none"><h2 class="tg" style="margin-bottom:14px">Your Details</h2><div class="card"><div class="g2"><div><span class="lbl">Full Name *</span><input id="b-name" placeholder="e.g. Amina Kawa"/></div><div><span class="lbl">Phone *</span><input id="b-phone" placeholder="(919) 000-0000"/></div><div><span class="lbl">Email</span><input id="b-email" placeholder="you@email.com"/></div><div><span class="lbl">Chapter</span><select id="b-chapter"><option value="">— Select Chapter —</option><option>AZC – Arizona</option><option>GAC – Atlanta</option><option>ILC – Chicago</option><option>TXDC – Dallas</option><option>DVC – Delaware Valley</option><option>DRC – Durham-Raleigh-CH (HOST)</option><option>TXHC – Houston</option><option>MNC – Minnesota</option><option>NEC – New England</option><option>NJC – New Jersey</option><option>NYC – New York</option><option>NDC – North Dakota</option><option>CANC – N. California</option><option>OHC – Ohio</option><option>SWC – Seattle</option><option>CASC – S. California</option><option>VAC – Virginia</option><option>WDC – Washington DC</option><option>IAC – Iowa</option><option>FLC – Florida</option><option>Guest</option></select></div></div><div style="display:flex;gap:8px;margin-top:6px"><button class="btno" onclick="buyStep(1)">← Back</button><button class="btn" onclick="buyStep(3)">Next →</button></div></div></div>
-  <div id="buy-s3" style="display:none"><h2 class="tg" style="margin-bottom:14px">Payment</h2><div class="card"><div id="buy-sum"></div><hr><p style="font-size:13px;margin-bottom:10px">Send payment then click Confirm.</p><div class="paybox"><div class="pm"><div class="pi" style="background:#5a0f8f;color:#fff">Z</div><div><strong>Zelle</strong><br><span class="ts">(919) 638-7503 — Adu Sheref</span></div></div><div class="pm"><div class="pi" style="background:#00c244;color:#fff">$</div><div><strong>Cash App</strong><br><span class="ts">$SLPPNADRC</span></div></div><div class="pm"><div class="pi" style="background:#003087;color:#fff">PP</div><div><strong>PayPal</strong><br><span class="ts">adusheref@gmail.com</span></div></div></div><div style="display:flex;gap:8px;margin-top:6px"><button class="btno" onclick="buyStep(2)">← Back</button><button class="btn" onclick="confirmOrder()">✓ Confirm Order</button></div></div></div>
-  <div id="buy-s4" style="display:none"><div class="msg ms" style="font-size:14px">✅ <strong>Order Submitted!</strong></div><div class="card" id="order-preview"></div><p class="ts mt">Contact Adu Sheref at (919) 638-7503 after payment.</p><button class="btn mt" onclick="buyStep(1);resetBuy()">Buy Another</button></div>
+  <div class="sg" id="home-sg"></div>
+  <div class="card">
+    <div class="ct">🏛 All 20 Chapters</div>
+    <div class="cr-wrap">
+      <button class="cr-btn prev" onclick="crMove(-1)">‹</button>
+      <div style="overflow:hidden"><div class="cr-track" id="cr-track"></div></div>
+      <button class="cr-btn next" onclick="crMove(1)">›</button>
+    </div>
+    <div class="cr-dots" id="cr-dots"></div>
+  </div>
+  <div class="card">
+    <div class="ct">⚡ Quick Actions</div>
+    <div class="qag">
+      <button class="qac g" onclick="showPg('buy')"><div class="qa-ico">🎟</div><div class="qa-lb">Buy / Allocate Tickets</div><div class="qa-sb">3-step guided flow</div></button>
+      <button class="qac b" onclick="showPg('dash')"><div class="qa-ico">📊</div><div class="qa-lb">Dashboard</div><div class="qa-sb">Chapter overview</div></button>
+      <button class="qac gd" onclick="showPg('send')"><div class="qa-ico">📧</div><div class="qa-lb">Send Emails</div><div class="qa-sb">Compose &amp; track</div></button>
+      <button class="qac t" onclick="showPg('analytics')"><div class="qa-ico">📈</div><div class="qa-lb">Analytics</div><div class="qa-sb">Revenue &amp; breakdowns</div></button>
+    </div>
+  </div>
+  <div class="tc">
+    <div class="card">
+      <div class="ct">🎟 Ticket Types</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:14px;background:linear-gradient(135deg,var(--g1),var(--g3));border-radius:var(--r3);color:#fff">
+          <div><div style="font-weight:700">Regular</div><div style="font-size:.73rem;opacity:.75">General admission</div></div>
+          <div style="font-size:1.8rem;font-weight:800;font-family:'Cormorant Garamond',serif">$130</div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:14px;background:linear-gradient(135deg,var(--b1),var(--b3));border-radius:var(--r3);color:#fff">
+          <div><div style="font-weight:700">Patron</div><div style="font-size:.73rem;opacity:.75">Premium seating</div></div>
+          <div style="font-size:1.8rem;font-weight:800;font-family:'Cormorant Garamond',serif">$150</div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:14px;background:linear-gradient(135deg,var(--b2),var(--b4));border-radius:var(--r3);color:#fff">
+          <div><div style="font-weight:700">Community</div><div style="font-size:.73rem;opacity:.75">Community access</div></div>
+          <div style="font-size:1.8rem;font-weight:800;font-family:'Cormorant Garamond',serif">$50</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="ct">💳 Payment Methods</div>
+      <div class="pg2">
+        <div class="pc"><div class="p-ico">📱</div><div class="p-nm">Zelle</div><div class="p-dt">(919) 638-7503</div></div>
+        <div class="pc"><div class="p-ico">💚</div><div class="p-nm">Cash App</div><div class="p-dt">$SLPPNADRC</div></div>
+        <div class="pc"><div class="p-ico">🅿️</div><div class="p-nm">PayPal</div><div class="p-dt">adusheref@gmail.com</div></div>
+      </div>
+      <div class="al al-nfo mt4" style="margin-bottom:0;font-size:.75rem">Contact: Adu Sheref · (919) 638-7503 · adusheref@gmail.com</div>
+    </div>
+  </div>
+</div>
+
+<!-- BUY -->
+<div id="pg-buy" class="pg">
+  <div id="bs1" class="card">
+    <div class="ct">🎟 Allocate / Buy Tickets</div>
+    <div class="steps"><div class="stp on"><div class="stp-n">1</div><span>Type &amp; Chapter</span></div><div class="stp-ln" id="sl1"></div><div class="stp" id="st2"><div class="stp-n">2</div><span>Details</span></div><div class="stp-ln" id="sl2"></div><div class="stp" id="st3"><div class="stp-n">3</div><span>Payment</span></div></div>
+    <div class="fg"><label class="fl">Chapter</label><select class="fs" id="b-ch" onchange="bChCh()"><option value="">— Select Chapter —</option></select><div id="b-chi" style="display:none;margin-top:6px" class="al al-nfo"></div></div>
+    <div class="fg"><label class="fl">Ticket Type</label>
+      <div class="ttg">
+        <div class="ttc g" id="tt-O" onclick="selType('Regular',this)"><div class="tt-ck">✓</div><div class="tt-nm">Regular</div><div class="tt-pr">$130</div><div class="tt-ds">General admission — Chapter allocated</div></div>
+        <div class="ttc b" id="tt-P" onclick="selType('Patron',this)"><div class="tt-ck">✓</div><div class="tt-nm">Patron</div><div class="tt-pr">$150</div><div class="tt-ds">Premium seating</div></div>
+        <div class="ttc gd" id="tt-G" onclick="selType('Community',this)"><div class="tt-ck">✓</div><div class="tt-nm">Community</div><div class="tt-pr">$50</div><div class="tt-ds">Community access ticket</div></div>
+      </div>
+    </div>
+    <div class="fg" style="max-width:200px"><label class="fl">Quantity</label>
+      <div class="flex aic g2"><button class="btn btn-ol btn-sm" onclick="bQty(-1)">−</button><span id="b-qn" style="font-size:1.5rem;font-weight:800;width:36px;text-align:center">1</span><button class="btn btn-ol btn-sm" onclick="bQty(1)">+</button></div>
+    </div>
+    <button class="btn btn-g" onclick="bN1()">Continue →</button>
+  </div>
+  <div id="bs2" style="display:none" class="card">
+    <div class="ct">👤 Holder Details</div>
+    <div class="steps"><div class="stp dn"><div class="stp-n">1</div><span>Type &amp; Chapter</span></div><div class="stp-ln dn"></div><div class="stp on"><div class="stp-n">2</div><span>Details</span></div><div class="stp-ln"></div><div class="stp"><div class="stp-n">3</div><span>Payment</span></div></div>
+    <div id="b-hf"></div>
+    <div class="flex g2 mt3"><button class="btn btn-ol" onclick="bBk1()">← Back</button><button class="btn btn-g" onclick="bN2()">Continue →</button></div>
+  </div>
+  <div id="bs3" style="display:none" class="card">
+    <div class="ct">💳 Payment</div>
+    <div class="steps"><div class="stp dn"><div class="stp-n">1</div><span>Type &amp; Chapter</span></div><div class="stp-ln dn"></div><div class="stp dn"><div class="stp-n">2</div><span>Details</span></div><div class="stp-ln dn"></div><div class="stp on"><div class="stp-n">3</div><span>Payment</span></div></div>
+    <div id="b-sum" class="al al-nfo" style="margin-bottom:16px"></div>
+    <div class="fg"><label class="fl">Payment Method</label><select class="fs" id="b-pm"><option value="Zelle">Zelle — (919) 638-7503</option><option value="Cash App">Cash App — $SLPPNADRC</option><option value="PayPal">PayPal — adusheref@gmail.com</option><option value="Cash">Cash (in person)</option></select></div>
+    <div class="fg"><label class="fl">Reference / Notes</label><input type="text" class="fi" id="b-ref" placeholder="Transaction ID (optional)"></div>
+    <div class="fg"><label class="fl">Status</label><select class="fs" id="b-st"><option value="Pending">Pending — awaiting payment</option><option value="Allocated">Allocated — chapter reserved</option><option value="Confirmed">Confirmed — payment confirmed</option><option value="Paid">Paid — fully paid</option></select></div>
+    <div class="flex g2"><button class="btn btn-ol" onclick="bBk2()">← Back</button><button class="btn btn-gd" onclick="bConf()">✅ Create Tickets</button></div>
+  </div>
 </div>
 
 <!-- DASHBOARD -->
-<div id="page-dashboard" class="page">
-  <h2 class="tg" style="margin-bottom:14px">Dashboard</h2>
-  <div class="stats" id="dash-stats"></div>
-  <div class="card" style="margin-bottom:14px">
-    <h3>Print Run Target — 220 Tickets</h3>
-    <div id="dash-types"></div>
+<div id="pg-dash" class="pg">
+  <div class="hero" style="padding:28px">
+    <h2 style="font-size:1.7rem">Event <em>Dashboard</em></h2>
+    <div class="pills mt2">
+      <div class="pill"><span class="pico">📅</span> July 25, 2026</div>
+      <div class="pill"><span class="pico">👑</span> Amina Kawa · (984) 884-7808</div>
+      <div class="pill"><span class="pico">📝</span> Adu Sheref · (919) 638-7503</div>
+    </div>
   </div>
-  <div class="card">
-    <h3>Chapter Allocation — 19 × 5 Regular = 95 Tickets</h3>
-    <div class="tbl-wrap"><table><thead><tr><th>Chapter</th><th>Chair</th><th>Allocated</th><th>Confirmed</th><th>Status</th></tr></thead><tbody id="dash-tbody"></tbody></table></div>
+  <div class="sg" id="dash-sg"></div>
+  <div class="card"><div class="ct">🏛 Chapter Allocation</div>
+    <div class="tw"><table><thead><tr><th>Chapter</th><th>Chair</th><th>Allocated</th><th>Confirmed</th><th>Paid</th><th>Email</th><th>Action</th></tr></thead><tbody id="dash-tb"></tbody></table></div>
   </div>
 </div>
 
 <!-- ALL TICKETS -->
-<div id="page-tickets" class="page">
-  <div class="fb" style="margin-bottom:12px"><h2 class="tg">All Tickets</h2><div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btno btns" style="color:#f77;border-color:#f77" onclick="resetTickets()">↺ Reset</button><button class="btn btns" onclick="exportCSV()">⬇ CSV</button></div></div>
-  <div class="sr"><input id="t-search" placeholder="Search name, serial, chapter…" oninput="renderTickets()"/><select id="t-fs" onchange="renderTickets()"><option value="">All Statuses</option><option value="Ticket Created in System">Created</option><option value="Ticket Sent by Email">Sent</option><option value="Delivered (Digital)">Delivered</option><option value="Confirmed Receipt via Email">Confirmed</option></select><select id="t-ft" onchange="renderTickets()"><option value="">All Types</option><option value="Regular">Regular</option><option value="Patron">Patron</option><option value="Community">Community</option></select></div>
-  <div class="tbl-wrap"><table><thead><tr><th>#</th><th>Serial</th><th>Name</th><th>Type</th><th>Chapter</th><th>Phone</th><th>Status</th><th>Actions</th></tr></thead><tbody id="t-tbody"></tbody></table></div>
-  <p class="ts mt" id="t-count"></p>
+<div id="pg-tks" class="pg">
+  <div class="card"><div class="ct">📋 All Tickets</div>
+    <div class="sb">
+      <input type="text" class="si" id="tk-srch" placeholder="Search serial, name, chapter..." oninput="renderTks()">
+      <select class="fs" id="tk-fs" onchange="renderTks()" style="width:auto"><option value="">All Statuses</option><option>Pending</option><option>Allocated</option><option>Confirmed</option><option>Paid</option><option>Sent</option></select>
+      <select class="fs" id="tk-fc" onchange="renderTks()" style="width:auto"><option value="">All Chapters</option></select>
+    </div>
+    <div class="tw"><table><thead><tr><th>Serial</th><th>Holder</th><th>Chapter</th><th>Type</th><th>Payment</th><th>Status</th><th>Actions</th></tr></thead><tbody id="tks-tb"></tbody></table></div>
+    <div id="tks-ct" class="tmuted mt2"></div>
+  </div>
 </div>
 
 <!-- CHAPTERS -->
-<div id="page-chapters" class="page">
-  <h2 class="tg" style="margin-bottom:14px">20 SLPPNA Chapters</h2>
-  <div class="chg" id="chg"></div>
+<div id="pg-chs" class="pg">
+  <div class="card"><div class="ct">🏛 All 20 Chapters</div><div id="chs-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px"></div></div>
 </div>
 
 <!-- SEND -->
-<div id="page-send" class="page">
-  <h2 class="tg" style="margin-bottom:14px">Send Allocation Emails</h2>
-  <div id="ejs-banner"></div>
-  <div class="card" style="margin-bottom:14px">
-    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end">
-      <div style="flex:1;min-width:180px"><span class="lbl">Select Chapter</span><select id="send-sel" onchange="renderSendPreview()" style="margin:0"></select></div>
-      <button class="btn btns" style="background:#1a5c2a;color:#c9a84c;border:1px solid #c9a84c" onclick="sendAll()">📨 Send ALL 19</button>
+<div id="pg-send" class="pg">
+  <div class="card"><div class="ct">📧 Compose Allocation Email</div>
+    <div class="fg"><label class="fl">Select Chapter</label><select class="fs" id="snd-ch" onchange="updEP()"><option value="">— Select Chapter —</option></select></div>
+    <div class="fg"><label class="fl">Additional Notes</label><textarea class="ft" id="snd-nt" placeholder="Any additional message..." oninput="updEP()"></textarea></div>
+    <div class="fg"><label class="fl">Email Preview</label><div class="ep" id="ep">Select a chapter to preview.</div></div>
+    <div class="flex g2 fw mt3">
+      <button class="btn btn-g" onclick="openMail()">📧 Open in Email App</button>
+      <button class="btn btn-b" onclick="markSent()">✅ Mark as Sent</button>
     </div>
   </div>
-  <div id="send-preview"></div>
-  <div id="send-log"></div>
+  <div class="card"><div class="ct">📋 Chapter Send Status</div>
+    <div class="tw"><table><thead><tr><th>Chapter</th><th>Chair</th><th>Tickets</th><th>Email Status</th><th>Action</th></tr></thead><tbody id="snd-tb"></tbody></table></div>
+  </div>
 </div>
 
 <!-- ANALYTICS -->
-<div id="page-analytics" class="page">
-  <h2 class="tg" style="margin-bottom:14px">Analytics</h2>
-  <div class="stats" id="ana-stats"></div>
-  <div class="card"><h3>Ticket Status</h3><div id="ana-status"></div></div>
-  <div class="card" style="margin-top:12px"><h3>Revenue by Type</h3><div id="ana-rev"></div></div>
-  <div class="card" style="margin-top:12px"><h3>Chapter Progress</h3><div id="ana-ch"></div></div>
-</div>
-
-<!-- GATE -->
-<div id="page-gate" class="page">
-  <h2 class="tg" style="margin-bottom:14px">🚪 Gate Verification</h2>
-  <div class="msg mi">Enter a ticket serial or scan QR code to verify admission.</div>
-  <div class="card mt">
-    <h3>Verify Ticket</h3>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
-      <input id="gate-in" placeholder="e.g. DRC-20260725-001" style="flex:1;min-width:180px;margin:0;font-size:15px" onkeydown="if(event.key==='Enter')verifySerial(this.value)"/>
-      <button class="btn" onclick="verifySerial(document.getElementById('gate-in').value)">🔍 Verify</button>
-      <button class="btno" onclick="document.getElementById('gate-in').value='';document.getElementById('gate-res').innerHTML=''">Clear</button>
+<div id="pg-analytics" class="pg">
+  <div class="tc" style="margin-bottom:16px">
+    <div class="rc">
+      <div class="r-lb">Total Revenue Collected</div>
+      <div class="r-amt" id="r-amt">$0</div>
+      <div style="font-size:.72rem;color:rgba(255,255,255,.4);margin-top:5px" id="r-sb">0 paid tickets</div>
     </div>
-    <div id="gate-res"></div>
+    <div class="sg" id="an-sg" style="margin-bottom:0"></div>
   </div>
-  <div class="card mt"><h3>Stats</h3><div class="stats" id="gate-stats" style="margin:0"></div></div>
-  <div class="card mt"><h3>Confirmed / Admitted</h3><div class="tbl-wrap"><table><thead><tr><th>Serial</th><th>Name</th><th>Type</th><th>Chapter</th></tr></thead><tbody id="gate-tbody"></tbody></table></div></div>
+  <div class="thc">
+    <div class="card"><div class="ct">🎟 By Ticket Type</div><div id="an-ty"></div></div>
+    <div class="card"><div class="ct">📊 By Status</div><div id="an-st"></div></div>
+    <div class="card"><div class="ct">🏆 Top Chapters</div><div id="an-ch"></div></div>
+  </div>
 </div>
 
-<!-- SETTINGS -->
-<div id="page-settings" class="page">
-  <h2 class="tg" style="margin-bottom:14px">⚙️ Settings — EmailJS</h2>
-  <div class="msg mi">Sign up free at <strong>emailjs.com</strong> (200 emails/month). Add Email Service → get Service ID. Create Template using <code>{{message}}</code> as body → get Template ID. Account → API Keys → get Public Key.</div>
-  <div class="card mt">
-    <h3>EmailJS Credentials</h3>
-    <span class="lbl">Public Key</span><input id="ejs-pk" placeholder="e.g. abc123…"/>
-    <span class="lbl">Service ID</span><input id="ejs-sv" placeholder="e.g. service_xxxxxxx"/>
-    <span class="lbl">Template ID</span><input id="ejs-tm" placeholder="e.g. template_xxxxxxx"/>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px">
-      <button class="btn" onclick="saveEJS()">💾 Save & Connect</button>
-      <button class="btno" onclick="testEJS()">🧪 Test Email</button>
-      <button class="btno btns" style="color:#f77;border-color:#f77" onclick="clearEJS()">✕ Clear</button>
+</div>
+
+<!-- QR CODES -->
+<div id="pg-qr" class="pg">
+  <div class="card">
+    <div class="ct">📱 QR Code Generator</div>
+    <div class="al al-nfo" style="margin-bottom:16px">Each ticket gets a unique QR code encoding its serial number. Print or share QR codes for gate scanning. The Gate tab can scan or manually validate any code.</div>
+    <div class="sb" style="margin-bottom:16px">
+      <select class="fs" id="qr-filter-ch" onchange="rQR()" style="width:auto"><option value="">All Chapters</option></select>
+      <select class="fs" id="qr-filter-st" onchange="rQR()" style="width:auto"><option value="">All Statuses</option><option>Pending</option><option>Allocated</option><option>Confirmed</option><option>Paid</option><option>Sent</option></select>
+      <button class="btn btn-g btn-sm" onclick="printAllQR()">🖨 Print All Shown</button>
     </div>
-    <div id="ejs-st" class="mt"></div>
-  </div>
-  <div class="card mt">
-    <h3>Template Variables</h3>
-    <p class="ts" style="margin-bottom:10px">Use in your EmailJS template:</p>
-    <div class="tbl-wrap"><table><thead><tr><th>Variable</th><th>Contains</th></tr></thead><tbody>
-      <tr><td><code>{{to_email}}</code></td><td>Chair email</td></tr>
-      <tr><td><code>{{to_name}}</code></td><td>Chair name</td></tr>
-      <tr><td><code>{{message}}</code></td><td>Full email body (simplest — use this)</td></tr>
-      <tr><td><code>{{serials}}</code></td><td>5 ticket serials</td></tr>
-      <tr><td><code>{{chapter_name}}</code></td><td>Chapter name</td></tr>
-      <tr><td><code>{{total_amount}}</code></td><td>$500</td></tr>
-    </tbody></table></div>
-  </div>
-  <div class="card mt">
-    <h3>Sender Info</h3>
-    <span class="lbl">From Name</span><input id="cfg-fn" value="Adu Sheref – Secretary General, DRC"/>
-    <span class="lbl">Reply-To</span><input id="cfg-rt" value="adusheref@gmail.com"/>
-    <button class="btn btns mt" onclick="saveSender()">💾 Save</button>
+    <div id="qr-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px"></div>
+    <div id="qr-empty" class="tmuted tct" style="padding:28px;display:none">No tickets match the filter.</div>
   </div>
 </div>
 
-<!-- EDIT MODAL -->
-<div class="modal-bg" id="edit-modal">
-  <div class="modal">
-    <h3>Edit Ticket</h3>
-    <input type="hidden" id="edit-serial"/>
-    <span class="lbl">Name</span><input id="edit-name"/>
-    <span class="lbl">Phone</span><input id="edit-phone"/>
-    <span class="lbl">Email</span><input id="edit-email"/>
-    <span class="lbl">Type</span>
-    <select id="edit-type" onchange="document.getElementById('edit-price').value=this.value==='Patron'?150:this.value==='Community'?50:100">
-      <option value="Regular">Regular — $100</option><option value="Patron">Patron — $150</option><option value="Community">Community — $50</option>
-    </select>
-    <span class="lbl">Price ($)</span><input id="edit-price" type="number"/>
-    <span class="lbl">Status</span>
-    <select id="edit-status">
-      <option value="Ticket Created in System">Ticket Created in System</option>
-      <option value="Ticket Sent by Email">Ticket Sent by Email</option>
-      <option value="Delivered (Digital)">Delivered (Digital)</option>
-      <option value="Confirmed Receipt via Email">Confirmed Receipt via Email</option>
-    </select>
-    <span class="lbl">Notes</span><textarea id="edit-notes" rows="2"></textarea>
-    <div style="display:flex;gap:8px;margin-top:8px"><button class="btn" onclick="saveEdit()">💾 Save</button><button class="btno" onclick="closeModal()">Cancel</button></div>
-  </div>
-</div>
+<!-- GATE MANAGEMENT -->
+<div id="pg-gate" class="pg">
+  <!-- Live stats bar -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:18px" id="gate-sg"></div>
 
-<!-- TICKET VIEWER -->
-<div class="tmod" id="tmod">
-  <div class="tmodinner">
-    <div class="fb" style="margin-bottom:14px">
-      <h2 class="tg" id="tmod-title">Tickets</h2>
-      <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <button class="btn btns" onclick="printTix()">🖨️ Print</button>
-        <button class="btn btns" onclick="dlTix()">⬇️ Download</button>
-        <button class="btno btns" onclick="document.getElementById('tmod').classList.remove('open')">✕ Close</button>
+  <!-- Scanner card -->
+  <div class="card" style="border:2px solid var(--g3)">
+    <div class="ct">🚪 Gate Check-In</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <!-- Manual entry -->
+      <div>
+        <label class="fl">Enter Serial Number</label>
+        <div class="flex aic g2" style="margin-bottom:10px">
+          <input type="text" class="fi" id="gate-input" placeholder="DRC-20260725-001" style="font-family:monospace;font-size:.95rem;text-transform:uppercase" onkeydown="if(event.key==='Enter')gateCheck()">
+          <button class="btn btn-g" onclick="gateCheck()">✓ Check In</button>
+        </div>
+        <div id="gate-result" style="min-height:60px"></div>
+      </div>
+      <!-- Camera scanner placeholder -->
+      <div style="background:var(--light);border-radius:var(--r3);padding:16px;text-align:center;border:1.5px dashed var(--muted)">
+        <div style="font-size:2.5rem;margin-bottom:8px">📷</div>
+        <div style="font-weight:700;color:var(--g2);margin-bottom:4px;font-size:.85rem">Camera Scanner</div>
+        <div class="tmuted" style="font-size:.75rem;margin-bottom:10px">Use a QR scanner app on your phone to scan tickets, then type the serial above — or use the manual entry on left.</div>
+        <div style="background:#fff;border-radius:var(--r3);padding:8px;font-size:.72rem;color:var(--tx2)">
+          💡 <strong>Tip:</strong> Open this platform on a phone and use a free QR scanner app (e.g. Google Lens) to read ticket QR codes. The serial number auto-fills — just tap Check In.
+        </div>
       </div>
     </div>
-    <div id="tmod-body"></div>
+  </div>
+
+  <!-- Today's admissions log -->
+  <div class="card">
+    <div class="ct" style="justify-content:space-between;flex-wrap:wrap;gap:8px">
+      <span>📋 Admissions Log</span>
+      <div class="flex g2">
+        <span class="tmuted" style="font-size:.78rem;align-self:center" id="gate-log-count">0 checked in</span>
+        <button class="btn btn-ol btn-sm" onclick="clearGateLog()">Clear Log</button>
+      </div>
+    </div>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Time</th><th>Serial</th><th>Holder</th><th>Chapter</th><th>Type</th><th>Result</th></tr></thead>
+        <tbody id="gate-log-tb"></tbody>
+      </table>
+    </div>
+    <div id="gate-log-empty" class="tmuted tct" style="padding:24px">No check-ins yet. Start scanning tickets at the gate.</div>
+  </div>
+
+  <!-- Attendance by chapter -->
+  <div class="card">
+    <div class="ct">🏛 Attendance by Chapter</div>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Chapter</th><th>Tickets Sold</th><th>Checked In</th><th>Not Yet Arrived</th><th>Progress</th></tr></thead>
+        <tbody id="gate-ch-tb"></tbody>
+      </table>
+    </div>
   </div>
 </div>
 
+<!-- MODAL -->
+<div id="mo" class="mo" onclick="moOv(event)"><div class="mb" id="mb"></div></div>
+
 <script>
-// ── DATA ──────────────────────────────────────────────────────
-const TARGETS = {Regular:130, Patron:30, Community:60};
-const TOTAL   = 220;
-const STATUSES = ['Ticket Created in System','Ticket Sent by Email','Delivered (Digital)','Confirmed Receipt via Email'];
-
-const CHAPTERS = [
-  {code:'AZC', name:'Arizona',          chair:'Charles Olyma Sinnah',   email:'charles.sinnah@yahoo.com',          phone:'(602) 693-3530'},
-  {code:'GAC', name:'Atlanta GA',       chair:'Edward Mallah',          email:'eddymallah@gmail.com',              phone:'(770) 656-4028'},
-  {code:'ILC', name:'Chicago',          chair:'Mustapha Sheriff',       email:'msheriff02@gmail.com',              phone:'(630) 864-2057'},
-  {code:'TXDC',name:'Dallas',           chair:'Joseph Batilo Macarthy', email:'danmac2017@yahoo.com',              phone:'(469) 879-8640'},
-  {code:'DVC', name:'Delaware Valley',  chair:'Dende Korpoi',           email:'dendedorc@gmail.com',               phone:'(267) 981-5955'},
-  {code:'DRC', name:'Durham-Raleigh-CH',chair:'Amina Kawa',             email:'myminava@yahoo.com',                phone:'(919) 358-9382'},
-  {code:'TXHC',name:'Houston',          chair:'Peter Pablo Bainda',     email:'peebainda@gmail.com',               phone:'(832) 343-3895'},
-  {code:'MNC', name:'Minnesota',        chair:'Ibrahim Koroma',         email:'ismkoroma@gmail.com',               phone:'(612) 430-3795'},
-  {code:'NEC', name:'New England',      chair:'Kula Sillah',            email:'sillahkula@gmail.com',              phone:'(678) 301-8876'},
-  {code:'NJC', name:'New Jersey',       chair:'Solomon Bona',           email:'solomonbona@yahoo.com',             phone:'(732) 763-7786'},
-  {code:'NYC', name:'New York',         chair:'Jabati A Wai',           email:'kjongopy@gmail.com',                phone:'(818) 272-6589'},
-  {code:'NDC', name:'North Dakota',     chair:'Lawal Mustapha',         email:'lawalmustapha2004@yahoo.com',       phone:'(484) 340-6952'},
-  {code:'CANC',name:'N. California',    chair:'Gerald Senesie Samah',   email:'senesie1@gmail.com',                phone:'(408) 910-1197'},
-  {code:'OHC', name:'Ohio',             chair:'Miatta Abu-Rogers',      email:'miattaabu@ymail.com',               phone:'(614) 316-4068'},
-  {code:'SWC', name:'Seattle',          chair:'Moses M Fatorma',        email:'fatormamukehmoses1169@gmail.com',   phone:'(206) 335-6815'},
-  {code:'CASC',name:'S. California',    chair:'Francis Baion',          email:'fbaion@aol.com',                    phone:'(714) 860-8322'},
-  {code:'VAC', name:'Virginia',         chair:'Ahmed Bowling',          email:'bowlingahmed60@gmail.com',          phone:'(571) 466-6609'},
-  {code:'WDC', name:'Washington DC',    chair:'Solomon Palmer',         email:'solomonmpalmer@gmail.com',          phone:'(301) 592-7037'},
-  {code:'IAC', name:'Iowa',             chair:'Brima K Caulker',        email:'k.caulker@yahoo.com',               phone:'(612) 388-9983'},
-  {code:'FLC', name:'Florida',          chair:'Susan Jaward',           email:'susanbjaward@hotmail.com',          phone:'(813) 841-4130'},
+// DATA
+const CHS = [
+  {id:"AZC",name:"Arizona",chair:"Charles Sinnah"},
+  {id:"GAC",name:"Atlanta",chair:"Edward Mallah"},
+  {id:"ILC",name:"Chicago",chair:"Mustapha Sheriff"},
+  {id:"TXDC",name:"Dallas",chair:"Joseph Macarthy"},
+  {id:"DVC",name:"Delaware Valley",chair:"Dende Korpoi"},
+  {id:"DRC",name:"Durham-Raleigh-CH",chair:"Amina Kawa",host:true},
+  {id:"TXHC",name:"Houston",chair:"Peter Bainda"},
+  {id:"MNC",name:"Minnesota",chair:"Ibrahim Koroma"},
+  {id:"NEC",name:"New England",chair:"Kula Sillah"},
+  {id:"NJC",name:"New Jersey",chair:"Solomon Bona"},
+  {id:"NYC",name:"New York",chair:"Jabati Wai"},
+  {id:"NDC",name:"North Dakota",chair:"Lawal Mustapha"},
+  {id:"CANC",name:"N. California",chair:"Gerald Samah"},
+  {id:"OHC",name:"Ohio",chair:"Miatta Abu-Rogers"},
+  {id:"SWC",name:"Seattle",chair:"Moses Fatorma"},
+  {id:"CASC",name:"S. California",chair:"Francis Baion"},
+  {id:"VAC",name:"Virginia",chair:"Ahmed Bowling"},
+  {id:"WDC",name:"Washington DC",chair:"Solomon Palmer"},
+  {id:"IAC",name:"Iowa",chair:"Brima Caulker"},
+  {id:"FLC",name:"Florida",chair:"Susan Jaward"},
 ];
+const CC = ['cg','cb','ct','ci','cp','cb','cg','ct','ci','cg','cb','cp','cg','ct','cb','ci','cg','ct','cb','cg'];
 
-// ── LOGO (embed from localStorage if saved, else use uploaded) ──
-(function(){
-  const saved = localStorage.getItem('drc_logo');
-  if(saved) document.getElementById('logo-img').src = saved;
-})();
+// STORAGE
+function sv(k,v){try{localStorage.setItem('drc_'+k,JSON.stringify(v))}catch(e){}}
+function ld(k,d){try{const v=localStorage.getItem('drc_'+k);return v!==null?JSON.parse(v):d}catch(e){return d}}
+function gTks(){return ld('tks',[])}
+function sTks(t){sv('tks',t)}
+function gES(){return ld('es',{})}
+function sES(e){sv('es',e)}
 
-// ── TICKET INIT ───────────────────────────────────────────────
-function mkSerial(n){ return 'DRC-20260725-'+String(n).padStart(3,'0'); }
-
-function initTickets(){
-  const s = localStorage.getItem('drc_v7');
-  if(s) return JSON.parse(s);
-  const T=[]; let n=1;
-  // 95 chapter Regular (skip DRC)
-  CHAPTERS.forEach(ch=>{
-    if(ch.code==='DRC') return;
-    for(let i=0;i<5;i++) T.push({serial:mkSerial(n++),chapter:ch.code,name:ch.chair,phone:ch.phone,email:ch.email,type:'Regular',price:100,status:'Ticket Created in System',notes:''});
-  });
-  // 35 open Regular
-  for(let i=0;i<35;i++) T.push({serial:mkSerial(n++),chapter:'OPEN',name:'',phone:'',email:'',type:'Regular',price:100,status:'Ticket Created in System',notes:''});
-  // 30 Patron
-  for(let i=0;i<30;i++) T.push({serial:mkSerial(n++),chapter:'OPEN',name:'',phone:'',email:'',type:'Patron',price:150,status:'Ticket Created in System',notes:''});
-  // 60 Community
-  for(let i=0;i<60;i++) T.push({serial:mkSerial(n++),chapter:'OPEN',name:'',phone:'',email:'',type:'Community',price:50,status:'Ticket Created in System',notes:''});
-  save(T); return T;
+// HELPERS
+function nxSrl(type){
+  const prefix=type==='Patron'?'P':type==='Community'?'C':'R';
+  const t=gTks();
+  const ns=t.filter(x=>x.serial.match(new RegExp('DRC-20260725-'+prefix+'(\\d+)')))
+            .map(x=>{const m=x.serial.match(/DRC-20260725-[RPC](\d+)/);return m?+m[1]:0});
+  return 'DRC-20260725-'+prefix+String((ns.length?Math.max(...ns):0)+1).padStart(3,'0');
 }
-function save(t){ localStorage.setItem('drc_v7',JSON.stringify(t)); }
-function get(){ return JSON.parse(localStorage.getItem('drc_v7')||'[]'); }
-let tickets = initTickets();
-
-// ── HELPERS ───────────────────────────────────────────────────
-function sc(s){ return s==='Ticket Created in System'?'s0':s==='Ticket Sent by Email'?'s1':s==='Delivered (Digital)'?'s2':'s3'; }
-function ss(s){ return s==='Ticket Created in System'?'🆕 Created':s==='Ticket Sent by Email'?'📧 Sent':s==='Delivered (Digital)'?'📲 Delivered':'✅ Confirmed'; }
-function tc(t){ return t==='Patron'?'tp':t==='Community'?'tc':'tr'; }
-function tkTC(t){ return t==='Patron'?'tp':t==='Community'?'tc':'tr'; }
-
-// ── NAV ───────────────────────────────────────────────────────
-function showPage(id,btn){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
-  document.getElementById('page-'+id).classList.add('active');
-  if(btn) btn.classList.add('active');
-  if(id==='dashboard') renderDash();
-  if(id==='tickets')   renderTickets();
-  if(id==='chapters')  renderChapters();
-  if(id==='analytics') renderAnalytics();
-  if(id==='send')      renderSend();
-  if(id==='gate')      renderGate();
-  if(id==='settings')  renderSettings();
+function prc(tp){return tp==='Patron'?150:tp==='Community'?50:tp==='Regular'?130:100}
+function rev(){return gTks().filter(t=>t.status==='Paid').reduce((s,t)=>s+prc(t.type),0)}
+function sbdg(s){
+  const m={Pending:'b-pend',Allocated:'b-alloc',Confirmed:'b-conf',Paid:'b-paid',Sent:'b-sent',Admitted:'b-conf'};
+  return '<span class="bdg '+(m[s]||'b-pend')+'">'+s+'</span>';
 }
 
-// ── BUY ───────────────────────────────────────────────────────
-let BD = {type:'Regular',price:100};
-function selTicket(type,price){
-  BD={type,price};
-  document.querySelectorAll('[id^="tt-"]').forEach(e=>{e.classList.remove('sel');});
-  document.getElementById('tt-'+type).classList.add('sel');
-  buyStep(2);
-}
-function buyStep(n){
-  [1,2,3,4].forEach(i=>{ const e=document.getElementById('buy-s'+i); if(e) e.style.display=i===n?'block':'none'; });
-  document.querySelectorAll('.step').forEach((e,i)=>e.className='step '+(i+1<n?'done':i+1===n?'active':''));
-  if(n===3) renderBuySummary();
-}
-function renderBuySummary(){
-  const name=document.getElementById('b-name').value||'—';
-  document.getElementById('buy-sum').innerHTML='<div style="background:linear-gradient(135deg,#0a1f0d,#0f2e18);border:2px solid #c9a84c;border-radius:10px;padding:16px;margin:8px 0"><div style="font-size:18px;font-weight:bold;color:#c9a84c">'+BD.type+'</div><div style="font-size:12px;margin:4px 0">SLPPNA DRC Executive Inaugural Ball 2026</div><div style="margin-top:8px;font-size:13px"><span style="color:#c9a84c">'+name+'</span> &nbsp;·&nbsp; Sat Jul 25 2026 &nbsp;·&nbsp; <span style="color:#c9a84c">$'+BD.price+'</span></div></div>';
-}
-function confirmOrder(){
-  const name=document.getElementById('b-name').value.trim();
-  const phone=document.getElementById('b-phone').value.trim();
-  if(!name||!phone){alert('Please enter name and phone.');return;}
-  tickets=get();
-  let t=tickets.find(tk=>tk.type===BD.type&&tk.chapter==='OPEN'&&!tk.name);
-  if(!t){alert('No available tickets. Contact secretary.');return;}
-  t.name=name;t.phone=phone;t.email=document.getElementById('b-email').value;
-  t.type=BD.type;t.price=BD.price;
-  const ch=document.getElementById('b-chapter').value;
-  if(ch) t.chapter=ch.split(' ')[0];
-  save(tickets);
-  document.getElementById('order-preview').innerHTML='<div style="padding:12px"><div style="color:#c9a84c;font-size:16px;font-weight:bold">'+BD.type+'</div><div style="font-size:12px;margin:4px 0">'+name+' &nbsp;·&nbsp; <span style="color:#c9a84c">'+t.serial+'</span> &nbsp;·&nbsp; $'+BD.price+'</div><div class="ts mt">Screenshot this as your reference serial.</div></div>';
-  buyStep(4);
-}
-function resetBuy(){ BD={type:'Regular',price:100}; ['b-name','b-phone','b-email'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';}); document.getElementById('b-chapter').value=''; document.querySelectorAll('[id^="tt-"]').forEach(e=>e.classList.remove('sel')); }
-
-// ── DASHBOARD ─────────────────────────────────────────────────
-function renderDash(){
-  tickets=get();
-  const conf=tickets.filter(t=>t.status==='Confirmed Receipt via Email').length;
-  const sent=tickets.filter(t=>t.status==='Ticket Sent by Email').length;
-  const deliv=tickets.filter(t=>t.status==='Delivered (Digital)').length;
-  const rev=tickets.filter(t=>t.status==='Confirmed Receipt via Email').reduce((s,t)=>s+t.price,0);
-  document.getElementById('dash-stats').innerHTML=
-    '<div class="stat"><div class="n">'+TOTAL+'</div><div class="l">Print Run</div></div>'+
-    '<div class="stat"><div class="n" style="color:#a0f0a0">130</div><div class="l">Regular $100</div></div>'+
-    '<div class="stat"><div class="n" style="color:#f0c050">30</div><div class="l">Patron $150</div></div>'+
-    '<div class="stat"><div class="n" style="color:#d0a0ff">60</div><div class="l">Community $50</div></div>'+
-    '<div class="stat"><div class="n">'+conf+'</div><div class="l">Confirmed</div></div>'+
-    '<div class="stat"><div class="n">$'+rev.toLocaleString()+'</div><div class="l">Revenue</div></div>';
-
-  const typeRows=[
-    {key:'Regular',color:'#3a8a4a',label:'Regular — $100',target:130},
-    {key:'Patron',color:'#c9a84c',label:'Patron — $150',target:30},
-    {key:'Community',color:'#7060cc',label:'Community — $50',target:60},
-  ];
-  document.getElementById('dash-types').innerHTML=typeRows.map(ty=>{
-    const sold=tickets.filter(t=>t.type===ty.key&&t.status==='Confirmed Receipt via Email').length;
-    const pct=Math.min(100,Math.round(sold/ty.target*100));
-    return '<div class="ana-bar"><div class="ana-lbl"><span>'+ty.label+' (target '+ty.target+')</span><span>'+sold+' confirmed</span></div><div class="ana-tr"><div class="ana-fi" style="width:'+pct+'%;background:'+ty.color+'"></div></div></div>';
-  }).join('');
-
-  let rows='';
-  CHAPTERS.forEach(ch=>{
-    if(ch.code==='DRC'){rows+='<tr style="background:rgba(201,168,76,.05)"><td><strong>DRC</strong> 🏠<br><span class="ts">Durham-Raleigh-CH</span></td><td class="ts">'+ch.chair+'</td><td colspan="3"><span class="bs s3">HOST — No Tickets</span></td></tr>';return;}
-    const ct=tickets.filter(t=>t.chapter===ch.code);
-    const cc=ct.filter(t=>t.status==='Confirmed Receipt via Email').length;
-    const cs=ct.filter(t=>t.status!=='Ticket Created in System').length;
-    const sc2=cc===5?'s3':cs>0?'s1':'s0';
-    const sl=cc===5?'✅ All Confirmed':cs>0?'📧 In Progress':'🆕 Created';
-    rows+='<tr><td><strong>'+ch.code+'</strong><br><span class="ts">'+ch.name+'</span></td><td class="ts">'+ch.chair+'</td><td>'+ct.length+'</td><td>'+cc+'</td><td><span class="bs '+sc2+'">'+sl+'</span></td></tr>';
-  });
-  document.getElementById('dash-tbody').innerHTML=rows;
-}
-
-// ── ALL TICKETS ───────────────────────────────────────────────
-function renderTickets(){
-  tickets=get();
-  const q=(document.getElementById('t-search').value||'').toLowerCase();
-  const fs=document.getElementById('t-fs').value;
-  const ft=document.getElementById('t-ft').value;
-  const f=tickets.filter(t=>(!q||(t.serial+t.name+t.chapter).toLowerCase().includes(q))&&(!fs||t.status===fs)&&(!ft||t.type===ft));
-  document.getElementById('t-tbody').innerHTML=f.map((t,i)=>
-    '<tr><td>'+( i+1)+'</td><td class="tg ts">'+t.serial+'</td>'+
-    '<td>'+( t.name||'—')+'<br><span class="ts">'+( t.email||'')+'</span></td>'+
-    '<td><span class="bs '+tc(t.type)+'">'+t.type+'</span><br><span class="ts">$'+t.price+'</span></td>'+
-    '<td><span class="tag">'+t.chapter+'</span></td>'+
-    '<td class="ts">'+( t.phone||'—')+'</td>'+
-    '<td><span class="bs '+sc(t.status)+'">'+ss(t.status)+'</span></td>'+
-    '<td style="white-space:nowrap"><button class="btng" onclick="openEdit(\''+t.serial+'\')">✏ Edit</button> '+
-    '<select style="margin:0;padding:3px 5px;font-size:10px;width:auto" onchange="qkStatus(\''+t.serial+'\',this.value);this.value=\'\'"><option value="">▶</option>'+STATUSES.map(s=>'<option value="'+s+'">'+ss(s)+'</option>').join('')+'</select></td></tr>'
-  ).join('');
-  document.getElementById('t-count').textContent='Showing '+f.length+' of '+tickets.length;
-}
-function qkStatus(serial,status){
-  if(!status)return;
-  tickets=get();
-  const t=tickets.find(x=>x.serial===serial);
-  if(t){t.status=status;save(tickets);renderTickets();}
-}
-function resetTickets(){
-  if(confirm('Reset all 220 tickets to defaults?')){localStorage.removeItem('drc_v7');tickets=initTickets();renderTickets();}
-}
-function exportCSV(){
-  tickets=get();
-  const rows=[['Serial','Chapter','Name','Phone','Email','Type','Price','Status','Notes']];
-  tickets.forEach(t=>rows.push([t.serial,t.chapter,t.name,t.phone,t.email,t.type,t.price,t.status,t.notes]));
-  const csv=rows.map(r=>r.map(v=>'"'+String(v||'').replace(/"/g,'""')+'"').join(',')).join('\n');
-  const a=document.createElement('a');a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(csv);a.download='DRC_Tickets.csv';a.click();
-}
-
-// ── EDIT MODAL ────────────────────────────────────────────────
-function openEdit(serial){
-  tickets=get();const t=tickets.find(x=>x.serial===serial);if(!t)return;
-  document.getElementById('edit-serial').value=t.serial;
-  document.getElementById('edit-name').value=t.name||'';
-  document.getElementById('edit-phone').value=t.phone||'';
-  document.getElementById('edit-email').value=t.email||'';
-  document.getElementById('edit-type').value=t.type||'Regular';
-  document.getElementById('edit-price').value=t.price||100;
-  document.getElementById('edit-status').value=t.status||'Ticket Created in System';
-  document.getElementById('edit-notes').value=t.notes||'';
-  document.getElementById('edit-modal').classList.add('open');
-}
-function closeModal(){document.getElementById('edit-modal').classList.remove('open');}
-function saveEdit(){
-  const serial=document.getElementById('edit-serial').value;
-  tickets=get();const t=tickets.find(x=>x.serial===serial);if(!t){closeModal();return;}
-  t.name=document.getElementById('edit-name').value;
-  t.phone=document.getElementById('edit-phone').value;
-  t.email=document.getElementById('edit-email').value;
-  t.type=document.getElementById('edit-type').value;
-  t.price=parseFloat(document.getElementById('edit-price').value)||100;
-  t.status=document.getElementById('edit-status').value;
-  t.notes=document.getElementById('edit-notes').value;
-  save(tickets);closeModal();renderTickets();
-}
-document.getElementById('edit-modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
-
-// ── CHAPTERS ─────────────────────────────────────────────────
-function renderChapters(){
-  tickets=get();
-  document.getElementById('chg').innerHTML=CHAPTERS.map(ch=>{
-    const isH=ch.code==='DRC';
-    const conf=isH?0:tickets.filter(t=>t.chapter===ch.code&&t.status==='Confirmed Receipt via Email').length;
-    const pct=isH?100:Math.round(conf/5*100);
-    return '<div class="chc" style="'+(isH?'border-color:#c9a84c;background:rgba(201,168,76,.07)':'')+'">'+
-      '<div class="chcode">'+ch.code+(isH?' 🏠':'')+'</div>'+
-      '<div class="chname">'+ch.name+'</div>'+
-      '<div class="chchair">'+ch.chair+'</div>'+
-      '<div class="chchair" style="margin-top:2px">'+ch.phone+'</div>'+
-      (isH?'<div style="margin-top:8px;font-size:10px;color:#c9a84c;font-weight:bold">HOST — No Tickets</div>':
-       '<div class="chprog"><div class="chfill" style="width:'+pct+'%"></div></div><div style="font-size:10px;color:#f0d080;margin-top:3px">'+conf+'/5 confirmed</div>')+
-      '</div>';
-  }).join('');
-}
-
-// ── ANALYTICS ─────────────────────────────────────────────────
-function renderAnalytics(){
-  tickets=get();
-  const conf=tickets.filter(t=>t.status==='Confirmed Receipt via Email').length;
-  const deliv=tickets.filter(t=>t.status==='Delivered (Digital)').length;
-  const sent=tickets.filter(t=>t.status==='Ticket Sent by Email').length;
-  const crtd=tickets.filter(t=>t.status==='Ticket Created in System').length;
-  const rev=tickets.filter(t=>t.status==='Confirmed Receipt via Email').reduce((s,t)=>s+t.price,0);
-  document.getElementById('ana-stats').innerHTML=
-    '<div class="stat"><div class="n">'+TOTAL+'</div><div class="l">Print Run</div></div>'+
-    '<div class="stat"><div class="n">'+conf+'</div><div class="l">Confirmed</div></div>'+
-    '<div class="stat"><div class="n">'+deliv+'</div><div class="l">Delivered</div></div>'+
-    '<div class="stat"><div class="n">'+sent+'</div><div class="l">Sent</div></div>'+
-    '<div class="stat"><div class="n">$'+rev.toLocaleString()+'</div><div class="l">Revenue</div></div>';
-  const sts=[{l:'Created',c:crtd,col:'#4444aa'},{l:'Sent',c:sent,col:'#1a5c8c'},{l:'Delivered',c:deliv,col:'#4a7a00'},{l:'Confirmed',c:conf,col:'#1a5c2a'}];
-  document.getElementById('ana-status').innerHTML=sts.map(s=>'<div class="ana-bar"><div class="ana-lbl"><span>'+s.l+'</span><span>'+s.c+'</span></div><div class="ana-tr"><div class="ana-fi" style="width:'+Math.round(s.c/TOTAL*100)+'%;background:'+s.col+'"></div></div></div>').join('');
-  const tys=[{key:'Regular',label:'Regular $100',target:130,col:'#3a8a4a'},{key:'Patron',label:'Patron $150',target:30,col:'#c9a84c'},{key:'Community',label:'Community $50',target:60,col:'#7060cc'}];
-  document.getElementById('ana-rev').innerHTML=tys.map(ty=>{
-    const c=tickets.filter(t=>t.type===ty.key&&t.status==='Confirmed Receipt via Email');
-    const r=c.reduce((s,t)=>s+t.price,0);
-    return '<div class="ana-bar"><div class="ana-lbl"><span>'+ty.label+' (target '+ty.target+')</span><span>'+c.length+' · $'+r+'</span></div><div class="ana-tr"><div class="ana-fi" style="width:'+Math.round(c.length/ty.target*100)+'%;background:'+ty.col+'"></div></div></div>';
-  }).join('');
-  document.getElementById('ana-ch').innerHTML=CHAPTERS.filter(ch=>ch.code!=='DRC').map(ch=>{
-    const c=tickets.filter(t=>t.chapter===ch.code&&t.status==='Confirmed Receipt via Email').length;
-    return '<div class="ana-bar"><div class="ana-lbl"><span>'+ch.code+' – '+ch.name+'</span><span>'+c+'/5</span></div><div class="ana-tr"><div class="ana-fi" style="width:'+Math.round(c/5*100)+'%;background:#1a5c2a"></div></div></div>';
-  }).join('');
-}
-
-// ── GATE ──────────────────────────────────────────────────────
-function renderGate(){
-  tickets=get();
-  const conf=tickets.filter(t=>t.status==='Confirmed Receipt via Email').length;
-  const issued=tickets.filter(t=>t.status!=='Ticket Created in System').length;
-  document.getElementById('gate-stats').innerHTML=
-    '<div class="stat"><div class="n">'+TOTAL+'</div><div class="l">Total</div></div>'+
-    '<div class="stat"><div class="n">'+issued+'</div><div class="l">Issued</div></div>'+
-    '<div class="stat"><div class="n">'+conf+'</div><div class="l">Confirmed</div></div>'+
-    '<div class="stat"><div class="n">'+(TOTAL-issued)+'</div><div class="l">Not Sent</div></div>';
-  const adm=tickets.filter(t=>t.status==='Confirmed Receipt via Email');
-  document.getElementById('gate-tbody').innerHTML=adm.length?adm.map(t=>'<tr><td class="tg ts">'+t.serial+'</td><td>'+t.name+'</td><td><span class="bs '+tc(t.type)+'">'+t.type+'</span></td><td><span class="tag">'+t.chapter+'</span></td></tr>').join(''):'<tr><td colspan="4" style="text-align:center;opacity:.5">No confirmed tickets yet</td></tr>';
-}
-function verifySerial(s){
-  if(!s)return;
-  tickets=get();
-  const t=tickets.find(x=>x.serial.toLowerCase()===s.toLowerCase().trim());
-  const el=document.getElementById('gate-res');
-  if(!t){el.innerHTML='<div class="msg me">❌ Ticket NOT FOUND: '+s+'</div>';return;}
-  const ok=t.status!=='Ticket Created in System';
-  const ch=CHAPTERS.find(c=>c.code===t.chapter);
-  el.innerHTML='<div class="msg '+(ok?'ms':'mw')+'">'+
-    (ok?'✅ VALID TICKET':'⚠️ Not yet dispatched — verify with secretary')+
-    '<div style="margin-top:8px;font-size:12px"><strong>Serial:</strong> '+t.serial+'<br><strong>Name:</strong> '+(t.name||'—')+'<br><strong>Type:</strong> '+t.type+' ($'+t.price+')<br><strong>Chapter:</strong> '+t.chapter+(ch?' – '+ch.name:'')+'<br><strong>Status:</strong> '+t.status+'</div>'+
-    (ok?'<button class="btn btns" style="margin-top:10px" onclick="markAdmit(\''+t.serial+'\')">✅ Mark Admitted</button>':'')+
-    '</div>';
-}
-function markAdmit(serial){
-  tickets=get();
-  const t=tickets.find(x=>x.serial===serial);
-  if(t){t.status='Confirmed Receipt via Email';t.notes=(t.notes?t.notes+' | ':'')+'Gate '+new Date().toLocaleString();save(tickets);}
-  document.getElementById('gate-res').innerHTML+='<div class="msg ms mt">✅ Admitted!</div>';
-  renderGate();
-}
-
-// ── EMAILJS ───────────────────────────────────────────────────
-function loadCfg(){ return {pk:localStorage.getItem('drc_ejs_pk')||'',sv:localStorage.getItem('drc_ejs_sv')||'',tm:localStorage.getItem('drc_ejs_tm')||'',fn:localStorage.getItem('drc_ejs_fn')||'Adu Sheref – Secretary General, DRC',rt:localStorage.getItem('drc_ejs_rt')||'adusheref@gmail.com'}; }
-function ejsOk(){ const c=loadCfg(); return !!(c.pk&&c.sv&&c.tm); }
-function saveEJS(){
-  const pk=document.getElementById('ejs-pk').value.trim();
-  const sv=document.getElementById('ejs-sv').value.trim();
-  const tm=document.getElementById('ejs-tm').value.trim();
-  if(!pk||!sv||!tm){setEjsSt('Please fill all three fields.','mw');return;}
-  localStorage.setItem('drc_ejs_pk',pk);localStorage.setItem('drc_ejs_sv',sv);localStorage.setItem('drc_ejs_tm',tm);
-  emailjs.init(pk);
-  setEjsSt('✅ Saved & connected!','ms');
-  updateEjsBanner();
-}
-function saveSender(){
-  localStorage.setItem('drc_ejs_fn',document.getElementById('cfg-fn').value.trim());
-  localStorage.setItem('drc_ejs_rt',document.getElementById('cfg-rt').value.trim());
-  alert('Sender info saved!');
-}
-function clearEJS(){['drc_ejs_pk','drc_ejs_sv','drc_ejs_tm'].forEach(k=>localStorage.removeItem(k));setEjsSt('Cleared.','mw');updateEjsBanner();}
-function setEjsSt(msg,cls){ const e=document.getElementById('ejs-st'); if(e) e.innerHTML='<div class="msg '+cls+'">'+msg+'</div>'; }
-function initEJS(){ const c=loadCfg(); if(c.pk) emailjs.init(c.pk); }
-function updateEjsBanner(){
-  const el=document.getElementById('ejs-banner'); if(!el)return;
-  el.innerHTML=ejsOk()?'<div class="msg ms">✅ EmailJS connected — emails will send directly.</div>':'<div class="msg mw">⚠️ EmailJS not configured. Go to ⚙️ Settings to set up email sending.</div>';
-}
-function testEJS(){
-  const c=loadCfg();
-  if(!ejsOk()){setEjsSt('Save credentials first.','mw');return;}
-  setEjsSt('Sending test to ediepaulvandy@gmail.com…','mi');
-  emailjs.send(c.sv,c.tm,{to_email:'ediepaulvandy@gmail.com',to_name:'Edie Vandy',chapter_code:'TEST',chapter_name:'Test',serials:'DRC-20260725-000',ticket_count:'1',total_amount:'$100',event_date:'Saturday, July 25, 2026',venue:'5410 NC-55, Durham, NC 27713',payment_info:'Zelle: (919) 638-7503',from_name:c.fn,reply_to:c.rt,message:'Test email from SLPPNA DRC Ticketing Platform.'})
-    .then(()=>setEjsSt('✅ Test email sent!','ms'))
-    .catch(e=>setEjsSt('❌ '+( e.text||JSON.stringify(e)),'me'));
-}
-function renderSettings(){
-  const c=loadCfg();
-  document.getElementById('ejs-pk').value=c.pk;
-  document.getElementById('ejs-sv').value=c.sv;
-  document.getElementById('ejs-tm').value=c.tm;
-  document.getElementById('cfg-fn').value=c.fn;
-  document.getElementById('cfg-rt').value=c.rt;
-  if(ejsOk()) setEjsSt('✅ EmailJS configured and ready.','ms');
-}
-
-// ── SEND PAGE ─────────────────────────────────────────────────
-function renderSend(){
-  updateEjsBanner();
-  const sel=document.getElementById('send-sel');
-  sel.innerHTML='<option value="">— Select Chapter —</option>';
-  CHAPTERS.forEach(ch=>{
-    if(ch.code==='DRC')return;
-    const o=document.createElement('option');
-    o.value=ch.code;
-    tickets=get();
-    const done=tickets.filter(t=>t.chapter===ch.code).every(t=>t.status!=='Ticket Created in System');
-    o.textContent=ch.code+' – '+ch.name+(done?' ✓':'');
-    sel.appendChild(o);
+// TICKER
+function updTk(){
+  const t=gTks(),pd=t.filter(x=>x.status==='Paid').length,rv=rev();
+  [['tki1','tki4'],['tki2','tki5'],['tki3','tki6']].forEach(([a,b],i)=>{
+    const val=i===0?t.length+' Tickets Issued':i===1?pd+' Paid':'$'+rv.toLocaleString()+' Revenue';
+    [a,b].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=val;});
   });
 }
 
-function buildMsg(ch, chTix){
-  const c=loadCfg();
-  const serials=chTix.map(t=>t.serial).join(', ');
-  return 'Dear '+ch.chair+',\n\nGreetings from the SLPPNA DRC Chapter!\n\nYour 5 tickets for the Executive Inaugural Ball 2026 are allocated below.\n\nEVENT:\n  Date:  Saturday, July 25, 2026\n  Time:  8:00 PM – 2:00 AM\n  Venue: 5410 NC-55, Durham, NC 27713\n\nYOUR TICKET SERIALS:\n  '+serials+'\n\n(Each serial has a QR code — show on phone or print at gate)\n\nPAYMENT ($500 total):\n  Zelle:    (919) 638-7503\n  Cash App: $SLPPNADRC\n  PayPal:   adusheref@gmail.com\n\nPlease REPLY to confirm receipt.\n\nWith warm regards,\n'+c.fn+'\n(919) 638-7503 | '+c.rt+'\n\nAmina Kawa – Chair, DRC\n(984) 884-7808';
+// NAV
+function showPg(id){
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('on'));
+  document.getElementById('pg-'+id).classList.add('on');
+  document.querySelectorAll('.nb').forEach(b=>{if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes("'"+id+"'"))b.classList.add('on');});
+  updTk();
+  if(id==='home'){rHomeSG();rCr();}
+  if(id==='dash'){rDash();}
+  if(id==='tks'){rTks();}
+  if(id==='chs'){rChs();}
+  if(id==='send'){rSend();}
+  if(id==='analytics'){rAn();}
+  if(id==='qr'){rQR();}
+  if(id==='gate'){rGate();setTimeout(()=>document.getElementById('gate-input')?.focus(),200);}
+  const pend=gTks().filter(t=>t.status==='Pending').length;
+  const nb=document.getElementById('nav-tks');
+  if(nb){const ex=nb.querySelector('.nbadge');if(ex)ex.remove();if(pend>0){const sp=document.createElement('span');sp.className='nbadge';sp.textContent=pend;nb.appendChild(sp);}}
 }
 
-function renderSendPreview(){
-  const code=document.getElementById('send-sel').value;
-  if(!code){document.getElementById('send-preview').innerHTML='';return;}
-  const ch=CHAPTERS.find(c=>c.code===code);
-  tickets=get();
-  const chTix=tickets.filter(t=>t.chapter===code);
-  const msg=buildMsg(ch,chTix);
-  const ok=ejsOk();
-  document.getElementById('send-preview').innerHTML='<div class="card">'+
-    '<div class="fb" style="margin-bottom:12px">'+
-    '<div><div class="tg" style="font-size:15px">'+ch.name+' ('+ch.code+')</div><div class="ts">'+ch.chair+' · '+ch.email+' · '+ch.phone+'</div></div>'+
-    '<div style="display:flex;gap:7px;flex-wrap:wrap">'+
-    (ok?'<button class="btn btns" id="sbtn-'+code+'" onclick="sendOne(\''+code+'\',this)">📧 Send Now</button>':'<button class="btn btns" style="opacity:.4" title="Setup EmailJS first">📧 Send</button>')+
-    '<button class="btn btns" style="background:#1a5c2a;color:#c9a84c;border:1px solid #c9a84c" onclick="openTix(\''+code+'\')">🎟 View Tickets</button>'+
-    '<button class="btno btns" onclick="copyMsg()">📋 Copy</button>'+
-    '</div></div>'+
-    '<div class="tbl-wrap"><table><thead><tr><th>Serial</th><th>Name</th><th>Type</th><th>Status</th><th>Update</th></tr></thead><tbody>'+
-    chTix.map(t=>'<tr><td class="tg ts">'+t.serial+'</td><td class="ts">'+t.name+'</td><td><span class="bs '+tc(t.type)+'">'+t.type+'</span></td><td><span class="bs '+sc(t.status)+'">'+ss(t.status)+'</span></td><td><select style="margin:0;padding:3px 5px;font-size:10px;width:auto" onchange="qkStatus(\''+t.serial+'\',this.value);this.value=\'\';renderSendPreview()"><option value="">▶</option>'+STATUSES.map(s=>'<option value="'+s+'">'+ss(s)+'</option>').join('')+'</select></td></tr>').join('')+
-    '</tbody></table></div><hr>'+
-    '<div style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px"><span class="ts" style="padding-top:5px">Mark all:</span>'+
-    STATUSES.map(s=>'<button class="btno btns" onclick="bulkStatus(\''+code+'\',\''+s+'\')">'+ss(s)+'</button>').join('')+
-    '</div>'+
-    '<textarea id="send-msg" rows="18" style="font-family:monospace;font-size:11px">'+msg+'</textarea>'+
-    '</div>';
+// HOME STATS
+function rHomeSG(){
+  const t=gTks(),pd=t.filter(x=>x.status==='Paid').length,cf=t.filter(x=>x.status==='Confirmed'||x.status==='Paid').length,rv=rev();
+  document.getElementById('home-sg').innerHTML=
+    '<div class="sc sc-g"><div class="sn">'+t.length+'</div><div class="sl">Total Tickets</div></div>'+
+    '<div class="sc sc-b"><div class="sn">'+cf+'</div><div class="sl">Confirmed</div></div>'+
+    '<div class="sc sc-gd"><div class="sn">'+pd+'</div><div class="sl">Paid</div></div>'+
+    '<div class="sc sc-w"><div class="sn">'+(100-t.length)+'</div><div class="sl">Available</div></div>'+
+    '<div class="sc sc-t"><div class="sn">$'+rv.toLocaleString()+'</div><div class="sl">Revenue</div></div>';
 }
 
-function bulkStatus(code,status){
-  tickets=get();
-  tickets.forEach(t=>{if(t.chapter===code)t.status=status;});
-  save(tickets);renderSendPreview();renderDash();
+// CAROUSEL
+let crIdx=0;
+const CR_VIS=3;
+function rCr(){
+  const t=gTks(),track=document.getElementById('cr-track'),dots=document.getElementById('cr-dots');
+  if(!track)return;
+  track.innerHTML=CHS.map((c,i)=>{
+    const ct=t.filter(x=>x.chapter===c.id);
+    const pd=ct.filter(x=>x.status==='Paid').length,cf=ct.filter(x=>x.status==='Confirmed'||x.status==='Paid').length;
+    const dts=Array.from({length:5},(_,j)=>{const tk=ct[j];const cls=!tk?'empty':tk.status==='Paid'?'paid':tk.status==='Confirmed'?'conf':tk.status==='Sent'?'sent':'alloc';return '<div class="cdot '+cls+'" title="'+(tk?tk.holder+' ('+tk.status+')':'Available')+'"></div>';}).join('');
+    return '<div class="cc '+CC[i]+(c.host?' host':'')+'" onclick="showCh(\''+c.id+'\')">'+(c.host?'<span class="hstar">⭐</span>':'')+'<div class="cc-id">'+c.id+'</div><div class="cc-name">'+c.name+'</div><div class="cc-chair">👤 '+c.chair+'</div><div class="cc-dots">'+dts+'</div><div class="cc-count">'+ct.length+'/5 · '+cf+' confirmed</div></div>';
+  }).join('');
+  const pages=Math.max(1,CHS.length-CR_VIS+1);
+  dots.innerHTML=Array.from({length:pages},(_,i)=>'<button class="cr-dot'+(i===crIdx?' on':'')+'" onclick="crGo('+i+')"></button>').join('');
+  crGo(Math.min(crIdx,pages-1));
 }
-function copyMsg(){
-  const el=document.getElementById('send-msg');
-  if(el) navigator.clipboard.writeText(el.value).then(()=>alert('Copied!')).catch(()=>{el.select();document.execCommand('copy');alert('Copied!');});
+function crGo(i){
+  const track=document.getElementById('cr-track');if(!track)return;
+  const w=(track.children[0]?.offsetWidth||215)+14;
+  crIdx=i;track.style.transform='translateX(-'+i*w+'px)';
+  document.querySelectorAll('.cr-dot').forEach((d,j)=>d.classList.toggle('on',j===i));
+}
+function crMove(d){crGo(Math.max(0,Math.min(Math.max(0,CHS.length-CR_VIS),crIdx+d)))}
+
+// BUY
+const BS={ch:'',type:'',qty:1,holders:[]};
+function initBS(){
+  const sel=document.getElementById('b-ch');
+  if(sel&&sel.options.length<2)CHS.forEach(c=>sel.add(new Option(c.name+(c.host?' ⭐':'')+'  ('+c.id+')',c.id)));
+}
+function bChCh(){
+  const id=document.getElementById('b-ch').value,info=document.getElementById('b-chi');
+  if(!id){info.style.display='none';return;}
+  const c=CHS.find(x=>x.id===id),ct=gTks().filter(t=>t.chapter===id);
+  info.style.display='block';info.innerHTML='<strong>'+c.name+'</strong> · '+c.chair+' · '+ct.length+'/5 tickets allocated';
+  BS.ch=id;
+}
+function selType(tp,el){BS.type=tp;document.querySelectorAll('.ttc').forEach(c=>c.classList.remove('sel'));el.classList.add('sel');}
+function bQty(d){BS.qty=Math.max(1,Math.min(5,BS.qty+d));document.getElementById('b-qn').textContent=BS.qty;}
+function bN1(){
+  if(!document.getElementById('b-ch').value){alert('Please select a chapter.');return;}
+  if(!BS.type){alert('Please select a ticket type.');return;}
+  BS.ch=document.getElementById('b-ch').value;
+  let h='';
+  for(let i=0;i<BS.qty;i++)h+='<div style="border:1.5px solid #cfe0d3;border-radius:var(--r3);padding:16px;margin-bottom:10px"><div style="font-weight:700;color:var(--g2);margin-bottom:10px">Ticket '+(i+1)+' of '+BS.qty+'</div><div class="fg"><label class="fl">Full Name *</label><input type="text" class="fi" id="hn-'+i+'" placeholder="Enter full name"></div><div class="fg"><label class="fl">Phone (optional)</label><input type="text" class="fi" id="hp-'+i+'" placeholder="(xxx) xxx-xxxx"></div></div>';
+  document.getElementById('b-hf').innerHTML=h;
+  document.getElementById('bs1').style.display='none';document.getElementById('bs2').style.display='block';
+}
+function bBk1(){document.getElementById('bs1').style.display='block';document.getElementById('bs2').style.display='none';}
+function bN2(){
+  const h=[];
+  for(let i=0;i<BS.qty;i++){const n=document.getElementById('hn-'+i).value.trim();if(!n){alert('Enter name for ticket '+(i+1));return;}h.push({name:n,phone:document.getElementById('hp-'+i).value.trim()});}
+  BS.holders=h;
+  const c=CHS.find(x=>x.id===BS.ch),p=prc(BS.type);
+  document.getElementById('b-sum').innerHTML='<strong>Summary:</strong> '+c.name+' · '+BS.type+' × '+BS.qty+(p>0?' = <strong>$'+(p*BS.qty)+'</strong>':' = <strong>By Donation</strong>')+'<br>Holders: '+h.map(x=>x.name).join(', ');
+  document.getElementById('bs2').style.display='none';document.getElementById('bs3').style.display='block';
+}
+function bBk2(){document.getElementById('bs2').style.display='block';document.getElementById('bs3').style.display='none';}
+function bConf(){
+  const c=CHS.find(x=>x.id===BS.ch),pm=document.getElementById('b-pm').value,ref=document.getElementById('b-ref').value,st=document.getElementById('b-st').value;
+  const tks=gTks(),cr=[];
+  BS.holders.forEach(h=>{const t={serial:nxSrl(BS.type),holder:h.name,phone:h.phone||'',chapter:BS.ch,chapterName:c.name,type:BS.type,payment:pm,payRef:ref,status:st,created:new Date().toISOString()};tks.push(t);cr.push(t);});
+  sTks(tks);
+  document.getElementById('bs3').style.display='none';document.getElementById('bs1').style.display='block';
+  document.getElementById('b-ch').value='';document.getElementById('b-chi').style.display='none';
+  document.querySelectorAll('.ttc').forEach(c=>c.classList.remove('sel'));
+  BS.qty=1;BS.type='';BS.holders=[];document.getElementById('b-qn').textContent='1';
+  updTk();
+  showMo('<div class="m-title">✅ '+cr.length+' Ticket(s) Created!</div>'+cr.map(t=>'<div class="tkt" style="margin-bottom:10px"><div class="tkt-ey">SLPPNA · DRC Chapter</div><div class="tkt-ev">Executive Inaugural Ball 2026</div><div class="tkt-mt">📅 July 25, 2026 · 8PM–2AM · 5410 NC-55, Durham NC</div><div class="tkt-hn">'+t.holder+'</div><div class="tkt-ty">'+t.type+'</div><div class="tkt-sr">'+t.serial+' · '+t.chapterName+'</div></div>').join('')+'<button class="btn btn-g wf mt3" onclick="closeMo();showPg(\'tks\')">View All Tickets</button>');
 }
 
-async function sendOne(code,btn){
-  if(!ejsOk()){alert('Configure EmailJS in Settings first.');return;}
-  const ch=CHAPTERS.find(c=>c.code===code);
-  tickets=get();
-  const chTix=tickets.filter(t=>t.chapter===code);
-  const c=loadCfg();
-  const msg=buildMsg(ch,chTix);
-  if(btn){btn.disabled=true;btn.textContent='⏳ Generating QR…';}
+// DASHBOARD
+function rDash(){
+  const t=gTks(),pd=t.filter(x=>x.status==='Paid').length,cf=t.filter(x=>x.status==='Confirmed'||x.status==='Paid').length,pn=t.filter(x=>x.status==='Pending').length,al=t.filter(x=>x.status==='Allocated').length,rv=rev();
+  document.getElementById('dash-sg').innerHTML=
+    '<div class="sc sc-g"><div class="sn">'+t.length+'</div><div class="sl">Total</div></div>'+
+    '<div class="sc sc-b"><div class="sn">'+cf+'</div><div class="sl">Confirmed</div></div>'+
+    '<div class="sc sc-gd"><div class="sn">'+pd+'</div><div class="sl">Paid</div></div>'+
+    '<div class="sc sc-w"><div class="sn">'+pn+'</div><div class="sl">Pending</div></div>'+
+    '<div class="sc sc-t"><div class="sn">$'+rv.toLocaleString()+'</div><div class="sl">Revenue</div></div>'+
+    '<div class="sc sc-b"><div class="sn">'+al+'</div><div class="sl">Allocated</div></div>';
+  const es=gES();
+  document.getElementById('dash-tb').innerHTML=CHS.map(c=>{
+    const ct=t.filter(x=>x.chapter===c.id),cpd=ct.filter(x=>x.status==='Paid').length,ccf=ct.filter(x=>x.status==='Confirmed'||x.status==='Paid').length,sent=es[c.id]==='Sent';
+    return '<tr><td><strong>'+c.id+'</strong>'+(c.host?'<span class="bdg b-host" style="margin-left:5px">HOST</span>':'')+' <small style="color:var(--tx2)">'+c.name+'</small></td><td>'+c.chair+'</td><td><strong>'+ct.length+'</strong><span style="color:var(--tx3)">/5</span></td><td style="color:var(--b3)">'+ccf+'</td><td style="color:var(--gd2)">'+cpd+'</td><td>'+(sent?'<span class="bdg b-conf">Sent</span>':'<span class="bdg b-pend">Not sent</span>')+'</td><td><button class="btn btn-ol btn-xs" onclick="qkAlloc(\''+c.id+'\')">+ Ticket</button></td></tr>';
+  }).join('');
+}
+function qkAlloc(id){showPg('buy');setTimeout(()=>{document.getElementById('b-ch').value=id;bChCh();},100);}
 
-  // Generate QR codes
-  const qrs=[];
-  for(const t of chTix){
-    try{ qrs.push(await genQR(JSON.stringify({serial:t.serial,type:t.type,name:t.name,chapter:t.chapter,event:'DRC Ball 2026'}),130)); }
-    catch(e){ qrs.push(''); }
+// ALL TICKETS
+function rTks(){
+  const sel=document.getElementById('tk-fc');if(sel&&sel.options.length<2)CHS.forEach(c=>sel.add(new Option(c.name,c.id)));
+  const q=(document.getElementById('tk-srch')?.value||'').toLowerCase(),sf=document.getElementById('tk-fs')?.value||'',cf=document.getElementById('tk-fc')?.value||'';
+  const tks=gTks().filter(t=>{
+    const mq=!q||(t.serial+t.holder+(t.chapterName||"")+(t.type||"")).toLowerCase().includes(q);
+    return mq&&(!sf||t.status===sf)&&(!cf||t.chapter===cf);
+  });
+  document.getElementById('tks-tb').innerHTML=tks.length?tks.map(t=>'<tr><td><code>'+t.serial+'</code></td><td><strong>'+t.holder+'</strong>'+(t.phone?'<br><small style="color:var(--tx3)">'+t.phone+'</small>':'')+' </td><td>'+t.chapterName+'</td><td style="font-size:.75rem">'+t.type+'</td><td><small style="color:var(--tx2)">'+t.payment+'</small></td><td>'+sbdg(t.status)+'</td><td style="white-space:nowrap"><button class="btn btn-ol btn-xs" onclick="edTk(\''+t.serial+'\')">Edit</button> <button class="btn btn-xs" style="background:linear-gradient(135deg,var(--b1),var(--b3));color:#fff;border:none;padding:5px 11px;border-radius:5px;font-size:.68rem;font-weight:700;cursor:pointer" onclick="vwTk(\''+t.serial+'\')">View</button></td></tr>').join(''):'<tr><td colspan="7" style="text-align:center;padding:28px;color:var(--tx3)">No tickets found.</td></tr>';
+  document.getElementById('tks-ct').textContent='Showing '+tks.length+' ticket(s)';
+}
+function edTk(sr){
+  const t=gTks().find(x=>x.serial===sr);if(!t)return;
+  showMo('<div class="m-title">✏️ Edit — <code>'+sr+'</code></div><div class="fg"><label class="fl">Holder Name</label><input type="text" class="fi" id="ed-n" value="'+t.holder+'"></div><div class="fg"><label class="fl">Status</label><select class="fs" id="ed-s">'+['Pending','Allocated','Confirmed','Paid','Sent'].map(s=>'<option'+(t.status===s?' selected':'')+'>'+s+'</option>').join('')+'</select></div><div class="fg"><label class="fl">Payment</label><select class="fs" id="ed-p">'+['Zelle','Cash App','PayPal','Cash'].map(s=>'<option'+(t.payment===s?' selected':'')+'>'+s+'</option>').join('')+'</select></div><div class="fg"><label class="fl">Reference</label><input type="text" class="fi" id="ed-r" value="'+(t.payRef||'')+'"></div><div class="flex g2 mt3"><button class="btn btn-g" onclick="svEd(\''+sr+'\')">Save</button><button class="btn btn-ol" onclick="closeMo()">Cancel</button></div>');
+}
+function svEd(sr){const t=gTks(),x=t.find(a=>a.serial===sr);if(!x)return;x.holder=document.getElementById('ed-n').value;x.status=document.getElementById('ed-s').value;x.payment=document.getElementById('ed-p').value;x.payRef=document.getElementById('ed-r').value;sTks(t);closeMo();rTks();updTk();}
+function vwTk(sr){
+  const t=gTks().find(x=>x.serial===sr);if(!t)return;
+  showMo('<div class="tkt" style="margin-bottom:16px"><div class="tkt-ey">SLPPNA · DRC Chapter</div><div class="tkt-ev">Executive Inaugural Ball 2026</div><div class="tkt-mt">📅 Saturday July 25 2026 · 8:00 PM – 2:00 AM<br>📍 5410 NC-55 Durham NC 27713</div><div class="tkt-hn">'+t.holder+'</div><div class="tkt-ty">'+t.type+'</div><div class="tkt-sr">'+t.serial+' · '+t.chapterName+'</div></div><div style="font-size:.82rem;line-height:2;color:var(--tx2)"><div>Payment: <strong>'+t.payment+'</strong>'+(t.payRef?' · '+t.payRef:'')+'</div><div>Status: '+sbdg(t.status)+'</div><div>Created: '+new Date(t.created).toLocaleString()+'</div></div><button class="btn btn-ol wf mt3" onclick="closeMo()">Close</button>');
+}
+
+// CHAPTERS FULL
+function rChs(){
+  const t=gTks(),grid=document.getElementById('chs-grid');if(!grid)return;
+  grid.innerHTML=CHS.map((c,i)=>{
+    const ct=t.filter(x=>x.chapter===c.id),pd=ct.filter(x=>x.status==='Paid').length,cf=ct.filter(x=>x.status==='Confirmed'||x.status==='Paid').length;
+    const dts=Array.from({length:5},(_,j)=>{const tk=ct[j];const cls=!tk?'empty':tk.status==='Paid'?'paid':tk.status==='Confirmed'?'conf':tk.status==='Sent'?'sent':'alloc';return '<div class="cdot '+cls+'" title="'+(tk?tk.holder+' ('+tk.status+')':'Available')+'"></div>';}).join('');
+    return '<div class="cc '+CC[i]+(c.host?' host':'')+'" onclick="showCh(\''+c.id+'\')">'+(c.host?'<span class="hstar">⭐</span>':'')+'<div class="cc-id">'+c.id+'</div><div class="cc-name">'+c.name+'</div><div class="cc-chair">👤 '+c.chair+'</div><div class="cc-dots">'+dts+'</div><div class="cc-count">'+ct.length+'/5 · '+cf+' confirmed · '+pd+' paid</div></div>';
+  }).join('');
+}
+function showCh(id){
+  const c=CHS.find(x=>x.id===id),tks=gTks().filter(t=>t.chapter===id);
+  showMo('<div class="m-title">'+c.id+' — '+c.name+'</div>'+(c.host?'<span class="bdg b-host" style="margin-bottom:12px;display:inline-block">HOST CHAPTER</span>':'')+
+    '<div style="font-size:.84rem;line-height:2;margin-bottom:14px;color:var(--tx2)"><div>👤 Chair: <strong>'+c.chair+'</strong></div><div>🎟 Tickets: <strong>'+tks.length+'/5</strong></div></div>'+
+    (tks.length?tks.map(t=>'<div style="border:1.5px solid #cfe0d3;border-radius:var(--r3);padding:11px;margin-bottom:7px;display:flex;justify-content:space-between;align-items:center"><div><div style="font-weight:600">'+t.holder+'</div><code>'+t.serial+'</code><div style="font-size:.73rem;color:var(--tx2)">'+t.type+' · '+t.payment+'</div></div>'+sbdg(t.status)+'</div>').join(''):'<div style="color:var(--tx3);text-align:center;padding:16px">No tickets yet.</div>')+
+    '<div class="flex g2 mt3"><button class="btn btn-g btn-sm" onclick="closeMo();qkAlloc(\''+id+'\')">+ Add Ticket</button><button class="btn btn-ol btn-sm" onclick="closeMo()">Close</button></div>');
+}
+
+// SEND
+function rSend(){
+  const sel=document.getElementById('snd-ch');if(sel&&sel.options.length<2)CHS.forEach(c=>sel.add(new Option(c.name+' — '+c.chair,c.id)));
+  rSndTb();updEP();
+}
+function updEP(){
+  const id=document.getElementById('snd-ch')?.value,nt=document.getElementById('snd-nt')?.value||'';
+  const c=id?CHS.find(x=>x.id===id):null,tks=id?gTks().filter(t=>t.chapter===id):[];
+  const txt=c?'Dear '+c.chair+',\n\nGreetings from the SLPPNA DRC Chapter!\n\nWe are pleased to confirm your chapter\'s ticket allocation for the SLPPNA DRC Executive Inaugural Ball 2026.\n\nEvent Details:\n  📅 Date: Saturday, July 25, 2026\n  🕗 Time: 8:00 PM – 2:00 AM\n  📍 Venue: 5410 NC-55, Durham, NC 27713\n\nChapter: '+c.name+' ('+c.id+')\nTickets Allocated: '+tks.length+'/5\nSerials: '+(tks.map(t=>t.serial).join(', ')||'(to be issued)')+'\n\nTicket Pricing:\n  • Ordinary — $100\n  • Patron — $150\n  • Grand Chief Patron — By Donation\n\nPayment:\n  • Zelle: (919) 638-7503\n  • Cash App: $SLPPNADRC\n  • PayPal: adusheref@gmail.com\n\nPlease confirm receipt to: adusheref@gmail.com'+(nt?'\n\nNotes:\n'+nt:'')+'\n\nWarm regards,\nAmina Kawa — Chair, SLPPNA DRC Chapter\nAdu Sheref — Secretary General | (919) 638-7503':'Select a chapter to preview the email.';
+  const el=document.getElementById('ep');if(el)el.textContent=txt;
+}
+function openMail(){
+  const id=document.getElementById('snd-ch').value;if(!id){alert('Select a chapter first.');return;}
+  const c=CHS.find(x=>x.id===id),body=document.getElementById('ep').textContent;
+  window.open('mailto:?subject='+encodeURIComponent('SLPPNA DRC Inaugural Ball 2026 — Ticket Allocation: '+c.name)+'&body='+encodeURIComponent(body));
+  markSent();
+}
+function markSent(){
+  const id=document.getElementById('snd-ch').value;if(!id){alert('Select a chapter first.');return;}
+  const es=gES();es[id]='Sent';sES(es);
+  const tks=gTks();tks.forEach(t=>{if(t.chapter===id&&t.status==='Allocated')t.status='Sent';});sTks(tks);
+  alert('Marked as Sent: '+CHS.find(c=>c.id===id).name);rSndTb();
+}
+function rSndTb(){
+  const t=gTks(),es=gES(),tb=document.getElementById('snd-tb');if(!tb)return;
+  tb.innerHTML=CHS.map(c=>{const ct=t.filter(x=>x.chapter===c.id),sent=es[c.id]==='Sent';
+    return '<tr><td><strong>'+c.id+'</strong>'+(c.host?' ⭐':'')+' <small style="color:var(--tx2)">'+c.name+'</small></td><td>'+c.chair+'</td><td>'+ct.length+'/5</td><td>'+(sent?'<span class="bdg b-conf">Sent</span>':'<span class="bdg b-pend">Not sent</span>')+'</td><td><button class="btn btn-ol btn-xs" onclick="qkSnd(\''+c.id+'\')">'+(sent?'Re-send':'Send')+'</button></td></tr>';
+  }).join('');
+}
+function qkSnd(id){document.getElementById('snd-ch').value=id;updEP();window.scrollTo({top:0,behavior:'smooth'});}
+
+// ANALYTICS
+function rAn(){
+  const t=gTks(),pd=t.filter(x=>x.status==='Paid'),rv=rev(),cf=t.filter(x=>x.status==='Confirmed'||x.status==='Paid').length;
+  document.getElementById('r-amt').textContent='$'+rv.toLocaleString();
+  document.getElementById('r-sb').textContent=pd.length+' paid tickets';
+  document.getElementById('an-sg').innerHTML=
+    '<div class="sc sc-g"><div class="sn">'+t.length+'</div><div class="sl">Issued</div></div>'+
+    '<div class="sc sc-b"><div class="sn">'+cf+'</div><div class="sl">Confirmed</div></div>'+
+    '<div class="sc sc-w"><div class="sn">'+(100-t.length)+'</div><div class="sl">Remaining</div></div>';
+  const tps=[{l:'Ordinary ($100)',n:t.filter(x=>x.type==='Ordinary').length,cl:'ab-g'},{l:'Patron ($150)',n:t.filter(x=>x.type==='Patron').length,cl:'ab-b'},{l:'Grand Chief Patron',n:t.filter(x=>x.type==='Grand Chief Patron').length,cl:'ab-gd'}];
+  document.getElementById('an-ty').innerHTML=tps.map(d=>'<div style="margin-bottom:14px"><div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:4px"><span style="font-weight:600">'+d.l+'</span><span style="color:var(--tx2)">'+d.n+' issued</span></div><div class="ab-wrap"><div class="ab-fill '+d.cl+'" style="width:'+(t.length?d.n/t.length*100:0)+'%"></div></div></div>').join('');
+  const sts=['Pending','Allocated','Confirmed','Paid','Sent'],scc=['ab-gd','ab-b','ab-g','ab-gd','ab-t'];
+  document.getElementById('an-st').innerHTML=sts.map((s,i)=>{const n=t.filter(x=>x.status===s).length;return '<div style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:4px"><span style="font-weight:600">'+s+'</span><span style="color:var(--tx2)">'+n+'</span></div><div class="ab-wrap"><div class="ab-fill '+scc[i]+'" style="width:'+(t.length?n/t.length*100:0)+'%"></div></div></div>';}).join('');
+  const chR=CHS.map(c=>({...c,rv:pd.filter(x=>x.chapter===c.id).reduce((s,x)=>s+prc(x.type),0),n:t.filter(x=>x.chapter===c.id).length})).sort((a,b)=>b.rv-a.rv).slice(0,8);
+  const mx=Math.max(...chR.map(c=>c.rv),1);
+  document.getElementById('an-ch').innerHTML=chR.map(c=>'<div style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:4px"><span><strong>'+c.id+'</strong> <span style="color:var(--tx2);font-size:.73rem">'+c.name+'</span></span><span style="font-weight:700;color:var(--gd2)">$'+c.rv+'</span></div><div class="ab-wrap"><div class="ab-fill ab-gd" style="width:'+c.rv/mx*100+'%"></div></div></div>').join('')||'<div style="color:var(--tx3);text-align:center">No paid tickets yet.</div>';
+}
+
+// MODAL
+function showMo(h){document.getElementById('mb').innerHTML=h;document.getElementById('mo').classList.add('open');}
+function closeMo(){document.getElementById('mo').classList.remove('open');}
+function moOv(e){if(e.target===document.getElementById('mo'))closeMo();}
+
+// INIT
+// ═══════════════════════════════════════════════════════════════
+// QR CODES
+// ═══════════════════════════════════════════════════════════════
+function qrDataURL(text) {
+  const canvas=document.createElement('canvas');
+  canvas.width=120;canvas.height=120;
+  const ctx=canvas.getContext('2d');
+  ctx.fillStyle='#fff';ctx.fillRect(0,0,120,120);
+  const cells=21,cellSz=4,pad=12;
+  // Hash text for deterministic pattern
+  let h=5381;for(let i=0;i<text.length;i++)h=((h<<5)+h)+text.charCodeAt(i)|0;
+  // Finder patterns (3 corners)
+  [[0,0],[0,14],[14,0]].forEach(([r,c])=>{
+    ctx.fillStyle='#000';ctx.fillRect(pad+c*cellSz,pad+r*cellSz,7*cellSz,7*cellSz);
+    ctx.fillStyle='#fff';ctx.fillRect(pad+(c+1)*cellSz,pad+(r+1)*cellSz,5*cellSz,5*cellSz);
+    ctx.fillStyle='#000';ctx.fillRect(pad+(c+2)*cellSz,pad+(r+2)*cellSz,3*cellSz,3*cellSz);
+  });
+  // Data modules
+  for(let r=0;r<cells;r++)for(let c=0;c<cells;c++){
+    if((r<9&&c<9)||(r<9&&c>12)||(r>12&&c<9))continue;
+    if(((h^(r*31+c*17)^(r*c))&3)===0){ctx.fillStyle='#000';ctx.fillRect(pad+c*cellSz,pad+r*cellSz,cellSz,cellSz);}
   }
-
-  if(btn) btn.textContent='📧 Sending…';
-  const params={to_email:ch.email,to_name:ch.chair,chapter_code:ch.code,chapter_name:ch.name,serials:chTix.map(t=>t.serial).join(', '),ticket_count:'5',total_amount:'$500',event_date:'Saturday, July 25, 2026',venue:'5410 NC-55, Durham, NC 27713',payment_info:'Zelle: (919) 638-7503 | Cash App: $SLPPNADRC | PayPal: adusheref@gmail.com',from_name:c.fn,reply_to:c.rt,message:msg,qr_1:qrs[0]||'',qr_2:qrs[1]||'',qr_3:qrs[2]||'',qr_4:qrs[3]||'',qr_5:qrs[4]||''};
-  emailjs.send(c.sv,c.tm,params)
-    .then(()=>{
-      tickets=get();
-      tickets.forEach(t=>{if(t.chapter===code)t.status='Ticket Sent by Email';});
-      save(tickets);
-      if(btn){btn.disabled=false;btn.textContent='✅ Sent!';btn.style.background='#1a4a1a';btn.style.color='#7ef77e';}
-      renderSendPreview();
-      document.getElementById('send-log').innerHTML='<div class="msg ms">✅ Email sent to '+ch.chair+' ('+ch.email+')</div>';
-    })
-    .catch(e=>{
-      if(btn){btn.disabled=false;btn.textContent='❌ Retry';btn.style.background='#4a1a1a';btn.style.color='#f77';}
-      document.getElementById('send-log').innerHTML='<div class="msg me">❌ Failed for '+ch.name+': '+(e.text||JSON.stringify(e))+'</div>';
-    });
-}
-
-async function sendAll(){
-  if(!ejsOk()){alert('Configure EmailJS in Settings first.');return;}
-  if(!confirm('Send allocation emails to ALL 19 chapters?'))return;
-  const logEl=document.getElementById('send-log');
-  logEl.innerHTML='<div class="card"><h3>Bulk Send Log</h3><div id="blog"></div></div>';
-  for(const ch of CHAPTERS.filter(c=>c.code!=='DRC')){
-    tickets=get();
-    const chTix=tickets.filter(t=>t.chapter===ch.code);
-    const c=loadCfg();
-    try{
-      await emailjs.send(c.sv,c.tm,{to_email:ch.email,to_name:ch.chair,chapter_code:ch.code,chapter_name:ch.name,serials:chTix.map(t=>t.serial).join(', '),ticket_count:'5',total_amount:'$500',event_date:'Saturday, July 25, 2026',venue:'5410 NC-55, Durham, NC 27713',payment_info:'Zelle: (919) 638-7503',from_name:c.fn,reply_to:c.rt,message:buildMsg(ch,chTix)});
-      tickets=get();tickets.forEach(t=>{if(t.chapter===ch.code&&t.status==='Ticket Created in System')t.status='Ticket Sent by Email';});save(tickets);
-      const b=document.getElementById('blog');if(b)b.innerHTML+='<div style="padding:5px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:12px"><span style="color:#7f7">✅ '+ch.code+'</span> '+ch.chair+' &lt;'+ch.email+'&gt;</div>';
-    }catch(e){
-      const b=document.getElementById('blog');if(b)b.innerHTML+='<div style="padding:5px 0;font-size:12px;color:#f77">❌ '+ch.code+' '+ch.chair+' — '+(e.text||'error')+'</div>';
-    }
-    await new Promise(r=>setTimeout(r,1200));
+  // Encode serial visually in bottom strip
+  for(let i=0;i<text.length&&i<cells;i++){
+    const bit=text.charCodeAt(i)&1;
+    if(bit){ctx.fillStyle='#000';ctx.fillRect(pad+i*cellSz,pad+20*cellSz,cellSz,cellSz);}
   }
+  return canvas.toDataURL('image/png');
 }
 
-// ── QR CODE GENERATION ────────────────────────────────────────
-function genQR(text,size){
-  return new Promise((res,rej)=>{
-    const d=document.createElement('div');
-    d.style.cssText='position:absolute;left:-9999px;top:-9999px';
-    document.body.appendChild(d);
-    try{
-      new QRCode(d,{text,width:size,height:size,colorDark:'#0d1f12',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});
-      setTimeout(()=>{
-        const canvas=d.querySelector('canvas');
-        const img=d.querySelector('img');
-        document.body.removeChild(d);
-        res(canvas?canvas.toDataURL('image/png'):img?img.src:'');
-      },250);
-    }catch(e){document.body.removeChild(d);rej(e);}
-  });
+function rQR(){
+  const csel=document.getElementById('qr-filter-ch');
+  if(csel&&csel.options.length<2)CHS.forEach(c=>csel.add(new Option(c.name,c.id)));
+  const cf=document.getElementById('qr-filter-ch')?.value||'';
+  const sf=document.getElementById('qr-filter-st')?.value||'';
+  const tks=gTks().filter(t=>(!cf||t.chapter===cf)&&(!sf||t.status===sf));
+  const grid=document.getElementById('qr-grid'),empty=document.getElementById('qr-empty');
+  if(!grid)return;
+  if(!tks.length){grid.innerHTML='';empty.style.display='block';return;}
+  empty.style.display='none';
+  const sc={Paid:'b-paid',Confirmed:'b-conf',Allocated:'b-alloc',Pending:'b-pend',Sent:'b-sent',Admitted:'b-conf'};
+  grid.innerHTML=tks.map(t=>{
+    const qr=qrDataURL(t.serial);
+    return `<div style="background:#fff;border:1.5px solid #cfe0d3;border-radius:var(--r2);padding:16px;text-align:center;box-shadow:var(--sh)">
+      <img src="${qr}" alt="QR" style="width:100px;height:100px;border:2px solid #eaf3ed;border-radius:6px;margin:0 auto 10px;display:block">
+      <div style="font-family:monospace;font-size:.68rem;color:var(--tx2);margin-bottom:4px">${t.serial}</div>
+      <div style="font-weight:700;font-size:.85rem;margin-bottom:3px">${t.holder}</div>
+      <div style="font-size:.72rem;color:var(--tx2);margin-bottom:7px">${t.chapterName}</div>
+      <div style="display:flex;justify-content:center;gap:5px;flex-wrap:wrap;margin-bottom:8px">
+        <span class="bdg ${sc[t.status]||'b-pend'}">${t.status}</span>
+        <span class="bdg" style="background:var(--light);color:var(--tx2)">${t.type==='Grand Chief Patron'?'GCP':t.type}</span>
+      </div>
+      <button class="btn btn-ol btn-xs" style="width:100%" onclick="printOneQR('${t.serial}')">🖨 Print</button>
+    </div>`;
+  }).join('');
 }
 
-// ── TICKET VIEWER ─────────────────────────────────────────────
-window._tixData=null;
-
-async function openTix(code){
-  const mod=document.getElementById('tmod');
-  const body=document.getElementById('tmod-body');
-  const title=document.getElementById('tmod-title');
-  mod.classList.add('open');
-  body.innerHTML='<div style="text-align:center;padding:40px;color:#c9a84c">⏳ Generating tickets with QR codes…</div>';
-  const ch=CHAPTERS.find(c=>c.code===code);
-  tickets=get();
-  const chTix=tickets.filter(t=>t.chapter===code);
-  title.textContent=ch.name+' ('+code+') — '+chTix.length+' Tickets';
-  const cards=[];
-  for(const t of chTix){
-    let qrSrc='';
-    try{qrSrc=await genQR(JSON.stringify({serial:t.serial,type:t.type,name:t.name,chapter:t.chapter}),120);}catch(e){}
-    cards.push(buildTkCard(t,ch,qrSrc));
-  }
-  body.innerHTML='<div class="msg mi" style="margin-bottom:12px;font-size:12px">💡 QR code encodes ticket serial. Show on phone at gate or print. Staff verifies in 🚪 Gate tab.</div>'+cards.join('');
-  window._tixData={title:ch.name+' – DRC Ball 2026 Tickets',code,html:cards.join('')};
+function ticketHTML(t,qr,compact){
+  const sz=compact?90:110;
+  return `<div class="${compact?'tkt-sm':'tkt-lg'}" style="background:linear-gradient(145deg,#051209,#0a3018 45%,#0d6b27);border:2px solid #c9a227;border-radius:${compact?12:16}px;padding:${compact?16:24}px;color:#fff;${compact?'break-inside:avoid':'width:320px'}">
+    <div style="font-size:${compact?8:9}px;letter-spacing:.18em;color:#f7d860;text-transform:uppercase;margin-bottom:5px">SLPPNA · DRC Chapter · Official Ticket</div>
+    <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:${compact?13:17}px;font-weight:700;margin-bottom:3px">Executive Inaugural Ball 2026</div>
+    <div style="font-size:${compact?10:11}px;color:rgba(255,255,255,.5);margin-bottom:${compact?10:14}px">📅 July 25, 2026 · 8PM–2AM · 5410 NC-55, Durham NC</div>
+    <div style="font-size:${compact?15:18}px;font-weight:700;color:#e8bc2f">${t.holder}</div>
+    <div style="display:inline-block;margin-top:7px;background:rgba(201,162,39,.15);border:1px solid rgba(201,162,39,.3);color:#f7d860;padding:2px 10px;border-radius:99px;font-size:${compact?9:10}px;font-weight:700;letter-spacing:.07em;text-transform:uppercase">${t.type}</div>
+    <div style="background:#fff;border-radius:6px;padding:6px;display:inline-block;margin:${compact?8:12}px 0;display:block">
+      <img src="${qr}" width="${sz}" height="${sz}" style="display:block">
+    </div>
+    <div style="font-size:${compact?9:10}px;color:rgba(255,255,255,.35);font-family:monospace;margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.1)">${t.serial} · ${t.chapterName}</div>
+  </div>`;
 }
 
-function buildTkCard(t,ch,qrSrc){
-  return '<div class="tk">'+
-    '<div class="tknl"></div>'+
-    '<div class="tkl">'+
-      '<div class="tko">SLPPNA North Carolina • DRC Chapter</div>'+
-      '<div class="tke">Executive Inaugural Ball 2026</div>'+
-      '<span class="tktype '+tkTC(t.type)+'">'+t.type+' Ticket</span>'+
-      '<div class="tkgrid">'+
-        '<div class="tkf"><span class="tkl2">Guest</span><span class="tkv">'+( t.name||'—')+'</span></div>'+
-        '<div class="tkf"><span class="tkl2">Chapter</span><span class="tkv">'+( ch?ch.name:t.chapter)+'</span></div>'+
-        '<div class="tkf"><span class="tkl2">Date</span><span class="tkv">Sat Jul 25 2026</span></div>'+
-        '<div class="tkf"><span class="tkl2">Time</span><span class="tkv">8:00 PM</span></div>'+
-        '<div class="tkf" style="grid-column:1/-1"><span class="tkl2">Venue</span><span class="tkv">5410 NC-55, Durham NC 27713</span></div>'+
-        '<div class="tkf"><span class="tkl2">Price</span><span class="tkv" style="color:#c9a84c;font-weight:bold">$'+t.price+'</span></div>'+
-        '<div class="tkf"><span class="tkl2">Status</span><span class="tkv">'+t.status+'</span></div>'+
-      '</div>'+
-      '<div class="tkser">'+t.serial+'</div>'+
-    '</div>'+
-    '<div class="tkr">'+
-      (qrSrc?'<img src="'+qrSrc+'" style="width:100px;height:100px;border-radius:5px;background:#fff;padding:3px" alt="QR"/>':'<div style="width:100px;height:100px;background:#1a3a1a;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:9px;color:#c9a84c">QR Error</div>')+
-      '<div class="tkqrl">Scan at Gate</div>'+
-    '</div>'+
-    '<div class="tknr"></div>'+
-  '</div>';
-}
-
-function printTix(){
-  if(!window._tixData)return;
+function printOneQR(serial){
+  const t=gTks().find(x=>x.serial===serial);if(!t)return;
+  const qr=qrDataURL(t.serial);
   const w=window.open('','_blank');
-  w.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"><title>'+window._tixData.title+'</title><style>body{margin:0;padding:20px;background:#0d1f12;font-family:Georgia,serif}@media print{body{background:#fff}.tk{border-color:#333!important}}.tk{width:100%;max-width:680px;background:linear-gradient(135deg,#0a1f0d,#0f2e18);border:2px solid #c9a84c;border-radius:12px;display:flex;margin:10px auto;position:relative;overflow:hidden}.tkl{flex:1;padding:18px 18px 18px 20px;border-right:2px dashed rgba(201,168,76,.35)}.tkr{width:130px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px 10px;background:rgba(0,0,0,.2)}.tko{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#c9a84c;opacity:.75}.tke{font-size:14px;font-weight:bold;color:#c9a84c;margin:2px 0}.tktype{display:inline-block;font-size:10px;font-weight:bold;padding:2px 9px;border-radius:9px;margin:2px 0}.tr{background:#1a3a1a;color:#a0f0a0}.tp{background:#3a2a00;color:#f0c050}.tc{background:#2a1a3a;color:#d0a0ff}.tkgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;margin-top:5px}.tkl2{color:#c9a84c;opacity:.6;font-size:8px;text-transform:uppercase;letter-spacing:1px;display:block}.tkv{color:#f5f0e8;font-size:11px}.tkser{font-size:9px;letter-spacing:3px;color:#c9a84c;margin-top:7px;border-top:1px solid rgba(201,168,76,.25);padding-top:5px}.tkqrl{font-size:8px;color:#c9a84c;text-align:center;margin-top:5px;opacity:.7;text-transform:uppercase}.tknl,.tknr{position:absolute;top:50%;transform:translateY(-50%);width:18px;height:18px;background:#0d1f12;border-radius:50%;border:2px solid #c9a84c}.tknl{left:-9px}.tknr{right:-9px}h1{color:#c9a84c;text-align:center;font-size:16px;margin-bottom:16px;letter-spacing:2px}</style></head><body><h1>'+window._tixData.title+'</h1>'+window._tixData.html+'</body></html>');
+  w.document.write(`<!DOCTYPE html><html><head><title>Ticket ${serial}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>*{box-sizing:border-box}body{margin:0;display:flex;align-items:center;justify-content:center;min-height:100vh;background:#f5f5f5;font-family:'Plus Jakarta Sans',sans-serif}</style>
+  </head><body>${ticketHTML(t,qr,false)}<script>window.onload=()=>window.print()<\/script></body></html>`);
   w.document.close();
-  setTimeout(()=>w.print(),600);
 }
 
-function dlTix(){
-  if(!window._tixData)return;
-  const content='<!DOCTYPE html><html><head><meta charset="UTF-8"><title>'+window._tixData.title+'</title><style>body{margin:0;padding:20px;background:#0d1f12;font-family:Georgia,serif}.tk{width:100%;max-width:680px;background:linear-gradient(135deg,#0a1f0d,#0f2e18);border:2px solid #c9a84c;border-radius:12px;display:flex;margin:10px auto;position:relative;overflow:hidden}.tkl{flex:1;padding:18px;border-right:2px dashed rgba(201,168,76,.35)}.tkr{width:130px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px 10px;background:rgba(0,0,0,.2)}.tko{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#c9a84c;opacity:.75}.tke{font-size:14px;font-weight:bold;color:#c9a84c;margin:2px 0}.tktype{display:inline-block;font-size:10px;padding:2px 9px;border-radius:9px;margin:2px 0}.tr{background:#1a3a1a;color:#a0f0a0}.tp{background:#3a2a00;color:#f0c050}.tc{background:#2a1a3a;color:#d0a0ff}.tkgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;margin-top:5px}.tkl2{color:#c9a84c;opacity:.6;font-size:8px;text-transform:uppercase;letter-spacing:1px;display:block}.tkv{color:#f5f0e8;font-size:11px}.tkser{font-size:9px;letter-spacing:3px;color:#c9a84c;margin-top:7px;border-top:1px solid rgba(201,168,76,.25);padding-top:5px}.tkqrl{font-size:8px;color:#c9a84c;text-align:center;margin-top:5px;opacity:.7;text-transform:uppercase}.tknl,.tknr{position:absolute;top:50%;transform:translateY(-50%);width:18px;height:18px;background:#0d1f12;border-radius:50%;border:2px solid #c9a84c}.tknl{left:-9px}.tknr{right:-9px}h1{color:#c9a84c;text-align:center;font-size:16px;margin-bottom:16px;letter-spacing:2px}</style></head><body><h1>'+window._tixData.title+'</h1>'+window._tixData.html+'</body></html>';
-  const a=document.createElement('a');a.href='data:text/html;charset=utf-8,'+encodeURIComponent(content);a.download='DRC_Tickets_'+window._tixData.code+'.html';a.click();
+function printAllQR(){
+  const cf=document.getElementById('qr-filter-ch')?.value||'';
+  const sf=document.getElementById('qr-filter-st')?.value||'';
+  const tks=gTks().filter(t=>(!cf||t.chapter===cf)&&(!sf||t.status===sf));
+  if(!tks.length){alert('No tickets to print.');return;}
+  const w=window.open('','_blank');
+  const grid=tks.map(t=>ticketHTML(t,qrDataURL(t.serial),true)).join('');
+  w.document.write(`<!DOCTYPE html><html><head><title>DRC Tickets — Print All</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>*{box-sizing:border-box}body{margin:16px;background:#f5f5f5;font-family:'Plus Jakarta Sans',sans-serif}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+  @media print{.grid{grid-template-columns:repeat(3,1fr)}.hdr{display:none}}</style>
+  </head><body>
+  <div class="hdr" style="margin-bottom:14px;font-weight:700;color:#1b5e20;font-size:15px">DRC Executive Inaugural Ball 2026 — ${tks.length} Tickets</div>
+  <div class="grid">${grid}</div>
+  <script>window.onload=()=>window.print()<\/script></body></html>`);
+  w.document.close();
 }
 
-// ── LOGO EMBED ────────────────────────────────────────────────
-(function(){
-  // Try to embed logo from project file via fetch (works on GitHub Pages)
-  fetch('logo_drc_new.JPG').then(r=>r.blob()).then(blob=>{
-    const reader=new FileReader();
-    reader.onload=e=>{
-      document.getElementById('logo-img').src=e.target.result;
-      localStorage.setItem('drc_logo',e.target.result);
-    };
-    reader.readAsDataURL(blob);
-  }).catch(()=>{});
-})();
+// ═══════════════════════════════════════════════════════════════
+// GATE MANAGEMENT
+// ═══════════════════════════════════════════════════════════════
+function gGateLog(){return ld('gatelog',[])}
+function sGateLog(l){sv('gatelog',l)}
 
-// ── INIT ──────────────────────────────────────────────────────
-initEJS();
-renderDash();
+function rGate(){
+  const tks=gTks();
+  const log=gGateLog();
+  const admitted=log.filter(l=>l.result==='admitted').length;
+  const denied=log.filter(l=>l.result==='denied').length;
+  const total=tks.filter(t=>['Paid','Confirmed','Allocated','Sent','Admitted'].includes(t.status)).length;
+  document.getElementById('gate-sg').innerHTML=`
+    <div class="sc sc-g"><div class="sn">${admitted}</div><div class="sl">Admitted</div></div>
+    <div class="sc sc-b"><div class="sn">${total}</div><div class="sl">Total Tickets</div></div>
+    <div class="sc sc-w"><div class="sn">${Math.max(0,total-admitted)}</div><div class="sl">Not Yet In</div></div>
+    <div class="sc sc-gd"><div class="sn">${denied}</div><div class="sl">Denied/Invalid</div></div>
+  `;
+  const tb=document.getElementById('gate-log-tb');
+  const empty=document.getElementById('gate-log-empty');
+  if(tb){
+    if(!log.length){tb.innerHTML='';empty.style.display='block';}
+    else{
+      empty.style.display='none';
+      tb.innerHTML=[...log].reverse().slice(0,50).map(l=>`<tr>
+        <td style="font-size:.73rem;white-space:nowrap;color:var(--tx2)">${l.time}</td>
+        <td><code>${l.serial}</code></td>
+        <td><strong>${l.holder||'—'}</strong></td>
+        <td style="font-size:.77rem">${l.chapter||'—'}</td>
+        <td style="font-size:.73rem;color:var(--tx2)">${l.type||'—'}</td>
+        <td>${l.result==='admitted'?'<span class="bdg b-conf">✓ In</span>':l.result==='duplicate'?'<span class="bdg b-alloc">⚠ Dup</span>':'<span class="bdg b-pend">✗ Invalid</span>'}</td>
+      </tr>`).join('');
+    }
+  }
+  const cnt=document.getElementById('gate-log-count');
+  if(cnt)cnt.textContent=admitted+' checked in';
+  // Chapter table
+  const ctb=document.getElementById('gate-ch-tb');
+  if(ctb){
+    ctb.innerHTML=CHS.map(c=>{
+      const ct=tks.filter(t=>t.chapter===c.id&&['Paid','Confirmed','Allocated','Sent','Admitted'].includes(t.status));
+      const cin=log.filter(l=>l.result==='admitted'&&l.chapter===c.id).length;
+      const pct=ct.length?Math.round(cin/ct.length*100):0;
+      return `<tr>
+        <td><strong>${c.id}</strong>${c.host?' ⭐':''} <small style="color:var(--tx2)">${c.name}</small></td>
+        <td>${ct.length}</td>
+        <td style="color:var(--g2);font-weight:700">${cin}</td>
+        <td style="color:var(--tx2)">${Math.max(0,ct.length-cin)}</td>
+        <td style="min-width:120px">
+          <div style="background:var(--light);border-radius:99px;height:8px;overflow:hidden">
+            <div style="background:linear-gradient(90deg,var(--g2),var(--g4));height:100%;width:${pct}%;transition:width .4s"></div>
+          </div>
+          <small style="color:var(--tx2)">${pct}%</small>
+        </td>
+      </tr>`;
+    }).join('');
+  }
+}
+
+function gateCheck(){
+  const raw=(document.getElementById('gate-input')?.value||'').trim().toUpperCase();
+  if(!raw){alert('Enter a serial number.');return;}
+  // Support short entry like "001" or "1" → full serial
+  const serial=raw.match(/^DRC-/)?raw:'DRC-20260725-'+raw.replace(/\D/g,'').padStart(3,'0');
+  const tks=gTks();
+  const t=tks.find(x=>x.serial===serial);
+  const log=gGateLog();
+  const now=new Date();
+  const timeStr=now.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  const res=document.getElementById('gate-result');
+  document.getElementById('gate-input').value='';
+
+  if(!t){
+    log.push({serial,holder:'',chapter:'',type:'',result:'denied',time:timeStr,reason:'Not found'});
+    sGateLog(log);
+    res.innerHTML=`<div style="background:#fce4ec;border:2px solid #e53935;border-radius:var(--r3);padding:14px">
+      <div style="font-size:1.2rem;font-weight:900;color:#b71c1c;margin-bottom:4px">✗ INVALID</div>
+      <div style="font-size:.82rem;color:#c62828">Serial <code>${serial}</code> not found in system.</div>
+    </div>`;
+    rGate();return;
+  }
+
+  const alreadyIn=log.find(l=>l.serial===serial&&l.result==='admitted');
+  if(alreadyIn){
+    log.push({serial,holder:t.holder,chapter:t.chapterName,type:t.type,result:'duplicate',time:timeStr});
+    sGateLog(log);
+    res.innerHTML=`<div style="background:#fff8e1;border:2px solid #f9a825;border-radius:var(--r3);padding:14px">
+      <div style="font-size:1.1rem;font-weight:800;color:#e65100;margin-bottom:6px">⚠ ALREADY IN</div>
+      <div style="font-weight:700">${t.holder}</div>
+      <div style="font-size:.8rem;color:#7c5a00">${t.chapterName} · ${t.type}</div>
+      <div style="font-size:.75rem;color:#bf360c;margin-top:3px">First admitted: ${alreadyIn.time}</div>
+    </div>`;
+    rGate();return;
+  }
+
+  log.push({serial,holder:t.holder,chapter:t.chapterName,type:t.type,result:'admitted',time:timeStr});
+  sGateLog(log);
+  // Mark ticket as Admitted
+  const allTks=gTks();const tk=allTks.find(x=>x.serial===serial);if(tk)tk.status='Admitted';sTks(allTks);
+  res.innerHTML=`<div style="background:#e8f5e9;border:2.5px solid var(--g3);border-radius:var(--r3);padding:16px">
+    <div style="font-size:1.4rem;font-weight:900;color:var(--g2);margin-bottom:8px">✓ ADMITTED</div>
+    <div style="font-weight:700;font-size:1rem;margin-bottom:5px">${t.holder}</div>
+    <div class="flex g2 fw" style="margin-bottom:6px">
+      <span class="bdg b-conf">${t.type}</span>
+      <span class="bdg b-alloc">${t.chapterName}</span>
+    </div>
+    <div style="font-size:.76rem;color:var(--tx2)">Serial: <code>${t.serial}</code> · ${timeStr}</div>
+  </div>`;
+  rGate();
+  setTimeout(()=>document.getElementById('gate-input')?.focus(),200);
+}
+
+function clearGateLog(){
+  if(!confirm('Clear all gate log records? This cannot be undone.'))return;
+  sGateLog([]);rGate();
+  const res=document.getElementById('gate-result');if(res)res.innerHTML='';
+}
+
+// ── MIGRATE old serial format (001 → R001) and types (Ordinary → Regular) ──
+function migrateTickets(){
+  try {
+    const tks = gTks();
+    let changed = false;
+    tks.forEach(t => {
+      // Migrate Ordinary → Regular
+      if(t.type === 'Ordinary'){ t.type = 'Regular'; changed = true; }
+      if(t.type === 'Grand Chief Patron'){ t.type = 'Community'; changed = true; }
+      // Migrate serial DRC-20260725-NNN → DRC-20260725-RNNN (no prefix)
+      if(t.serial && t.serial.match(/^DRC-20260725-\d{3}$/)){
+        const prefix = t.type==='Patron'?'P':t.type==='Community'?'C':'R';
+        t.serial = t.serial.replace(/^(DRC-20260725-)(\d{3})$/, '$1'+prefix+'$2');
+        changed = true;
+      }
+    });
+    if(changed){ sTks(tks); console.log('Tickets migrated to new serial format'); }
+  } catch(e){}
+}
+
+document.addEventListener('DOMContentLoaded',function(){
+  migrateTickets();
+  initBS();rHomeSG();rCr();updTk();
+});
 </script>
 </body>
 </html>
